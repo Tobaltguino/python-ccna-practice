@@ -26,7 +26,7 @@
       "Tipos de conector"
     ],
     "respuestas_correctas": [0, 1, 5],
-    "explicacion": "Los estándares de cableado estructurado (como TIA/EIA-568) definen los tipos de conector, las longitudes máximas de cable permitidas y las clavijas (pinouts) para asegurar que los datos se transmitan correctamente.",
+    "explicacion": "Los estándares de cableado estructurado (como TIA/EIA-568) regulan el diseño e instalación de las redes para garantizar la compatibilidad y un rendimiento óptimo. Estos estándares definen específicamente:\nTipos de conector: Especifican exactamente qué conectores físicos se deben utilizar (como el RJ-45 para los cables UTP).\nLongitudes de cable: Determinan las distancias máximas permitidas para que la señal se transmita sin degradación (por ejemplo, el límite de 100 metros para el cableado de cobre).\nClavijas (Pinouts): Definen la distribución exacta y el orden de los hilos de colores dentro del conector (como los esquemas T568A y T568B) para asegurar que los datos se transmitan correctamente.\nEl costo por metro, el color estético del conector o la resistencia a la tracción del plástico no son parámetros técnicos regulados por estos estándares de red.",
     "imagen": null
   },
   {
@@ -39,7 +39,7 @@
       "Wi-Fi"
     ],
     "respuestas_correctas": [0],
-    "explicacion": "ZigBee es un estándar diseñado para redes de área personal de baja tasa de datos. Su baja potencia y velocidad lo hacen ideal para la domótica (hogar inteligente).",
+    "explicacion": "ZigBee es un estándar de comunicación inalámbrica diseñado específicamente para redes de área personal inalámbricas de baja tasa de datos (WPAN) bajo la norma IEEE 802.15.4. Sus características principales son:\nBaja potencia: Está diseñado para optimizar el consumo de energía, lo que permite que los dispositivos de domótica (como sensores o bombillas inteligentes) funcionen durante años con baterías pequeñas.\nBaja velocidad de transmisión de datos: Ideal para el hogar inteligente, ya que este tipo de aplicaciones solo requiere transmitir paquetes de datos muy pequeños y sencillos (como comandos de encendido/apagado o lecturas de temperatura).",
     "imagen": null
   },
   {
@@ -52,7 +52,7 @@
       "TFTP"
     ],
     "respuestas_correctas": [0],
-    "explicacion": "El puerto de destino 21 se asigna estáticamente para el protocolo FTP (File Transfer Protocol), utilizado para abrir el canal de control.",
+    "explicacion": "El número de puerto de destino 21 se asigna de forma estática para el protocolo FTP (File Transfer Protocol – Protocolo de Transferencia de Archivos). Se utiliza específicamente para abrir el canal de control, el cual permite enviar comandos y autenticar al usuario entre el cliente y el servidor.\nLas otras opciones utilizan los siguientes puertos predeterminados:\nDHCP: Utiliza los puertos UDP 67 y 68.\nSSH: Utiliza el puerto TCP 22.\nTFTP: Utiliza el puerto UDP 69.",
     "imagen": null
   },
   {
@@ -67,7 +67,7 @@
       "POP"
     ],
     "respuestas_correctas": [1, 5],
-    "explicacion": "La capa superior del modelo TCP/IP es la Capa de Aplicación. DNS y POP operan exclusivamente en esta capa. TCP y UDP son de Transporte, IP de Internet y Ethernet de Acceso a la Red.",
+    "explicacion": "La capa superior del modelo TCP/IP là tầng Aplicación (Capa de Aplicación). Esta capa proporciona la interfaz entre las aplicaciones que utilizamos para comunicarnos y la red subyacente.\nDNS (Domain Name System) y POP (Post Office Protocol) son protocolos que operan exclusivamente en esta capa para brindar servicios finales al usuario (resolución de nombres de dominio y descarga de correos electrónicos, respectivamente).\nLos otros protocolos pertenecen a capas inferiores:\n\nTCP y UDP operan en la capa de Transporte.\nIP opera en la capa de Internet.\nEthernet opera en la capa de Acceso a la Red.",
     "imagen": null
   },
   {
@@ -80,11 +80,11 @@
       "Nada, dado que el router tiene una ruta hacia la red de destino."
     ],
     "respuestas_correctas": [2],
-    "explicacion": "El router siempre elimina (desencapsula) el encabezado de Capa 2 original y lo reemplaza por uno nuevo adecuado para la tecnología del enlace de salida (en este caso, un enlace serial).",
+    "explicacion": "Cuando un router recibe una trama Ethernet en una de sus interfaces, el proceso de enrutamiento sigue estos pasos fundamentales:\nDesencapsulación: El router R1 recibe la trama, verifica la dirección MAC de destino y, al confirmar que es para él, elimina el encabezado de la trama Ethernet (Capa 2) para extraer el paquete IP (Capa 3).\nDecisión de enrutamiento: El router examina la dirección IP de destino del paquete en su tabla de enrutamiento para determinar la interfaz de salida (en este caso, la interfaz serial S0/0/0).\nReencapsulación: Como la interfaz de salida (S0/0/0) utiliza un protocolo diferente a Ethernet (típicamente HDLC o PPP en enlaces seriales), el router debe crear un nuevo encabezado de Capa 2 adecuado para el medio de transmisión antes de enviar el paquete hacia el siguiente salto.\nEn resumen: el router siempre «despoja» la información de Capa 2 original y la reemplaza por una nueva según la tecnología del enlace de salida.",
     "imagen": "pregunta_6.jpg"
   },
   {
-    "pregunta": "7. Un empleado de una gran corporación inicia sesión de forma remota en la empresa... (escenario de videoconferencia y fallo de ISP). ¿Qué tres características de red se describen en este escenario? (Elija tres opciones).",
+    "pregunta": "7. Un empleado de una gran corporación inicia sesión de forma remota en la empresa utilizando el nombre de usuario y la contraseña apropiados. El empleado está asistiendo a una importante videoconferencia con un cliente sobre una gran venta. Es importante que la calidad del video sea excelente durante la reunión. El empleado no sabe que después de un inicio de sesión exitoso, la conexión con el ISP de la empresa falló. La conexión secundaria, sin embargo, se activa en cuestión de segundos. La interrupción no fue notada por el empleado u otros empleados. ¿ Qué tres características de red se describen en este escenario? (Elija tres opciones).",
     "tipo": "opcion_multiple",
     "opciones": [
       "Integridad",
@@ -95,7 +95,7 @@
       "Tolerancia a fallas"
     ],
     "respuestas_correctas": [2, 4, 5],
-    "explicacion": "El uso de contraseñas se refiere a Seguridad. La prioridad del video se refiere a Calidad de servicio (QoS). La conexión secundaria que se activa sin que se note se refiere a Tolerancia a fallas.",
+    "explicacion": "Los nombres de usuario y las contraseñas se relacionan con la seguridad de la red. Vídeo de buena calidad, para soportar videoconferencias, se refiere a priorizar el tráfico de vídeo con calidad de servicio (QoS). El hecho de que una conexión a un ISP falle y luego se restableció, pero pasó desapercibido por los empleados se relaciona con el diseño tolerante a fallos de la red.",
     "imagen": null
   },
   {
@@ -108,7 +108,7 @@
       "Estáticamente crea una dirección de unicast global en este router."
     ],
     "respuestas_correctas": [0],
-    "explicacion": "Una vez habilitado el enrutamiento con 'ipv6 unicast-routing', las interfaces comienzan automáticamente a enviar mensajes de Anuncio de Router (RA) para proporcionar información a los hosts locales.",
+    "explicacion": "El comando ipv6 unicast-routing es el comando fundamental requerido en los routers Cisco para habilitar el reenvío (routing) de paquetes IPv6. Sus efectos son:\n\nHabilitación del Routing: Permite que el router procese y reenvíe tráfico IPv6 entre sus interfaces.\nMensajes RA: Una vez habilitado el enrutamiento, las interfaces configuradas con direcciones IPv6 comienzan automáticamente a enviar mensajes de Anuncio de Router (Router Advertisement – RA) a través de ICMPv6. Estos mensajes informan a los dispositivos de la red local sobre la existencia del router y les proporcionan información de prefijo para que puedan configurar sus propias direcciones IPv6 (mediante SLAAC).",
     "imagen": null
   },
   {
@@ -121,7 +121,7 @@
       "192.168.1.64/26"
     ],
     "respuestas_correctas": [3],
-    "explicacion": "La subred 192.168.1.64/26 abarca desde la .64 (red) hasta la .127 (broadcast). Los hosts válidos van del .65 al .126, lo que incluye la .96.",
+    "explicacion": "Para la subred 192.168.1.64/26, hay 6 bits para las direcciones de host, lo que genera 64 direcciones posibles. Sin embargo, la primera y la última subred son las direcciones de red y difusión de esta subred. Por lo tanto, el rango de direcciones de host para esta subred es 192.168.1.65 a 192.168.1.126. Las otras subredes no contienen la dirección 192.168.1.96 como una dirección de host válida.",
     "imagen": null
   },
   {
@@ -134,7 +134,7 @@
       "Dirección de destino L2 = 00-00-0c-94-36-cd, Dirección de origen L2 = 00-00-0c-94-36-bb, Dirección de destino L3 = 172.16.20.99, Dirección de origen L3 = 172.16.10.200"
     ],
     "respuestas_correctas": [1],
-    "explicacion": "En Capa 3 (IP), las direcciones de origen y destino no cambian (Host B a Host D). En Capa 2 (MAC), el origen es la MAC del Host B y el destino es la MAC de la puerta de enlace (la interfaz Fa0 del router).",
+    "explicacion": "Para que el paquete llegue a una red diferente (la subred Students), el Host B debe enviarlo primero a su puerta de enlace predeterminada (el router):\n\nCapa 3 (IP): Las direcciones IP de origen y destino nunca cambian durante el trayecto, ya que indican el emisor y el receptor final.\nCapa 2 (MAC): Estas direcciones cambian en cada salto. El Host B coloca la dirección MAC del router como destino para que la trama sea aceptada por este, en lugar de intentar enviarla directamente al Host D, que se encuentra en otra red.",
     "imagen": "pregunta_10.jpg"
   },
   {
@@ -149,7 +149,7 @@
       "Sesión"
     ],
     "respuestas_correctas": [1, 2, 5],
-    "explicacion": "Las tres capas superiores del modelo OSI (Aplicación, Presentación y Sesión) se condensan en la única Capa de Aplicación del modelo TCP/IP.",
+    "explicacion": "El modelo TCP / IP consta de cuatro capas: aplicación, transporte, Internet y acceso a la red. El modelo OSI consta de siete capas: aplicación, presentación, sesión, transporte, red, enlace de datos y físico. Las tres capas superiores del modelo OSI: aplicación, presentación y sesión se asignan a la capa de aplicación del modelo TCP / IP.",
     "imagen": null
   },
   {
@@ -163,7 +163,7 @@
       "Opera independientemente de los medios de red."
     ],
     "respuestas_correctas": [1, 4],
-    "explicacion": "IP es un protocolo de 'mejor esfuerzo' y sin conexión (no requiere conexión exclusiva) que además es independiente del medio de transporte físico.",
+    "explicacion": "El Protocolo de Internet (IP) es un protocolo de mejor esfuerzo sin conexión. Esto significa que IP no requiere una conexión de un extremo a otro ni garantiza la entrega de paquetes. IP también es independiente de los medios, lo que significa que funciona independientemente de los medios de red que transportan los paquetes.",
     "imagen": null
   },
   {
@@ -177,7 +177,7 @@
       "Si ningún dispositivo responde a la solicitud de ARP, entonces el nodo de origen transmite el paquete de datos a todos los dispositivos en el segmento de red."
     ],
     "respuestas_correctas": [2, 3],
-    "explicacion": "Si el host destino está en la red local y se desconoce su MAC, el emisor genera un broadcast ARP. El dispositivo que posea dicha IP responderá directamente proporcionando su dirección MAC.",
+    "explicacion": "Cuando un nodo encapsula un paquete de datos en una trama, necesita la dirección MAC de destino. Primero determina si el dispositivo de destino está en la red local o en una red remota. Luego verifica la tabla ARP (no la tabla MAC) para ver si existe un par de dirección IP y dirección MAC para la dirección IP de destino (si el host de destino está en la red local) o la dirección IP de la puerta de enlace predeterminada (si la host de destino está en una red remota). Si la coincidencia no existe, genera una transmisión ARP para buscar la dirección IP para la resolución de la dirección MAC. Debido a que se desconoce la dirección MAC de destino, la solicitud ARP se transmite con la dirección MAC FFFF.FFFF.FFFF. El dispositivo de destino o la puerta de enlace predeterminada responderán con su dirección MAC, lo que permite que el nodo de envío ensamble la trama. Si ningún dispositivo responde a la solicitud ARP, el nodo de origen descartará el paquete porque no se puede crear una trama.",
     "imagen": null
   },
   {
@@ -192,7 +192,7 @@
       "Opciones de entrega"
     ],
     "respuestas_correctas": [0, 1, 5],
-    "explicacion": "Los protocolos de red deben definir lógicamente la Codificación del mensaje, el Tamaño del mensaje (fragmentación) y las Opciones de entrega (unicast, broadcast, multicast).",
+    "explicacion": "Para que la comunicación a través de una red sea exitosa, los protocolos deben definir reglas estrictas que aseguren que el mensaje llegue correctamente. Los tres requisitos fundamentales son:\n\nCodificación del mensaje: Define el formato o proceso mediante el cual los mensajes se convierten en señales (bits) que pueden ser transmitidos por el medio.\nTamaño del mensaje: Establece las reglas sobre cómo se deben fragmentar los datos grandes en partes más pequeñas (tramas o paquetes) para evitar la saturación del canal y facilitar la retransmisión en caso de error.\nOpciones de entrega: Determina cómo se envía el mensaje (Unicast, Multicast o Broadcast) y asegura que el emisor y el receptor coincidan en el método de envío para que la comunicación sea efectiva.\nLas otras opciones (especificaciones de conectores o instalación del terminal) se refieren a aspectos físicos o de hardware, los cuales no son funciones de los protocolos de comunicación en sí mismos.",
     "imagen": null
   },
   {
@@ -205,7 +205,7 @@
       "Un alumno tiene dos ventanas de explorador Web abiertas a fin de acceder a dos sitios Web. La capa de transporte garantiza que se entregue la página Web correcta a la ventana de explorador adecuada."
     ],
     "respuestas_correctas": [3],
-    "explicacion": "La capa de transporte (Capa 4) utiliza números de puerto para identificar y diferenciar a qué ventana, pestaña o aplicación específica van dirigidos los datos entrantes.",
+    "explicacion": "Los números de puerto de origen y destino se utilizan para identificar la aplicación y la ventana correctas dentro de esa aplicación.",
     "imagen": null
   },
   {
@@ -218,11 +218,11 @@
       "El administrador primero debe ingresar al modo EXEC privilegiado antes de emitir el comando."
     ],
     "respuestas_correctas": [3],
-    "explicacion": "El símbolo '>' indica Modo de Usuario. Para usar comandos de configuración, se debe ingresar primero a EXEC Privilegiado con el comando 'enable'.",
+    "explicacion": "Para ingresar al modo de configuración global, se debe ingresar el comando configure terminal, o una versión abreviada como config t, desde el modo EXEC privilegiado. En este escenario, el administrador está en modo EXEC de usuario, como lo indica el símbolo> después del nombre de host. El administrador necesitaría usar el comando enable para pasar al modo EXEC privilegiado antes de ingresar el comando configure terminal.",
     "imagen": "pregunta_16.jpg"
   },
   {
-    "pregunta": "17. La política de seguridad de la red especifica que se asignen derechos de solo lectura a cualquier persona... y derechos de edición solo al grupo de administradores. ¿Qué componente de AAA se aborda?",
+    "pregunta": "17. Una compañía tiene un servidor de archivos que comparte una carpeta con el nombre Pública. La política de seguridad de la red especifica que, en relación con la carpeta Pública, se asignen derechos de solo lectura a cualquier persona que puede iniciar sesión en el servidor y derechos de edición solo al grupo de administradores de la red. ¿Qué componente se aborda en la estructura de servicios de red de AAA?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Autenticación",
@@ -231,7 +231,7 @@
       "Registro"
     ],
     "respuestas_correctas": [1],
-    "explicacion": "Determinar 'qué' puede hacer un usuario (leer o editar) después de iniciar sesión es estrictamente el proceso de Autorización.",
+    "explicacion": "Después de que un usuario se autentica con éxito (inicia sesión en el servidor), la autorización es el proceso de determinar a qué recursos de red puede acceder el usuario y qué operaciones (como leer o editar) puede realizar el usuario.",
     "imagen": null
   },
   {
@@ -245,7 +245,7 @@
       "Un ping del host a 127.0.0.1 no se realizaría en forma correcta."
     ],
     "respuestas_correctas": [3],
-    "explicacion": "La puerta de enlace es el router de salida. Si está mal configurado, la comunicación local funciona, pero es imposible enviar paquetes fuera de la subred (a Internet u otras redes).",
+    "explicacion": "El Default Gateway (puerta de enlace predeterminada) es la dirección IP del router que permite a un dispositivo salir de su red local para comunicarse con redes externas (como Internet).\n\nSi la configuración es incorrecta: El host puede comunicarse perfectamente con otros dispositivos dentro de su misma subred (usando ARP), pero no podrá enviar paquetes fuera de ella porque no sabrá a qué router enviarlos para que lleguen a su destino.\n\nLas otras opciones son incorrectas porque el Gateway no interfiere con la comunicación local (LAN) ni afecta a la dirección de loopback (127.0.0.1), que es interna del propio dispositivo.",
     "imagen": null
   },
   {
@@ -259,7 +259,7 @@
       "blindaje de baja calidad en el cable"
     ],
     "respuestas_correctas": [0, 3],
-    "explicacion": "Los cables de par trenzado de cobre sufren degradación si las terminaciones no están bien realizadas (exceso de destrenzado) o si los materiales del cable/conector son de baja calidad.",
+    "explicacion": "La degradación de la señal en cables de cobre UTP (Unshielded Twisted Pair) suele ocurrir por fallos físicos o de fabricación que afectan la integridad de la señal eléctrica:\n\nTerminación incorrecta: Si los pares trenzados se destrenzan demasiado al instalar los conectores o si el contacto eléctrico es pobre, se genera diafonía (crosstalk) e interferencia, lo que degrada la señal.\nCable o conectores de baja calidad: Los materiales de fabricación deficientes no cumplen con los estándares eléctricos (como el ruido o la atenuación permitida), provocando que la señal se debilite drásticamente a lo largo del cable.\n\nNota: La «pérdida de luz» solo aplica a la fibra óptica; la «instalación en conductos» es una práctica recomendada, no una causa de degradación; y el UTP, por definición, no utiliza blindaje, por lo que esa opción no es relevante.",
     "imagen": null
   },
   {
@@ -296,7 +296,7 @@
       "pérdida de intensidad de la señal a medida que aumenta la distancia"
     ],
     "respuestas_correctas": [3],
-    "explicacion": "La atenuación es el desgaste y pérdida de potencia que sufre la señal a medida que recorre largas distancias a lo largo de un medio de transmisión.",
+    "explicacion": "La atenuación es un fenómeno físico inevitable en cualquier medio de transmisión (cobre, fibra óptica o aire). Se refiere a la disminución gradual de la potencia o intensidad de la señal a medida que esta viaja a través del medio, debido principalmente a la resistencia del cable o a la dispersión de la energía.",
     "imagen": null
   },
   {
@@ -310,7 +310,7 @@
       "Capturar tráfico los fines de semana, cuando la mayoría de los empleados no está trabajando."
     ],
     "respuestas_correctas": [1, 3],
-    "explicacion": "Para obtener una representación fiel del tráfico de la empresa, debe medirse durante las horas pico de uso y realizarse desde distintos segmentos de la red (no solo desde el Core).",
+    "explicacion": "Los patrones de flujo de tráfico deben recopilarse durante las horas pico de utilización para obtener una buena representación de los diferentes tipos de tráfico. La captura también debe realizarse en diferentes segmentos de red porque parte del tráfico será local para un segmento en particular.",
     "imagen": null
   },
   {
@@ -323,7 +323,7 @@
       "Correo no deseado"
     ],
     "respuestas_correctas": [0],
-    "explicacion": "Los gusanos son conocidos por reproducirse agresivamente por sí solos a través de la red, consumiendo grandes cantidades de ancho de banda y ralentizando el tráfico general.",
+    "explicacion": "Un gusano es un software malicioso que puede propagarse por la red y ejecutarse sin la participación del usuario. Los gusanos, por lo general, ralentizan las redes.",
     "imagen": null
   },
   {
@@ -337,11 +337,11 @@
       "Este host no tiene configurado un gateway predeterminado."
     ],
     "respuestas_correctas": [0, 3],
-    "explicacion": "El comando 'Trace complete' indica que hay conectividad total. Al observar que el objetivo 192.168.100.1 se encuentra en la posición 5, deducimos que pasó por 4 routers (saltos) para llegar.",
+    "explicacion": "Para analizar el resultado del comando tracert 192.168.100.1 que se muestra en la ilustración:\n\nConectividad: El comando completó la ruta exitosamente («Trace complete»), lo que confirma que existe una ruta y conectividad activa entre el origen y el destino (192.168.100.1).\nNúmero de saltos (hops): El resultado muestra una lista numerada del 1 al 5. El número 5 corresponde a la dirección IP de destino (192.168.100.1). Esto significa que para llegar al destino, el paquete tuvo que pasar por 4 routers intermedios (saltos). Por lo tanto, hay 4 saltos de red entre el dispositivo de origen y el de destino.",
     "imagen": "pregunta_24.jpg"
   },
   {
-    "pregunta": "25. Los usuarios informan retrasos más prolongados... durante determinados períodos de la semana. ¿Qué tipo de información deben revisar los ingenieros de red para descubrir si esto forma parte del comportamiento normal?",
+    "pregunta": "25. Los usuarios informan retrasos más prolongados en la autenticación y en el acceso a los recursos de red durante determinados períodos de la semana. ¿Qué tipo de información deben revisar los ingenieros de red para descubrir si esta situación forma parte del comportamiento normal de la red?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Los registros y mensajes de syslog",
@@ -350,7 +350,7 @@
       "El resultado de debug y las capturas de paquetes"
     ],
     "respuestas_correctas": [2],
-    "explicacion": "La 'línea de base' documenta estadísticamente cuál es el comportamiento y lentitud normal de la red. Solo comparando los datos actuales contra ella se pueden detectar anomalías.",
+    "explicacion": "Para determinar si un comportamiento de la red es «normal» o si indica un problema, los ingenieros necesitan un punto de comparación: La línea de base de rendimiento de la red: Es una recopilación de datos históricos que documentan el desempeño habitual de la red en diferentes momentos (días, horas, cargas de trabajo). Al comparar los retrasos actuales con esta línea de base, se puede identificar fácilmente si la lentitud es un patrón recurrente esperado o una anomalía que requiere intervención.\n\nLas otras opciones son herramientas útiles para el diagnóstico puntual de fallas, pero no sirven por sí solas para determinar el comportamiento normal del sistema a lo largo del tiempo.",
     "imagen": null
   },
   {
@@ -364,11 +364,11 @@
       "Peer-to-Peer"
     ],
     "respuestas_correctas": [0, 3],
-    "explicacion": "El protocolo RTP (Real-time Transport Protocol) fue diseñado para transportar flujos multimedia que no pueden tolerar retrasos, tales como el streaming de Video en vivo y las comunicaciones por Voz (VoIP).",
+    "explicacion": "El Protocolo de transporte en tiempo real (RTP) está diseñado específicamente para transportar datos que requieren una entrega rápida y secuencial, donde los retrasos (latencia) son más críticos que la pérdida ocasional de algún paquete:\n\nVoz (VoIP): La comunicación telefónica sobre IP utiliza RTP para enviar los paquetes de audio de forma fluida.\nVideo: Las transmisiones de video en vivo o conferencias requieren RTP para sincronizar y reproducir los fotogramas en tiempo real.\n\nLas otras opciones (transferencia de archivos, navegación Web o tráfico Peer-to-Peer) suelen utilizar protocolos como TCP, ya que requieren una transferencia de datos precisa y sin errores donde no es tan crítico el factor del tiempo real.",
     "imagen": null
   },
   {
-    "pregunta": "27. Un empleado descontento está usando algunas herramientas... para determinar información sobre las redes inalámbricas de la empresa y usarlas para hackearla. ¿Qué tipo de ataque es este?",
+    "pregunta": "27. Un empleado descontento está usando algunas herramientas de red inalámbrica gratuitas para determinar información sobre las redes inalámbricas de la empresa. Esta persona está planeando usar esta información para hackear la red inalámbrica. ¿Qué tipo de ataque es este?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Reconocimiento",
@@ -377,7 +377,7 @@
       "Acceso"
     ],
     "respuestas_correctas": [0],
-    "explicacion": "La recolección, mapeo y descubrimiento de información sobre vulnerabilidades o recursos antes de perpetrar el ataque se denomina 'Ataque de Reconocimiento'.",
+    "explicacion": "Un ataque de reconocimiento es el descubrimiento y documentación no autorizados de varias redes informáticas, sistemas de red, recursos, aplicaciones, servicios o vulnerabilidades.",
     "imagen": null
   },
   {
@@ -392,7 +392,7 @@
       "Implementar contraseñas seguras."
     ],
     "respuestas_correctas": [1, 4],
-    "explicacion": "En el nivel de host, la defensa vital contra el malware es el uso de un software Antivirus rigurosamente actualizado junto con mantener el Sistema Operativo parcheado.",
+    "explicacion": "Un especialista en ciberseguridad debe conocer las tecnologías y medidas que se utilizan como contramedidas para proteger a la organización de amenazas y vulnerabilidades.",
     "imagen": null
   },
   {
@@ -405,7 +405,7 @@
       "El switch tendrá una interfaz de administración con la dirección 172.16.100.1."
     ],
     "respuestas_correctas": [1],
-    "explicacion": "Aplicar una puerta de enlace predeterminada a un switch le permite responder a los pings o sesiones SSH originadas por administradores de red que se encuentran ubicados en subredes externas/remotas.",
+    "explicacion": "Por lo general, se configura una dirección de gateway predeterminado en todos los dispositivos para permitirles comunicarse más allá de su red local. En un switch, esto se logra mediante el comando ip default-gateway <dirección ip> .",
     "imagen": null
   },
   {
@@ -418,7 +418,7 @@
       "La comunicación entre el switch y los usuarios remotos está cifrada."
     ],
     "respuestas_correctas": [3],
-    "explicacion": "El comando 'transport input ssh' fuerza al switch a aceptar únicamente tráfico remoto por el puerto 22, lo cual garantiza que toda la sesión de terminal esté cifrada y sea segura.",
+    "explicacion": "El comando transport input ssh cuando se ingresa en el switch vty (líneas de terminal virtual) cifrará todas las conexiones telnet controladas de entrada.",
     "imagen": null
   },
   {
@@ -431,7 +431,7 @@
       "archivo"
     ],
     "respuestas_correctas": [0],
-    "explicacion": "Un servidor DNS almacena registros que se utilizan para resolver direcciones IP en nombres de host. Algunos tipos de registros DNS incluyen A (IPv4), AAAA (IPv6), NS (servidor de nombres) y MX (intercambio de correo).",
+    "explicacion": "Un servidor DNS almacena registros que se utilizan para resolver direcciones IP en nombres de host. Algunos tipos de registros DNS incluyen los siguientes:\nA: una dirección IPv4 del dispositivo final\nNS: un servidor de nombres autorizado\nAAAA: una dirección IPv6 de dispositivo final\nMX: un registro de intercambio de correo",
     "imagen": null
   },
   {
@@ -444,7 +444,7 @@
       "POP solo permite que el cliente almacene mensajes de manera centralizada, mientras que IMAP permite el almacenamiento distribuido."
     ],
     "respuestas_correctas": [2],
-    "explicacion": "La ventaja de utilizar IMAP en lugar de POP es que IMAP almacena los mensajes de correo electrónico de forma persistente en el servidor hasta que el usuario los elimina manualmente, permitiendo el acceso desde múltiples dispositivos.",
+    "explicacion": "IMAP y POP son protocolos que se utilizan para recuperar mensajes de correo electrónico. La ventaja de utilizar IMAP en lugar de POP es que cuando el usuario se conecta a un servidor compatible con IMAP, se descargan copias de los mensajes en la aplicación cliente. Luego, IMAP almacena los mensajes de correo electrónico en el servidor hasta que el usuario los elimina manualmente.",
     "imagen": null
   },
   {
@@ -458,7 +458,7 @@
       "aplica direcciones MAC de origen y destino a la trama Ethernet"
     ],
     "respuestas_correctas": [1, 3],
-    "explicacion": "La subcapa LLC (Control de enlace lógico) coloca información en la trama que identifica qué protocolo de capa de red (Capa 3) se está utilizando. Esta información permite que varios protocolos, como IPv4 e IPv6, utilicen el mismo medio físico simultáneamente.",
+    "explicacion": "La capa de enlace de datos se divide en dos subcapas:\n\n+ Control de enlace lógico (LLC): esta subcapa superior define los procesos de software que brindan servicios a los protocolos de la capa de red. Coloca información en la trama que identifica qué protocolo de capa de red se está utilizando para la trama. Esta información permite que varios protocolos de capa 3, como IPv4 e IPv6, utilicen la misma interfaz de red y medios.\n+ Control de acceso a los medios (MAC): esta subcapa inferior define los procesos de acceso a los medios que realiza el hardware. Proporciona direccionamiento de la capa de enlace de datos y delimitación de datos de acuerdo con los requisitos de señalización física del medio y el tipo de protocolo de la capa de enlace de datos en uso.",
     "imagen": null
   },
   {

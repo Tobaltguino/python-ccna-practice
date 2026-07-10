@@ -1,0 +1,798 @@
+[
+  {
+    "pregunta": "1. ¿Cuáles son los tres campos que se utilizan en el encabezado de un segmento UDP? (Elija tres).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Tamaño de la ventana",
+      "Longitud",
+      "Número de secuencia",
+      "Puerto de origen",
+      "Checksum",
+      "Número de acuse de recibo"
+    ],
+    "respuestas_correctas": [1, 3, 4],
+    "explicacion": "Un encabezado UDP consta solamente de los campos Puerto de origen, Puerto de destino, Longitud y Checksum. Número de secuencia, Número de acuse de recibo y Tamaño de la ventana son campos de encabezado TCP.",
+    "imagen": null
+  },
+  {
+    "pregunta": "2. ¿Cuáles son dos roles de la capa de transporte en la comunicación de datos en una red? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Identificar la aplicación apropiada para cada transmisión de comunicación",
+      "Hacer un seguimiento de las transmisiones de comunicación individuales entre las aplicaciones en los hosts de origen y de destino.",
+      "Proporcionar delimitación de tramas para identificar los bits que componen una trama",
+      "Realizar una comprobación de redundancia cíclica en la trama para detectar errores",
+      "Proporcionar la interfaz entre las aplicaciones y la red subyacente a través de la cual se transmiten los mensajes"
+    ],
+    "respuestas_correctas": [0, 1],
+    "explicacion": "La capa de transporte tiene muchas responsabilidades, entre ellas: Hacer un seguimiento de las transmisiones de comunicación individuales e identificar la aplicación apropiada para cada transmisión de comunicación mediante el uso de números de puerto.",
+    "imagen": null
+  },
+  {
+    "pregunta": "3. ¿Qué información utiliza TCP para rearmar y reordenar los segmentos recibidos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Números de fragmento",
+      "Números de acuse de recibo",
+      "Números de secuencia",
+      "Números de puerto"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "En la capa de transporte, TCP utiliza los números de secuencia en el encabezado de cada segmento TCP para rearmar los segmentos en el orden correcto.",
+    "imagen": null
+  },
+  {
+    "pregunta": "4. ¿Qué información importante se agrega al encabezado de la capa de transporte TCP/IP para asegurar la comunicación y la conectividad a un dispositivo de red remoto?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Direcciones físicas de destino y origen",
+      "Números de puerto de destino y origen",
+      "Direcciones de red lógicas de destino y origen",
+      "Temporización y sincronización"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Los números de puerto de destino y origen se utilizan para identificar exactamente qué protocolo y qué proceso están realizando o respondiendo una solicitud.",
+    "imagen": null
+  },
+  {
+    "pregunta": "5. ¿Cuáles son las dos características relacionadas con las sesiones UDP? Elija dos opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Se realiza el seguimiento de los segmentos de datos transmitidos.",
+      "Se vuelven a transmitir los paquetes de datos de los que no se realizó el acuse de recibo.",
+      "Los dispositivos de destino reciben el tráfico con una demora mínima.",
+      "No se realiza el acuse de recibo de los datos recibidos.",
+      "Los dispositivos de destino rearman los mensajes y los transfieren a una aplicación."
+    ],
+    "respuestas_correctas": [2, 3],
+    "explicacion": "El protocolo UDP no realiza el acuse de recibo de los datos recibidos, utiliza muy poca sobrecarga y provoca una demora mínima al entregar el tráfico.",
+    "imagen": null
+  },
+  {
+    "pregunta": "6. Una aplicación cliente necesita finalizar una sesión de comunicación TCP con un servidor. Coloque los pasos del proceso de finalización en el orden en que suceden. (No se utilizan todas las opciones.)",
+    "tipo": "emparejamiento",
+    "opciones": [
+      "El cliente envía un FIN",
+      "El servidor envía un ACK",
+      "El servidor envía un FIN",
+      "El cliente envía un ACK",
+      "El cliente envía un SYN",
+      "El servidor envía un SYN"
+    ],
+    "objetivos": [
+      "Paso 1",
+      "Paso 2",
+      "Paso 3",
+      "Paso 4"
+    ],
+    "respuestas_correctas": {
+      "Paso 1": "El cliente envía un FIN",
+      "Paso 2": "El servidor envía un ACK",
+      "Paso 3": "El servidor envía un FIN",
+      "Paso 4": "El cliente envía un ACK"
+    },
+    "explicacion": "Para finalizar una sesión TCP, el cliente envía un FIN; el servidor responde con un ACK para acusar recibo, luego envía su propio FIN; y finalmente el cliente responde con un ACK confirmando la finalización.",
+    "imagen": null
+  },
+  {
+    "pregunta": "7. ¿Cuál es el indicador del encabezado TCP que se utiliza en respuesta a un FIN recibido para finalizar la conectividad entre dos dispositivos de red?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "RST",
+      "FIN",
+      "SYN",
+      "ACK"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "En una sesión TCP, cuando un dispositivo recibe un segmento FIN, responde con un indicador ACK para acusar el recibo de ese segmento antes de cerrar la conexión por su lado.",
+    "imagen": null
+  },
+  {
+    "pregunta": "8. ¿Qué protocolo o servicio utiliza UDP para una comunicación cliente a servidor y TCP para la comunicación servidor a servidor?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "HTTP",
+      "SMTP",
+      "FTP",
+      "DNS"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "DNS utiliza UDP cuando los clientes envían solicitudes de resolución de nombres a un servidor DNS, y utiliza TCP cuando dos servidores DNS se comunican directamente (ej. transferencias de zona).",
+    "imagen": null
+  },
+  {
+    "pregunta": "9. ¿Qué clase de puerto se le debe solicitar a la IANA para utilizar con una aplicación específica?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Puerto privado",
+      "Puerto registrado",
+      "Puerto de origen",
+      "Puerto dinámico"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "La IANA asigna puertos registrados (del 1024 al 49151) a una entidad solicitante para que los utilice con procesos o aplicaciones específicos instalables por el usuario.",
+    "imagen": null
+  },
+  {
+    "pregunta": "10. ¿Cuáles son los tres protocolos de la capa de aplicación que utilizan TCP? Elija tres opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "SMTP",
+      "DHCP",
+      "TFTP",
+      "HTTP",
+      "FTP",
+      "SNMP"
+    ],
+    "respuestas_correctas": [0, 3, 4],
+    "explicacion": "Algunos protocolos requieren el transporte de datos confiable que proporciona TCP, tales como SMTP (correo electrónico), HTTP (web) y FTP (transferencia de archivos).",
+    "imagen": null
+  },
+  {
+    "pregunta": "11. ¿Cuáles son las tres afirmaciones que caracterizan el protocolo UDP? Elija tres opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "UDP proporciona funciones básicas sin conexión de la capa de transporte.",
+      "UDP proporciona mecanismos de control de flujo sofisticados.",
+      "UDP es un protocolo de sobrecarga baja que no proporciona mecanismo de control del flujo o secuenciación.",
+      "UDP proporciona un transporte de datos rápido y orientado a la conexión en la capa 3.",
+      "UDP depende del protocolo IP para la detección de errores y la recuperación.",
+      "UDP se basa en los protocolos de la capa de aplicación para la detección de errores."
+    ],
+    "respuestas_correctas": [0, 2, 5],
+    "explicacion": "UDP es un protocolo simple que proporciona las funciones básicas de transporte sin conexión. Tiene una sobrecarga baja ya que no ofrece retransmisión, secuenciación ni control de flujo, por lo que depende de la capa de aplicación si se necesita fiabilidad.",
+    "imagen": null
+  },
+  {
+    "pregunta": "12. ¿Qué dos campos se incluyen en el encabezado TCP pero no en el encabezado UDP? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Puerto de origen",
+      "Ventana",
+      "Número de secuencia",
+      "Puerto de destino",
+      "Checksum"
+    ],
+    "respuestas_correctas": [1, 2],
+    "explicacion": "El número de secuencia y el tamaño de ventana (que permite el control de flujo) se incluyen en el encabezado TCP, pero no existen en el encabezado UDP.",
+    "imagen": null
+  },
+  {
+    "pregunta": "13. ¿Qué campo en el encabezado TCP indica el estado del three-way handshake?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Checksum",
+      "Ventana",
+      "Control bits",
+      "Reservado"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Los bits de control (indicadores como SYN, ACK, FIN, RST) en el encabezado TCP indican el progreso y estado de la conexión.",
+    "imagen": null
+  },
+  {
+    "pregunta": "14. ¿Cómo se utilizan los números de puerto en el proceso de encapsulación TCP/IP?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Los números de puerto de origen y de puerto de destino se generan aleatoriamente.",
+      "Los números de puerto de destino se asignan automáticamente y no se pueden cambiar.",
+      "Los números de puerto de origen y los números de puerto de destino no son necesarios cuando UDP es el protocolo de capa de transporte.",
+      "Si se producen varias conversaciones que utilizan el mismo servicio, el número de puerto de origen se utiliza para realizar un seguimiento de las conversaciones separadas."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "Los números de puerto de origen se generan aleatoriamente por el cliente y se utilizan para rastrear diferentes conversaciones de forma única, permitiendo la multiplexación.",
+    "imagen": null
+  },
+  {
+    "pregunta": "15. ¿Qué tres afirmaciones describen un mensaje de descubrimiento de DHCP? (Elija tres).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Todos los hosts reciben el mensaje pero sólo responde un servidor de DHCP.",
+      "Solamente el servidor de DHCP recibe el mensaje.",
+      "La dirección IP de destino es 255.255.255.255.",
+      "El mensaje proviene de un cliente que busca una dirección IP.",
+      "El mensaje proviene de un servidor que ofrece una dirección IP.",
+      "La dirección MAC de origen tiene 48 bits (FF-FF-FF-FF-FF-FF)."
+    ],
+    "respuestas_correctas": [0, 2, 3],
+    "explicacion": "El DHCPDISCOVER es enviado por un cliente buscando una IP; se manda como broadcast L3 (255.255.255.255), por lo que todos los hosts lo reciben, pero sólo el servidor DHCP lo procesa y responde.",
+    "imagen": null
+  },
+  {
+    "pregunta": "16. ¿Qué dos protocolos pueden utilizar los dispositivos en el proceso de solicitud que implica el envío de un correo electrónico? (Elija dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "IMAP",
+      "POP",
+      "HTTP",
+      "POP3",
+      "SMTP",
+      "DNS"
+    ],
+    "respuestas_correctas": [4, 5],
+    "explicacion": "SMTP es el protocolo predeterminado que se utiliza para enviar correos electrónicos. Además, el servidor de correo emisor utiliza DNS para encontrar la dirección IP del servidor de correo electrónico de destino (mediante los registros MX).",
+    "imagen": null
+  },
+  {
+    "pregunta": "17. Cual capa del modelo OSI proporcionar la interfaz entre las aplicaciones y la red subyacente a través de la cual se transmiten los mensajes?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Transporte",
+      "Presentación",
+      "Sesión",
+      "Aplicación"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "La capa de aplicación es la que se encuentra más cerca del usuario final y proporciona la interfaz entre las aplicaciones y la red subyacente.",
+    "imagen": null
+  },
+  {
+    "pregunta": "18. ¿Cuál de las siguientes es una característica clave del modelo de red entre pares?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Impresión en red por medio de un servidor de impresión",
+      "Redes sociales sin Internet",
+      "Uso compartido de recursos sin un servidor exclusivo",
+      "Red inalámbrica"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "El modelo de red entre pares (P2P) permite y admite el uso compartido de datos, impresoras y recursos sin la necesidad de un servidor exclusivo centralizado.",
+    "imagen": null
+  },
+  {
+    "pregunta": "19. La capa de aplicación del modelo TCP/IP realiza las funciones de tres capas del modelo OSI. ¿De cuáles? Elija tres opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Transporte",
+      "Sesión",
+      "Red",
+      "Aplicación",
+      "Enlace de datos",
+      "Física",
+      "Presentación"
+    ],
+    "respuestas_correctas": [1, 3, 6],
+    "explicacion": "La capa de aplicación del modelo TCP/IP abarca y representa las funciones de las capas de sesión, presentación y aplicación del modelo OSI.",
+    "imagen": null
+  },
+  {
+    "pregunta": "20. ¿Cuál es la capa del modelo TCP/IP que se utiliza para dar formato a los datos, comprimirlos y cifrarlos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Acceso a la red",
+      "Interconexión de redes",
+      "Aplicación",
+      "Sesión",
+      "Presentación"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "La capa de aplicación del modelo TCP/IP realiza las funciones correspondientes a la capa de presentación del modelo OSI, por lo que es la responsable de dar formato a los datos, comprimirlos y cifrarlos.",
+    "imagen": null
+  },
+  {
+    "pregunta": "21. Una compañía fabricante se suscribe a ciertos servicios alojados por parte de su ISP. Entre los servicios requeridos, se incluyen el alojamiento web, la transferencia de archivos y el correo electrónico. ¿Qué protocolos representan estas tres aplicaciones clave? Elija tres opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "DHCP",
+      "SMTP",
+      "FTP",
+      "SNMP",
+      "HTTP",
+      "DNS"
+    ],
+    "respuestas_correctas": [1, 2, 4],
+    "explicacion": "EI ISP utiliza HTTP para el alojamiento de páginas web, el protocolo FTP para las transferencias de archivos y el protocolo SMTP para el envío de correo electrónico.",
+    "imagen": null
+  },
+  {
+    "pregunta": "22. ¿Qué protocolo de la capa de aplicación utiliza mensajes de tipo GET, PUT y POST?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "SMTP",
+      "POP3",
+      "DHCP",
+      "HTTP",
+      "DNS"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "HTTP emplea el comando GET para solicitar datos de un servidor web, el comando PUT para cargar recursos e imágenes, y POST para cargar archivos de datos a un servidor.",
+    "imagen": null
+  },
+  {
+    "pregunta": "23. ¿Cuáles son los tres protocolos que funcionan en la capa de aplicación del modelo TCP/IP? (Elija tres opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "DHCP",
+      "FTP",
+      "POP3",
+      "TCP",
+      "ARP",
+      "UDP"
+    ],
+    "respuestas_correctas": [0, 1, 2],
+    "explicacion": "FTP, DHCP y POP3 son protocolos que operan en la capa de aplicación. TCP y UDP son protocolos de la capa de transporte, y ARP opera en la capa de red.",
+    "imagen": null
+  },
+  {
+    "pregunta": "24. ¿Cuál de estas situaciones describe una función proporcionada por la capa de transporte?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Un estudiante reproduce una película corta con sonido basada en Web. La película y el sonido están codificados dentro del encabezado de la capa de transporte.",
+      "Un alumno utiliza un teléfono VoIP del aula para llamar a su casa. El identificador único grabado en el teléfono es una dirección de capa de transporte.",
+      "Un alumno tiene dos ventanas de explorador Web abiertas a fin de acceder a dos sitios Web. La capa de transporte garantiza que se entregue la página Web correcta a la ventana de explorador adecuada.",
+      "Un trabajador de una empresa accede a un servidor Web ubicado en una red corporativa. La capa de transporte da formato a la pantalla para visualizar la página."
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "La capa de transporte utiliza números de puerto de origen y de destino para realizar la multiplexación y asegurarse de identificar la aplicación y la ventana correcta a la que se dirigen los datos en esa aplicación.",
+    "imagen": null
+  },
+  {
+    "pregunta": "25. ¿Cuáles son las tres capas del modelo OSI que proporcionan servicios de red similares a los que proporciona la capa de aplicación del modelo TCP/IP? (Elija tres).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Capa de enlace de datos",
+      "Capa de presentación",
+      "Capa de transporte",
+      "Capa de aplicación",
+      "Capa física",
+      "Capa de sesión"
+    ],
+    "respuestas_correctas": [1, 3, 5],
+    "explicacion": "Las tres capas superiores del modelo OSI (Sesión, Presentación y Aplicación) se comprimen y proporcionan servicios que en el modelo TCP/IP están concentrados en una única Capa de Aplicación.",
+    "imagen": null
+  },
+  {
+    "pregunta": "26. Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio SSH. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "69",
+      "67",
+      "22",
+      "80"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "El protocolo de acceso remoto seguro (SSH) utiliza por defecto el número de puerto registrado TCP 22.",
+    "imagen": null
+  },
+  {
+    "pregunta": "27. Un equipo que se está comunicando con un servidor web tiene un tamaño de ventana TCP de 6.000 bytes al enviar datos y un tamaño de paquete de 1.500 bytes. ¿Qué byte de información confirmará el servidor web después de haber recibido tres paquetes de datos del PC?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "4501",
+      "3000",
+      "6001",
+      "6000"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Tres paquetes de 1.500 bytes suman 4.500 bytes en total. El servidor ha recibido exitosamente hasta el byte 4.500, por lo que su acuse de recibo indicará el siguiente byte que espera (4500 + 1 = byte 4501).",
+    "imagen": null
+  },
+  {
+    "pregunta": "28. ¿Cuál de los siguientes es un ejemplo de comunicación de red que utiliza el modelo cliente-servidor?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Una estación de trabajo inicia una solicitud de DNS cuando el usuario escribe www.cisco.com en la barra de direcciones de un explorador Web.",
+      "Un usuario imprime un documento con una impresora conectada por cable a la estación de trabajo de un compañero.",
+      "Un usuario utiliza eMule para descargar un archivo compartido por un amigo después de que se determina la ubicación del archivo.",
+      "Una estación de trabajo inicia un protocolo ARP para encontrar la dirección MAC del host receptor."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "La consulta de un cliente hacia un servidor DNS centralizado dedicado a proveer resolución de nombres es un claro ejemplo del modelo puro de cliente-servidor.",
+    "imagen": null
+  },
+  {
+    "pregunta": "29. ¿En qué modelo de red se utilizarían eDonkey, eMule, BitTorrent, Bitcoin y LionShare?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Basada en clientes",
+      "Red entre pares",
+      "Punto a punto",
+      "Maestro/esclavo"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Estas son aplicaciones clásicas del modelo de red entre pares (P2P), donde los dispositivos asumen los roles de cliente y servidor al mismo tiempo para compartir datos sin un servidor exclusivo.",
+    "imagen": null
+  },
+  {
+    "pregunta": "30. ¿Qué aplicaciones o servicios permiten que los hosts actúen como cliente y servidor al mismo tiempo?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Aplicaciones de correo electrónico",
+      "Aplicaciones P2P",
+      "Aplicaciones de cliente-servidor",
+      "Servicios de autenticación"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Las redes y aplicaciones P2P (entre pares) se caracterizan porque sus recursos están descentralizados, permitiendo que cada equipo sirva en la red como servidor y como cliente de forma simultánea.",
+    "imagen": null
+  },
+  {
+    "pregunta": "31. ¿Cuál es la función del mensaje HTTP GET?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Recuperar el correo electrónico del cliente desde un servidor de correo electrónico mediante el puerto TCP 110.",
+      "Cargar contenido de un cliente web a un servidor web.",
+      "Enviar información de errores de un servidor web a un cliente web.",
+      "Solicitar una página HTML de un servidor web."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "El comando GET en el protocolo HTTP es una solicitud explícita de datos enviada por un cliente hacia un servidor web para que este le envíe (descargue) una página HTML u otro recurso.",
+    "imagen": null
+  },
+  {
+    "pregunta": "32. ¿Qué protocolo utiliza un cliente para comunicarse en forma segura con el servidor web?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "SMTP",
+      "HTTPS",
+      "IMAP",
+      "SMB"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "HTTPS (Hypertext Transfer Protocol Secure) es la variante del protocolo HTTP que proporciona autenticación y cifrado encriptado para que la comunicación web sea segura.",
+    "imagen": null
+  },
+  {
+    "pregunta": "33. Una PC está descargando un archivo grande de un servidor. La ventana TCP es de 1000 bytes. El servidor envía el archivo utilizando segmentos de 100 bytes. ¿Cuántos segmentos enviará el servidor antes de requerir un acuse de recibo de la PC?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "10 segmentos",
+      "100 segmentos",
+      "1000 segmentos",
+      "1 segmento"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Con una ventana TCP de 1000 bytes, el origen puede enviar esa cantidad total de bytes antes de exigir confirmación. Si cada segmento mide 100 bytes, transmitirá 10 segmentos (10 * 100 = 1000 bytes) antes de requerir el ACK.",
+    "imagen": null
+  },
+  {
+    "pregunta": "34. ¿Cuál de las siguientes es una característica de UDP?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "UDP solamente transfiere los datos a la red cuando el destino está listo para recibirlos.",
+      "Las aplicaciones que utilizan UDP siempre se consideran poco confiables.",
+      "Los datagramas UDP pueden tomar la misma ruta y llegar al destino en el orden correcto.",
+      "UDP rearma los datagramas recibidos en el orden en que se recibieron."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "Dado que UDP carece de números de secuencia y no tiene mecanismos para reordenar los paquetes retrasados o desordenados, simplemente los rearma y los pasa a la aplicación en el mismo orden físico en el que llegaron a la tarjeta de red.",
+    "imagen": null
+  },
+  {
+    "pregunta": "35. ¿Por qué HTTP utiliza TCP como protocolo de la capa de transporte?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Porque se pueden tolerar fácilmente errores de transmisión.",
+      "Porque HTTP es un protocolo de máximo esfuerzo.",
+      "Porque HTTP requiere entrega confiable.",
+      "Para asegurar la mayor velocidad de descarga posible."
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Cuando un host solicita una página Web, se debe garantizar la confiabilidad y la integridad total de la transmisión (que el código HTML llegue completo, sin piezas faltantes), por lo que se requiere la fiabilidad y el control que ofrece TCP.",
+    "imagen": null
+  },
+  {
+    "pregunta": "36. ¿Qué tipos de aplicaciones son los más adecuados para el uso de UDP? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Las aplicaciones que necesitan una entrega confiable",
+      "Aplicaciones que pueden tolerar cierta pérdida de datos, pero requieren demoras breves o que no haya demoras.",
+      "Aplicaciones que necesitan el reordenamiento de segmentos",
+      "Aplicaciones que manejan la confiabilidad por su cuenta.",
+      "Aplicaciones que necesitan control de flujo de datos"
+    ],
+    "respuestas_correctas": [1, 3],
+    "explicacion": "UDP es excelente para las aplicaciones que pueden tolerar pérdidas leves a favor de una velocidad altísima (como voz o video IP), o para aquellas aplicaciones que manejan su propio control de fiabilidad dentro de sus códigos de programación.",
+    "imagen": null
+  },
+  {
+    "pregunta": "37. ¿Cuáles de las siguientes son tres responsabilidades de la capa de transporte? (Elija tres opciones.)",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Identificar las aplicaciones y los servicios que deben manejar los datos transmitidos en el servidor y el cliente.",
+      "Dar a los datos un formato compatible para que los reciban los dispositivos de destino.",
+      "Realizar una detección de errores del contenido de las tramas.",
+      "Cumplir con los requisitos de confiabilidad de las aplicaciones, si corresponde.",
+      "Dirigir paquetes hacia la red de destino.",
+      "Realizar la multiplexación de varias transmisiones de comunicación desde muchos usuarios o aplicaciones en la misma red."
+    ],
+    "respuestas_correctas": [0, 3, 5],
+    "explicacion": "Las responsabilidades clave de la capa 4 son: multiplexar las comunicaciones simultáneas mediante puertos, identificar a qué aplicación entregar la data en base al número de puerto, y aplicar confiabilidad y seguimiento usando las ventajas del protocolo TCP.",
+    "imagen": null
+  },
+  {
+    "pregunta": "38. ¿Cuál de los siguientes enunciados sobre el protocolo de bloque de mensajes del servidor (SMB) es verdadero?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Los clientes establecen una conexión a largo plazo con los servidores.",
+      "El protocolo SMB utiliza el protocolo FTP para la comunicación.",
+      "Los mensajes SMB no pueden autenticar una sesión.",
+      "Los diferentes tipos de mensajes SMB tienen formatos diferentes."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "A diferencia de FTP que establece conexiones temporales, el protocolo de Windows Server Message Block (SMB) hace que los clientes establezcan conexiones a largo plazo con los servidores, permitiendo el acceso constante e ininterrumpido a archivos e impresoras.",
+    "imagen": null
+  },
+  {
+    "pregunta": "39. ¿Qué modelo de red se utiliza cuando un autor carga el documento de un capítulo al servidor de archivos de una editorial?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Maestro/esclavo",
+      "Cliente/servidor",
+      "Punto a punto",
+      "Entre pares"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Dado que el usuario es un host individual enviando datos hacia un almacenamiento centralizado y dedicado de la empresa (un servidor de archivos de la editorial), este esquema representa el clásico modelo Cliente/Servidor.",
+    "imagen": null
+  },
+  {
+    "pregunta": "40. ¿Qué tienen en común los modelos de red entre pares y de cliente/servidor?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Ambos modelos tienen servidores exclusivos.",
+      "Ambos modelos se utilizan solamente en entornos de red por cable.",
+      "Ambos modelos admiten dispositivos en el papel de servidor y de cliente.",
+      "Ambos modelos requieren el uso de protocolos basados en TCP/IP."
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Los conceptos de clientes y servidores existen independientemente del modelo. En ambos se dan peticiones y se responden, la diferencia principal recae en si la función del servidor está atada a un equipo exclusivo (cliente/servidor) o es dinámica y rotativa (P2P).",
+    "imagen": null
+  },
+  {
+    "pregunta": "41. ¿Cuál de los siguientes es un protocolo común que se usa con aplicaciones entre pares como WireShare, Bearshare y Shareaza?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "POP",
+      "SMTP",
+      "Gnutella",
+      "Ethernet"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Gnutella es un popular protocolo descentralizado utilizado masivamente en clientes y programas de intercambio P2P para compartir y localizar archivos directamente con otros usuarios.",
+    "imagen": null
+  },
+  {
+    "pregunta": "42. ¿Cuál es una de las ventajas de usar SMB en lugar de FTP?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Solo SMB establece dos conexiones simultáneas con el cliente, por lo que la transferencia de datos es más rápida.",
+      "SMB es más confiable que FTP, porque SMB utiliza TCP, y FTP utiliza UDP.",
+      "Solo con SMB se pueden transferir datos en ambas direcciones.",
+      "Los clientes SMB pueden establecer una conexión a largo plazo con el servidor."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "La principal diferencia entre Server Message Block (SMB) y el protocolo FTP, es que el cliente SMB establece una conexión de larga duración, actuando como si el recurso remoto estuviese adherido directamente al cliente local.",
+    "imagen": null
+  },
+  {
+    "pregunta": "43. ¿Qué tipo de información contiene un registro MX de DNS?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "El FQDN del alias que se utiliza para identificar un servicio",
+      "La dirección IP para una entrada de FQDN",
+      "El nombre de dominio asignado a los servidores de intercambio de correos",
+      "La dirección IP de un servidor de nombres autoritativo"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Los registros MX (Mail Exchanger) en la zona de un servicio de DNS sirven para asignar el nombre de un dominio directamente hacia el servidor que administra su intercambio de correos electrónicos.",
+    "imagen": null
+  },
+  {
+    "pregunta": "44. Un equipo que se está comunicando con un servidor web tiene un tamaño de ventana TCP de 6.000 bytes al enviar datos y un tamaño de paquete de 1.500 bytes. ¿Qué byte de información confirmará el servidor web después de haber recibido cuatro paquetes de datos del PC?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "1501",
+      "1500",
+      "6001",
+      "3001"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Cuatro paquetes de 1.500 bytes cada uno suman en total 6.000 bytes completos transferidos al servidor. Tras recibirlos, el servidor acusará recibo enviando el número del siguiente byte consecutivo que espera ver de la PC, que sería el byte 6001.",
+    "imagen": null
+  },
+  {
+    "pregunta": "45. Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio POP3. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "67",
+      "53",
+      "110",
+      "69"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "El protocolo POP3 (Post Office Protocol 3), que se utiliza habitualmente para recibir y recuperar los correos entrantes de un servidor de correo hacia la terminal del usuario local, se comunica a través del puerto TCP 110.",
+    "imagen": null
+  },
+  {
+    "pregunta": "46. ¿Qué hace un cliente cuando tiene datagramas UDP para enviar?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Envía al servidor un segmento con el indicador SYN establecido para sincronizar la conversación.",
+      "Simplemente envía los datagramas.",
+      "Envía una consulta al servidor para ver si está listo para recibir datos.",
+      "Envía un protocolo de enlace de tres vías simplificado al servidor."
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Al ser un protocolo sin estado y sin conexión orientada, UDP no necesita ni implementa saludos de tres vías, indicadores SYN, ni notificaciones previas; cuando el emisor tiene datos para UDP, simplemente los tira directo al cable hacia la red.",
+    "imagen": null
+  },
+  {
+    "pregunta": "47. ¿Cuáles son dos características de una red entre pares? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Escalabilidad",
+      "Uso compartido de recursos sin un servidor exclusivo",
+      "Cuentas de usuario centralizadas",
+      "Flujo de datos en un solo sentido",
+      "Recursos descentralizados"
+    ],
+    "respuestas_correctas": [1, 4],
+    "explicacion": "Las redes entre pares (P2P) se reconocen por la falta de un administrador general; por ende, permiten un uso compartido de recursos en el que cada PC actúa como su propio administrador (recursos descentralizados) sin existir la figura un servidor exclusivo.",
+    "imagen": null
+  },
+  {
+    "pregunta": "48. Un equipo que se está comunicando con un servidor web tiene un tamaño de ventana TCP de 6.000 bytes al enviar datos y un tamaño de paquete de 1.500 bytes. ¿Qué byte de información confirmará el servidor web después de haber recibido dos paquetes de datos del PC?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "3001",
+      "3000",
+      "4500",
+      "6001"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Al procesar dos paquetes completos de 1500 bytes cada uno (1500 + 1500), el servidor habrá recibido con éxito los primeros 3000 bytes de información de la transmisión. Su ACuse de Recibo (ACK) solicitará entonces el siguiente byte numérico de la fila de transmisión, que es el 3001.",
+    "imagen": null
+  },
+  {
+    "pregunta": "49. Un cliente crea un paquete para enviar a un servidor. El cliente solicita el servicio SNMP. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "110",
+      "443",
+      "80",
+      "161"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "El protocolo simple de administración de redes (SNMP), el cual monitorea equipos e interactúa con el sistema MIB, se comunica usando predeterminadamente el puerto UDP 161 en el destino de los administradores y agentes.",
+    "imagen": null
+  },
+  {
+    "pregunta": "50. ¿En qué dos situaciones se prefiere el protocolo de transporte UDP en lugar del TCP? Elija dos opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Cuando las aplicaciones no necesitan garantizar la distribución de los datos",
+      "Cuando se necesita un mecanismo de distribución rápido",
+      "Cuando la sobrecarga de la distribución no es un problema",
+      "Cuando las aplicaciones requieren la garantía de que un paquete llegue intacto, en secuencia y sin duplicado",
+      "Cuando los números de puerto de destino son dinámicos"
+    ],
+    "respuestas_correctas": [0, 1],
+    "explicacion": "UDP es la elección correcta para el tráfico de la capa de aplicación cuando se requiere un mecanismo de distribución de la mayor velocidad posible y cuando a la aplicación en curso no le interesa exigir garantías rigurosas en la entrega (para evitar sobrecargas de control).",
+    "imagen": null
+  },
+  {
+    "pregunta": "51. ¿Cuál de estos factores determina el tamaño de la ventana TCP?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "La cantidad de datos que el destino puede procesar por vez",
+      "La cantidad de datos que se debe transmitir",
+      "La cantidad de datos que el origen puede enviar por vez",
+      "La cantidad de servicios incluidos en el segmento TCP"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "El tamaño de la ventana TCP que se negocia durante el inicio del \"3-Way Handshake\" es determinado estrictamente sobre la base de la capacidad del búfer del dispositivo receptor y la cantidad de datos que este destino puede llegar a aceptar, asimilar y procesar por vez.",
+    "imagen": null
+  },
+  {
+    "pregunta": "52. Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio SMTP. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "110",
+      "25",
+      "443",
+      "161"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "El protocolo de envíos de correo de Simple Mail Transfer Protocol (SMTP) funciona estándar y originalmente utilizando el número de puerto de destino TCP 25.",
+    "imagen": null
+  },
+  {
+    "pregunta": "53. Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio FTP. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "67",
+      "69",
+      "80",
+      "21"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "El File Transfer Protocol (FTP) se divide en dos áreas principales: utiliza el puerto 20 para el intercambio físico y transferencia de datos propiamente tal, y utiliza el puerto 21 para el tráfico de control, envío de comandos de terminal, requerimientos de control y órdenes directas.",
+    "imagen": null
+  },
+  {
+    "pregunta": "54. Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio HTTP. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "80",
+      "67",
+      "53",
+      "69"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "El protocolo estandarizado de la Web en formato sin cifrar, el Hypertext Transfer Protocol (HTTP), escucha por defecto las peticiones de los navegadores por medio del puerto TCP 80.",
+    "imagen": null
+  },
+  {
+    "pregunta": "55. Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio TFTP. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "69",
+      "67",
+      "53",
+      "80"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "El protocolo simplificado Trivial File Transfer Protocol (TFTP), frecuentemente usado en la administración de redes locales y el resguardo de configuraciones e IOS de routers Cisco, opera de forma rápida y sin encriptación mediante el puerto de tráfico UDP 69.",
+    "imagen": null
+  },
+  {
+    "pregunta": "56. Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio telnet. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "110",
+      "23",
+      "443",
+      "161"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Telnet, el popular pero obsoleto y vulnerable protocolo de comunicaciones de gestión de red a través de comandos remotos en formato de texto plano sin cifrar, utiliza siempre el puerto TCP número 23 de su lado receptor.",
+    "imagen": null
+  },
+  {
+    "pregunta": "57. Cuál es la capa del modelo OSI que puede proporcionar la interfaz entre las aplicaciones y la red subyacente a través de la cual se transmiten los mensajes?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Aplicación",
+      "Presentación",
+      "Sesión",
+      "Transporte"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "La séptima capa (Capa de Aplicación) es la más alta en jerarquía en el modelo OSI. Esta se encuentra frente al usuario, proporcionando la interfaz y ventana transparente e inteligible donde las personas se relacionan y conectan con la red subyacente.",
+    "imagen": null
+  },
+  {
+    "pregunta": "58. Un cliente crea un paquete para enviar a un servidor. El cliente está solicitando el servicio HTTPS. ¿Qué número se utilizará como número de puerto de destino en el paquete de envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "443",
+      "161",
+      "80",
+      "110"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Las transacciones de la versión web cifrada, Hypertext Transfer Protocol Secure (HTTPS), viajan y atienden solicitudes comerciales seguras y de navegación privada mediante el número de puerto de transporte lógico registrado TCP 443.",
+    "imagen": null
+  }
+]

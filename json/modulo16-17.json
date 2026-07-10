@@ -1,0 +1,820 @@
+[
+  {
+    "pregunta": "1. Haga coincidir cada debilidad con un ejemplo.",
+    "tipo": "emparejamiento",
+    "opciones": [
+      "debilidad en la configuración",
+      "debilidad tecnológica",
+      "debilidad de la directiva de seguridad"
+    ],
+    "objetivos": [
+      "Al implementar una lista de acceso en un router, un ingeniero de red no filtró un tipo de tráfico maligno.",
+      "Un ingeniero de red está examinando el sistema operativo de un dispositivo de red en busca de vulnerabilidades.",
+      "El administrador de la red no tomo en cuenta las consecuencias de que los usuarios no autorizados accedan a la red"
+    ],
+    "respuestas_correctas": {
+      "Al implementar una lista de acceso en un router, un ingeniero de red no filtró un tipo de tráfico maligno.": "debilidad en la configuración",
+      "Un ingeniero de red está examinando el sistema operativo de un dispositivo de red en busca de vulnerabilidades.": "debilidad tecnológica",
+      "El administrador de la red no tomo en cuenta las consecuencias de que los usuarios no autorizados accedan a la red": "debilidad de la directiva de seguridad"
+    },
+    "explicacion": "Un empleado que está tratando de adivinar la contraseña de otro usuario ejemplifica no una debilidad sino un ataque.",
+    "imagen": null
+  },
+  {
+    "pregunta": "2. Una el tipo de amenaza de seguridad de la información con la situación.",
+    "tipo": "emparejamiento",
+    "opciones": [
+      "Pérdida de datos",
+      "Robo de identidad",
+      "Interrupción del servicio",
+      "Robo de información"
+    ],
+    "objetivos": [
+      "Instalar código de virus para destruir las grabaciones de vigilancia de ciertos días",
+      "Hacerse pasar por otra persona utilizando información personal robada para solicitar una tarjeta de crédito.",
+      "Impedir que los usuarios accedan a un sitio web por medio del envío de una gran cantidad de solicitudes de enlace en un período breve",
+      "Obtener documentos comerciales secretos de manera ilegal"
+    ],
+    "respuestas_correctas": {
+      "Instalar código de virus para destruir las grabaciones de vigilancia de ciertos días": "Pérdida de datos",
+      "Hacerse pasar por otra persona utilizando información personal robada para solicitar una tarjeta de crédito.": "Robo de identidad",
+      "Impedir que los usuarios accedan a un sitio web por medio del envío de una gran cantidad de solicitudes de enlace en un período breve": "Interrupción del servicio",
+      "Obtener documentos comerciales secretos de manera ilegal": "Robo de información"
+    },
+    "explicacion": "La decodificación de la contraseña de un usuario conocido es un tipo de ataque de acceso, no encaja en estas 4 categorías directas.",
+    "imagen": null
+  },
+  {
+    "pregunta": "3. ¿Cuál ejemplo de código malicioso se clasificaría como un caballo de Troya?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Malware que se adjunta a un programa legítimo y se propaga a otros programas cuando se lo ejecuta",
+      "Malware escrito para parecerse a un videojuego",
+      "Malware que requiere la intervención manual del usuario para propagarse entre sistemas",
+      "Malware que se puede propagar automáticamente de un sistema a otro al explotar una vulnerabilidad en el objetivo"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Un caballo de Troya es un código malicioso que se escribió específicamente para parecerse a un programa legítimo (como un videojuego).",
+    "imagen": null
+  },
+  {
+    "pregunta": "4. ¿Qué ataque involucra el compromiso de datos, el cual ocurre entre dos puntos finales?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "extracción de parámetros de seguridad",
+      "Denegación de servicio (DoS)",
+      "Ataque man-in-the-middle",
+      "enumeración de nombre de usuario"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Ataque man-in-the-middle (MITM): el atacante se ubica entre dispositivos del sistema e intercepta todos los datos que se transmiten.",
+    "imagen": null
+  },
+  {
+    "pregunta": "5. ¿Qué tipo de ataque implica que un atacante intente recopilar información sobre una red para identificar vulnerabilidades?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Man-in-the-middle",
+      "DoS",
+      "Reconocimiento"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "El reconocimiento es un tipo de ataque en el que el atacante busca vulnerabilidades de red.",
+    "imagen": null
+  },
+  {
+    "pregunta": "6. Haga coincidir la descripción con el tipo de filtrado del firewall.",
+    "tipo": "emparejamiento",
+    "opciones": [
+      "Filtrado de aplicaciones",
+      "Inspección de paquetes con estado",
+      "Filtrado de URL",
+      "Filtrado de paquetes"
+    ],
+    "objetivos": [
+      "impide o permite el acceso en función de los números de puerto utilizados en la solicitud",
+      "impide o permite el acceso en función de si el tráfico responde a solicitudes de hosts internos",
+      "impide o permite el acceso basado en direcciones web o palabras clave",
+      "impide o permite el acceso en función de las direcciones IP o MAC del origen y el destino"
+    ],
+    "respuestas_correctas": {
+      "impide o permite el acceso en función de los números de puerto utilizados en la solicitud": "Filtrado de aplicaciones",
+      "impide o permite el acceso en función de si el tráfico responde a solicitudes de hosts internos": "Inspección de paquetes con estado",
+      "impide o permite el acceso basado en direcciones web o palabras clave": "Filtrado de URL",
+      "impide o permite el acceso en función de las direcciones IP o MAC del origen y el destino": "Filtrado de paquetes"
+    },
+    "explicacion": "Los firewalls modernos utilizan distintos métodos para filtrar: por puerto (aplicación), por seguimiento de conexión (estado), por dominio (URL) y por origen/destino (paquetes).",
+    "imagen": null
+  },
+  {
+    "pregunta": "7. ¿Cuál es el propósito de la función de autenticación de seguridad de red?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Requerir que los usuarios prueben quiénes son.",
+      "Determinar a qué recursos puede acceder un usuario.",
+      "No perder de vista las acciones de los usuarios.",
+      "Proporcionar preguntas de desafío y respuesta."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "La autenticación requiere que los usuarios prueben quiénes son. La autorización determina a qué recursos puede acceder y el registro hace un seguimiento de sus acciones.",
+    "imagen": "pregunta_7.png"
+  },
+  {
+    "pregunta": "8. ¿Cuál es la característica del firewall que se utiliza para asegurar que los paquetes que ingresan a una red sean respuestas legítimas a solicitudes originadas en los hosts internos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Inspección de paquetes con estado",
+      "Filtrado de paquetes",
+      "Filtrado de URL",
+      "Filtrado de aplicaciones"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "La inspección de paquetes con estado en un firewall comprueba que los paquetes entrantes sean respuestas legítimas a solicitudes previas originadas desde adentro.",
+    "imagen": null
+  },
+  {
+    "pregunta": "9. Identifique los pasos necesarios para configurar un switch para SSH. (Elija cuatro opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Crear un usuario local",
+      "Generar claves RSA",
+      "Usar el comando login",
+      "Configurar un nombre de dominio",
+      "Usar el comando login local",
+      "Usar el comando password cisco",
+      "Usar el comando transport input ssh"
+    ],
+    "respuestas_correctas": [0, 1, 3, 6],
+    "explicacion": "Los comandos 'login' y 'password cisco' se usan en la configuración de Telnet, no para SSH. Se requiere dominio, claves RSA, usuario local y transport input ssh.",
+    "imagen": null
+  },
+  {
+    "pregunta": "10. ¿Qué característica de SSH lo hace más seguro que Telnet para la administración de dispositivos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "confidencialidad con IPSec",
+      "requisito de contraseña más fuerte",
+      "conexión de puerto aleatorio de una sola vez",
+      "información de inicio de sesión y datos cifrados"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "SSH proporciona seguridad al aplicar cifrado tanto para la autenticación (nombre de usuario y contraseña) como para los datos transmitidos, a diferencia de Telnet que usa texto sin cifrar.",
+    "imagen": null
+  },
+  {
+    "pregunta": "11. ¿Qué función cumple un IPS?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "autenticación y validación de tráfico",
+      "Detección y bloqueo de ataques en tiempo real",
+      "conexión de información de amenazas globales a dispositivos de seguridad de red",
+      "filtrado de sitios web nefastos"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Un sistema de prevención de intrusiones (IPS) proporciona detección y bloqueo de ataques de red en tiempo real.",
+    "imagen": null
+  },
+  {
+    "pregunta": "12. ¿Qué es una descripción exacta de redundancia?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "el diseño de la red para utilizar rutas múltiples entre los switches para garantizar que no haya ningún punto de falla",
+      "configuración de un switch con seguridad adecuadas para asegurarse de que todo el tráfico está filtrado",
+      "configuración de un router con una base de datos completa de la dirección MAC",
+      "diseñar una red para utilizar dispositivos virtuales para asegurarse de que todo el tráfico utiliza la mejor ruta"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "La redundancia intenta eliminar cualquier punto de falla único en una red proporcionando varias rutas conectadas físicamente entre los dispositivos.",
+    "imagen": null
+  },
+  {
+    "pregunta": "13. Un administrador está probando la conectividad a un dispositivo remoto con la dirección IP 10.1.1.1. El ping muestra: 'Sending 5, 100-byte ICMP Echos... ..... Success rate is 0 percent (0/5)'. ¿Qué indica el resultado de este comando?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Alguno de los routers en la ruta no tenía una ruta hacia el destino.",
+      "Se agotó el tiempo de espera de la conexión mientras se esperaba una respuesta del dispositivo remoto.",
+      "Un dispositivo de seguridad en la ruta bloqueó un paquete ping.",
+      "La conectividad al dispositivo remoto fue correcta."
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Un punto (.) indica que se agotó el tiempo de espera de la conexión (timeout) mientras se esperaba una respuesta del dispositivo remoto.",
+    "imagen": "pregunta_13.png"
+  },
+  {
+    "pregunta": "14. ¿Qué método se utiliza para enviar un mensaje ping especificando la dirección de origen para el ping?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Ejecute el comando ping después de apagar las interfaces innecesarias.",
+      "Ejecute el comando ping sin comandos extendidos.",
+      "Ejecute el comando ping desde el modo de configuración de la interfaz.",
+      "Ejecute el comando ping sin especificar una dirección IP de destino."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "Al emitir el comando ping sin una dirección IP de destino, el IOS de Cisco entra en el modo 'ping extendido', lo que permite especificar configuraciones adicionales como la IP de origen.",
+    "imagen": null
+  },
+  {
+    "pregunta": "15. Un ingeniero de redes está analizando informes de una línea de base de red realizada recientemente. ¿Qué situación representaría un posible problema de latencia?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Un cambio en el ancho de banda según el resultado del comando show interfaces",
+      "Un cambio en la cantidad de RAM según el resultado del comando show version",
+      "Un tiempo de espera agotado del siguiente salto según el comando traceroute",
+      "Un aumento en los tiempos de respuesta de ping de host a host"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "La latencia es el tiempo de demora. Al comparar los tiempos de respuesta de host a host del comando ping (en milisegundos) con la línea base, se detectan problemas de latencia.",
+    "imagen": null
+  },
+  {
+    "pregunta": "16. ¿Cuál de estas afirmaciones sobre los indicadores de ping de Cisco IOS es verdadera?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "El '.' indica que el ping fue correcto, pero que el tiempo de respuesta fue más prolongado que lo habitual.",
+      "El '!' indica que el ping falló y que el dispositivo puede tener problemas.",
+      "Una combinación de '.' y '!' indica que un router de la ruta no tenía una ruta hacia la dirección de destino.",
+      "La 'U' indica que un router de la ruta no contenía una ruta hacia la dirección de destino y que el ping fue incorrecto."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "La 'U' indica 'Unreachable' (inalcanzable), es decir, que un router en la ruta no contaba con una red de destino y devolvió un mensaje ICMP.",
+    "imagen": null
+  },
+  {
+    "pregunta": "17. Un técnico en redes emite el comando C:\\> tracert -6 www.cisco.com en un equipo con Windows. ¿Cuál es el propósito de la opción del comando -6?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Envía 6 sondas dentro de cada período de tiempo de TTL.",
+      "Restringe el seguimiento a solo seis saltos.",
+      "Obliga a que se utilice IPv6 para el seguimiento.",
+      "Establece un tiempo de espera de 6 milisegundos para cada repetición."
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "La opción -6 en el comando tracert de Windows fuerza explícitamente el uso del protocolo IPv6.",
+    "imagen": null
+  },
+  {
+    "pregunta": "18. Un ping falla cuando se realiza desde el router R1 al router R2 conectado directamente. A continuación, el administrador de red emite el comando 'show cdp neighbors'. ¿Por qué emitiría este comando?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "El administrador de red desea determinar si se puede establecer la conectividad desde una red remota.",
+      "El administrador de red desea verificar la conectividad de capa 2.",
+      "El administrador de red desea verificar la dirección IP configurada en el router R2.",
+      "El administrador de red sospecha que hay un virus debido a que el comando ping no funcionó."
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Si el ping (Capa 3) falla, 'show cdp neighbors' permite comprobar que la conexión de Capa 1 y Capa 2 sigue activa y funcional entre dispositivos Cisco.",
+    "imagen": null
+  },
+  {
+    "pregunta": "19. ¿Qué información acerca del router Cisco puede verificarse con el comando show version?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "La distancia administrativa utilizada para llegar a las redes",
+      "El estado operativo de las interfaces en serie",
+      "El valor del registro de configuración",
+      "La versión de protocolo de routing que se encuentra habilitada"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "El comando 'show version' revela la versión de software del IOS, el tiempo de actividad, las interfaces físicas y el valor actual del registro de configuración (ej. 0x2102).",
+    "imagen": null
+  },
+  {
+    "pregunta": "20. ¿Qué comando se debe utilizar en un router o switch Cisco para que los mensajes de registro puedan visualizarse en sesiones conectadas de forma remota a través de Telnet o SSH?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "logging synchronous",
+      "show running-config",
+      "terminal monitor",
+      "debug all"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Por defecto, los mensajes del sistema (logs) solo aparecen si estás conectado por el puerto de consola. Para verlos a través de una conexión VTY (Telnet/SSH), debes usar 'terminal monitor'.",
+    "imagen": null
+  },
+  {
+    "pregunta": "21. ¿Qué comando puede ejecutar un administrador en un router Cisco para enviar mensajes de depuración a las líneas vty?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "terminal monitor",
+      "logging buffered",
+      "logging synchronous",
+      "logging console"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Los mensajes de depuración (debug) se envían a la consola. Redirigirlos a una sesión remota (VTY) requiere ejecutar 'terminal monitor'.",
+    "imagen": null
+  },
+  {
+    "pregunta": "22. Al seguir un enfoque estructurado de solución de problemas, un administrador de red identificó un problema de red después de una conversación con el usuario. ¿Cuál es el siguiente paso que debe tomar el administrador?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Poner a prueba la teoría para determinar la causa.",
+      "Establecer un plan de acción para resolver el problema.",
+      "Establecer una teoría de causas probables.",
+      "Verificar la funcionalidad total del sistema."
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Después de identificar el problema (paso 1), el siguiente paso lógico de la metodología de solución de problemas es establecer una teoría de causas probables (paso 2).",
+    "imagen": null
+  },
+  {
+    "pregunta": "23. Un PC con Windows no puede conectarse a Internet. El comando ipconfig muestra una dirección IP de 169.254.10.3. ¿Qué conclusiones se pueden sacar? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "La dirección del servidor DNS no está configurada.",
+      "El PC no puede ponerse en contacto con un servidor DHCP.",
+      "La dirección de puerta de enlace predeterminada no está configurada.",
+      "La PC está configurada para obtener una dirección IP automáticamente",
+      "La red empresarial está mal configurada para el enrutamiento dinámico."
+    ],
+    "respuestas_correctas": [1, 3],
+    "explicacion": "La IP 169.254.x.x es una dirección APIPA, lo que significa que el equipo está configurado para buscar IP automáticamente (DHCP activado) pero falló en encontrar y contactar a un servidor DHCP en la red local.",
+    "imagen": null
+  },
+  {
+    "pregunta": "24. El host H3 tiene problemas para comunicarse con el host H1. ¿Qué herramienta podría usar el administrador en el router R2 para demostrar que existe comunicación hacia H1 usando específicamente la interfaz de R2 que apunta hacia H3?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Telnet.",
+      "Ping extendido",
+      "traceroute",
+      "mostrar vecinos cdp"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Un ping extendido permite especificar desde qué interfaz física exacta (o IP de origen) quieres que se genere el paquete de prueba, simulando la ubicación real de H3 en R2.",
+    "imagen": "pregunta_24.png"
+  },
+  {
+    "pregunta": "25. La documentación base de ping de H1 a H3 era de 36/97/132 ms. Hoy, el mismo ping muestra un tiempo de ida y vuelta de 1458/2390/6066 ms. ¿Qué indica esto al administrador?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Algo está causando un retraso de tiempo entre las redes.",
+      "H3 no está conectado correctamente a la red.",
+      "La conectividad entre H1 y H3 está bien.",
+      "El rendimiento entre las redes está dentro de los parámetros esperados.",
+      "Algo está causando interferencia entre H1 y R1."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Los pings subieron de menos de 150 ms a más de 6.000 ms. El aumento drástico de estos tiempos indica que hay algo provocando una severa latencia o retraso en las redes.",
+    "imagen": "pregunta_25.png"
+  },
+  {
+    "pregunta": "26. ¿Qué servicio de red asigna automáticamente direcciones IP a los dispositivos en la red?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "DNS",
+      "traceroute",
+      "DHCP",
+      "Telnet"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "DHCP (Protocolo de configuración dinámica de host) es el encargado de repartir direcciones IP automáticamente a los clientes.",
+    "imagen": null
+  },
+  {
+    "pregunta": "27. ¿Qué comando puede ejecutar un administrador para determinar qué interfaz utilizará un router para llegar a redes remotas?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "show protocols",
+      "show interfaces",
+      "show arp",
+      "show ip route"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "El comando 'show ip route' muestra la tabla de enrutamiento IP completa, la cual lista las redes conocidas y la interfaz de salida o próximo salto para llegar a ellas.",
+    "imagen": null
+  },
+  {
+    "pregunta": "28. ¿Cuáles son las dos interfaces o los dos puertos en los que se puede mejorar la seguridad mediante la configuración de tiempos de espera de ejecución? (Elija dos).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Puertos VTY",
+      "Puertos de consola",
+      "Interfaces loopback",
+      "Interfaces seriales",
+      "Interfaces Fast Ethernet"
+    ],
+    "respuestas_correctas": [0, 1],
+    "explicacion": "Los tiempos de espera de ejecución (exec-timeout) se aplican a los puertos de gestión o administración del router, que son el puerto de Consola (Line con 0) y los puertos VTY (Line vty).",
+    "imagen": null
+  },
+  {
+    "pregunta": "29. Al configurar SSH en un router se han emitido los comandos 'login local' y 'transport input ssh line vty'. ¿Qué tres acciones adicionales se deben realizar para completar la configuración SSH? (Escoja tres opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Configurar acceso a la CLI basado en funciones",
+      "Habilitar SSH manualmente después de generar las claves RSA.",
+      "Establecer los niveles de privilegios de usuario.",
+      "Generar las claves RSA asimétricas.",
+      "Crear un base de datos de nombre de usuario y de contraseñas locales.",
+      "Configurar el nombre de dominio IP correcto."
+    ],
+    "respuestas_correctas": [3, 4, 5],
+    "explicacion": "Para que SSH funcione, se necesita un nombre de dominio (ip domain-name), generar las llaves criptográficas (crypto key generate rsa) y tener una base de datos local de usuarios (username / password).",
+    "imagen": null
+  },
+  {
+    "pregunta": "30. ¿Cuál es la forma que se considera más eficaz para mitigar un ataque de gusano?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Cambiar las contraseñas del sistema cada 30 días.",
+      "Asegurar que la AAA esté configurada en la red.",
+      "Asegurar que todos los sistemas tengan las definiciones de virus más actuales.",
+      "Descargar actualizaciones de seguridad del proveedor del sistema operativo y aplicar parches a todos los sistemas vulnerables."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "Los gusanos explotan debilidades y vulnerabilidades a nivel de sistema operativo para autopropagarse por la red, por lo que la aplicación de parches y actualizaciones de seguridad es crucial.",
+    "imagen": null
+  },
+  {
+    "pregunta": "31. ¿Qué afirmación describe a los comandos ping y tracert?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Tanto ping como tracert pueden mostrar resultados en forma de visualización gráfica.",
+      "ping muestra si la transmisión es exitosa; tracert no lo hace.",
+      "tracert muestra cada salto, mientras que ping solo muestra una respuesta de destino.",
+      "tracert usa direcciones IP; ping no las usa."
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "La principal diferencia entre ambas herramientas es que ping solo indica si se alcanzó o no el destino, mientras que tracert (o traceroute) mapea de manera detallada cada salto intermedio (routers) en el camino.",
+    "imagen": null
+  },
+  {
+    "pregunta": "32. Un técnico debe registrar las configuraciones remotas de todos los dispositivos de red de forma segura. ¿Cuál sería el mejor protocolo para acceder a ellos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "HTTP",
+      "SSH",
+      "FTP",
+      "Telnet"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "SSH (Secure Shell) proporciona un entorno de línea de comandos robusto y encriptado, a diferencia de Telnet que envía la información en texto claro inseguro.",
+    "imagen": null
+  },
+  {
+    "pregunta": "33. En un router, ¿Cuál comando debe ser ingresado para terminar la configuración final y forzar el uso de SSH en las líneas remotas?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "ip domain-name cisco.com",
+      "transport input ssh",
+      "enable secret class",
+      "service password-encryption"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "El comando 'transport input ssh' (aplicado bajo la configuración de 'line vty') bloquea Telnet y obliga a que únicamente las conexiones SSH sean aceptadas por el router.",
+    "imagen": "pregunta_33.jpg"
+  },
+  {
+    "pregunta": "34. Un administrador decide usar 'admin' como contraseña en un enrutador recién instalado. ¿Qué declaración se aplica a la elección de contraseña?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Es débil porque a menudo es la contraseña predeterminada en los nuevos dispositivos.",
+      "Es fuerte porque usa una frase de contraseña.",
+      "Es fuerte porque contiene 10 números y caracteres especiales.",
+      "Es fuerte porque utiliza un mínimo de 10 números, letras y caracteres especiales."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "'admin' es la contraseña predeterminada de fábrica universal más conocida en equipos, dejándola susceptible de vulneración instantánea.",
+    "imagen": null
+  },
+  {
+    "pregunta": "35. Un usuario quiere saber la dirección IP de su PC. ¿Cuál es el mejor comando para realizar la tarea?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "show interfaces",
+      "show ip nat translations",
+      "ipconfig",
+      "copy running-config startup-config"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "En una terminal de Windows, el comando ipconfig es el estándar básico para ver la información de las direcciones IP.",
+    "imagen": null
+  },
+  {
+    "pregunta": "36. Cuando se aplica a un router, ¿cuál de estos comandos ayudaría a mitigar los ataques a contraseñas por fuerza bruta contra el router?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "exec-timeout 30",
+      "service password-encryption",
+      "login block-for 60 attempts 5 within 60",
+      "banner motd $Max failed logins=5$"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "El comando 'login block-for' impone un freno que bloquea temporalmente los accesos si un atacante ingresa contraseñas falsas repetidas veces rápidamente.",
+    "imagen": null
+  },
+  {
+    "pregunta": "37. ¿Cuál es la ventaja de utilizar SSH en lugar de Telnet?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "SSH es más fácil de usar.",
+      "SSH es más rápido que Telnet.",
+      "SSH admite autenticación para una solicitud de conexión.",
+      "SSH proporciona comunicaciones seguras para acceder a los hosts."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "La principal ventaja es la seguridad; SSH cifra todo el tráfico entre cliente y servidor, previniendo los ataques de intermediario (sniffing).",
+    "imagen": null
+  },
+  {
+    "pregunta": "38. Un administrador de red está dando alta prioridad al tráfico de aplicaciones en tiempo real. ¿Qué dos tipos de servicios de red intenta acomodar? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "SNMP",
+      "mensajería instantánea",
+      "Voz",
+      "FTP",
+      "Video"
+    ],
+    "respuestas_correctas": [2, 4],
+    "explicacion": "El tráfico multimedia de audio (Voz sobre IP) y streaming de Video no tolera retrasos (latencia), por lo que siempre requieren las más altas prioridades de QoS.",
+    "imagen": null
+  },
+  {
+    "pregunta": "39. ¿Cuál es el propósito de una empresa al utilizar un analizador de protocolos para capturar el tráfico de los segmentos de red durante el planeamiento de una actualización?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "para documentar y analizar los requisitos de tráfico de red en cada segmento de red",
+      "para identificar el origen y el destino del tráfico de red local",
+      "para establecer una línea de base para el análisis de seguridad después de actualizar la red",
+      "para capturar el requisito de ancho de banda de conexión a Internet"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Al capturar los flujos de tráfico con un analizador de protocolos, el administrador puede observar qué tipo de servicios operan por los segmentos y cuánta carga imponen, documentando un requerimiento claro antes de expandir.",
+    "imagen": null
+  },
+  {
+    "pregunta": "40. Un técnico intenta hacer ping a otras computadoras de la red y al gateway, pero todos fallan. ¿Qué se puede determinar con certeza sobre los resultados de estas pruebas?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Nada se puede determinar con certeza en este momento.",
+      "La NIC de la PC es defectuosa.",
+      "El protocolo TCP/IP no está activado.",
+      "El router que está conectado a la misma red que la estación de trabajo se encuentra inactivo."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Una prueba de ping fallida puede deberse a cables cortados, firewalls bloqueando los ecos ICMP o fallas lógicas. Sin mayor investigación, un fallo de ping aislado no asegura nada categóricamente.",
+    "imagen": null
+  },
+  {
+    "pregunta": "41. ¿Para qué usaría la utilidad tracert un administrador de red?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Para identificar dónde se perdió o retrasó un paquete en una red.",
+      "Para revisar información sobre un nombre DNS en el servidor DNS.",
+      "Para visualizar la dirección IP, el gateway predeterminado y la dirección del servidor DNS de una PC.",
+      "Para determinar las conexiones TCP activas en una PC."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "El propósito primordial de traceroute (tracert) es seguir la huella de un paquete por los enrutadores para aislar el segmento exacto donde el mensaje muere o donde se acumula la mayor lentitud.",
+    "imagen": null
+  },
+  {
+    "pregunta": "42. Los usuarios no pueden navegar por nombre de dominio, pero sí por dirección IP de los servidores. ¿Qué herramienta de solución de problemas sería la más útil para determinar dónde está el problema?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "ipconfig",
+      "nslookup",
+      "tracert",
+      "netstat"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "El problema recae en la resolución de nombres (DNS). Nslookup permite diagnosticar, enviar consultas manuales y verificar directamente al servidor DNS responsable de la red.",
+    "imagen": null
+  },
+  {
+    "pregunta": "43. Un administrador decide usar '12345678!' como contraseña en un router. ¿Qué declaración se aplica a la elección de contraseña?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Es débil porque usa una serie de números o letras.",
+      "Es débil ya que es una palabra que se encuentra fácilmente en el diccionario.",
+      "Es fuerte porque utiliza un mínimo de 10 números, letras y caracteres especiales.",
+      "Es fuerte porque usa una frase de contraseña."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Aunque la contraseña cuenta con un caracter especial en el final, es tremendamente débil ya que está constituida por una simple secuencia numérica consecutiva ('12345678').",
+    "imagen": null
+  },
+  {
+    "pregunta": "44. Un técnico de red está solucionando un problema y necesita verificar todas las direcciones de interfaz IPv6 en un router. ¿Cuál es el mejor comando para realizar la tarea?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "show ip route",
+      "show ip nat translations",
+      "show interfaces",
+      "show ipv6 interface"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "El comando diseñado exclusivamente en el IOS de Cisco para chequear asignaciones, estados y el link-local de IPv6 en todas las interfaces, es 'show ipv6 interface'.",
+    "imagen": null
+  },
+  {
+    "pregunta": "45. ¿Cuál es la diferencia entre un virus y un gusano?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Los virus se autoreplican, pero los gusanos no.",
+      "Los virus se ocultan en programas legítimos, pero los gusanos no.",
+      "Los gusanos se autoreplican, pero los virus no.",
+      "Los gusanos requieren un archivo de host pero no así los virus."
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Los gusanos son capaces de autopropagarse (autoreplicarse) automáticamente por las vulnerabilidades de la red sin requerir ninguna acción humana. Los virus necesitan acoplarse a un código ejecutable y engañar al usuario.",
+    "imagen": null
+  },
+  {
+    "pregunta": "46. Un ingeniero de redes está resolviendo problemas. ¿Qué comando debe utilizar el ingeniero para encontrar la información de la dirección IP, el nombre de host y la versión de IOS de los dispositivos vecinos conectados?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "show version",
+      "show cdp neighbors detail",
+      "show ip route",
+      "show interfaces"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Al aplicar la directiva 'detail' al comando cdp neighbors, el router Cisco revelará toda la información crítica del equipo directamente adyacente, incluyendo su dirección IP configurada.",
+    "imagen": null
+  },
+  {
+    "pregunta": "47. Un administrador decide usar 'PR3s!d7n&0' como contraseña en un router recién instalado. ¿Qué declaración se aplica a la elección de contraseña?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Es débil ya que utiliza información personal fácilmente encontrada.",
+      "Es fuerte porque utiliza un mínimo de 10 números, letras y caracteres especiales.",
+      "Es débil porque a menudo es la contraseña predeterminada en los nuevos dispositivos.",
+      "Es débil ya que es una palabra que se encuentra fácilmente en el diccionario."
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Esta contraseña contiene más de 10 caracteres, combinando mayúsculas, minúsculas, números (3, 7, 0) y caracteres especiales (!, &). Por lo tanto, cumple con los requisitos modernos de robustez y fuerza.",
+    "imagen": null
+  },
+  {
+    "pregunta": "48. Un técnico de soporte necesita conocer la dirección IP de la interfaz inalámbrica en una computadora MAC. ¿Cuál es el mejor comando para realizar la tarea?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "show ip nat translations",
+      "ipconfig getifaddr en0",
+      "copy running-config startup-config",
+      "show interfaces"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "En el sistema operativo de Apple (macOS), el cual se basa en Unix, el formato y sintaxis para obtener rápido la dirección de interfaz desde la terminal es utilizando el flag 'getifaddr' de la utilidad ifconfig (o un símil de ipconfig).",
+    "imagen": null
+  },
+  {
+    "pregunta": "49. El usuario implementa un firewall en la conexión ISP, un segundo firewall para la red pública, y un IPS en la red interna. ¿Qué enfoque de seguridad está implementando?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "basado en riesgos",
+      "en capas",
+      "estructurado",
+      "basado en ataques"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "El uso e instalación escalonada de diferentes elementos de defensas en distintos puntos de acceso a la red crea el estándar de defensa 'en capas' (también llamado 'defense in depth').",
+    "imagen": null
+  },
+  {
+    "pregunta": "50. Sólo los empleados conectados a interfaces IPv6 tienen dificultades. El analista desea comprobar que el router tiene el enrutamiento IPv6 habilitado globalmente. ¿Cuál es el mejor comando para revisar la configuración de ejecución de ese router?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "show running-config",
+      "show interfaces",
+      "show ip nat translations",
+      "copy running-config startup-config"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "La única forma de revisar en detalle la configuración operativa en ejecución del equipo (para confirmar parámetros globales como el 'ipv6 unicast-routing') es leyendo el texto directo con 'show running-config'.",
+    "imagen": null
+  },
+  {
+    "pregunta": "51. Un profesor necesita verificar que la puerta de enlace predeterminada en el PC con Windows del aula esté configurada correctamente. ¿Cuál es el mejor comando para realizar la tarea?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "copy running-config startup-config",
+      "ipconfig",
+      "show ip nat translations",
+      "show interfaces"
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "El comando clásico de Windows (ipconfig /all) expone los parámetros estáticos o recibidos por DHCP de la tarjeta de red, incluyendo la puerta de enlace (Default Gateway).",
+    "imagen": null
+  },
+  {
+    "pregunta": "52. Un administrador decide usar 'contraseña' como contraseña en un enrutador recién instalado. ¿Qué declaración se aplica a la elección de contraseña?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Es fuerte porque usa una frase de contraseña.",
+      "Es una contraseña que se utiliza comúnmente.",
+      "Es fuerte porque utiliza un mínimo de 10 números, letras y caracteres especiales.",
+      "Es débil ya que es una palabra que se encuentra fácilmente en el diccionario."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "Es uno de los ataques de diccionario más básicos; las palabras o sustantivos simples (como 'contraseña', 'password' o 'redes') deben ser estrictamente evadidos.",
+    "imagen": null
+  },
+  {
+    "pregunta": "53. Los estudiantes conectados al mismo switch experimentan respuestas lentas. El administrador sospecha de un error de configuración en la comunicación dúplex de los puertos. ¿Cuál es el mejor comando de IOS para revisar el estado del puerto?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "ipconfig getifaddr es0",
+      "show ip nat translations",
+      "copy running-config startup-config",
+      "show interfaces"
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "El comando 'show interfaces' despliega la velocidad forzada y la operación Dúplex (Full-Duplex o Half-Duplex) de la tarjeta, así como conteos físicos de colisiones y fragmentos resultantes de problemas duplex.",
+    "imagen": null
+  },
+  {
+    "pregunta": "54. Un administrador decide usar 'Feb121978' como contraseña en un enrutador. ¿Qué declaración se aplica a la elección de contraseña?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Es débil ya que es una palabra que se encuentra fácilmente en el diccionario.",
+      "Es débil porque utiliza información personal fácilmente encontrada.",
+      "Es fuerte porque utiliza un mínimo de 10 números, letras y caracteres especiales.",
+      "Es fuerte porque usa una frase de contraseña."
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Las combinaciones simples de nombres de meses y fechas exactas de años representan datos personales o cumpleaños (Ingeniería Social), logrando ser blancos iniciales en perfiles vulnerables.",
+    "imagen": null
+  },
+  {
+    "pregunta": "55. Un estudiante quiere guardar de forma persistente una configuración de router en la NVRAM. ¿Cuál es el mejor comando para realizar la tarea?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "show interfaces",
+      "show ip route",
+      "copy running-config startup-config",
+      "show ip nat translations"
+    ],
+    "respuestas_correctas": [2],
+    "explicacion": "Copia (copy) el archivo de configuración que está transcurriendo en la RAM (running-config) y lo guarda en la memoria de inicio NVRAM (startup-config) asegurando su existencia tras reinicios.",
+    "imagen": null
+  },
+  {
+    "pregunta": "56. Un administrador está solucionando problemas de conectividad y necesita determinar la dirección IP exacta asociada a un sitio web de dominio. ¿Cuál es el mejor comando a utilizar?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "nslookup",
+      "show ipv6 route",
+      "show ipv6 interface",
+      "copy startup-config running-config"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "El comando de consulta de servicio del sistema de nombres, 'nslookup', contactará al DNS e indicará las IPs que pertenecen al dominio ingresado.",
+    "imagen": null
+  },
+  {
+    "pregunta": "57. Un administrador decide usar 'WhatAreyouwaiting4' como contraseña en un router recién instalado. ¿Qué declaración se aplica a la elección de la contraseña?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Es fuerte porque usa una frase de contraseña.",
+      "Es débil porque suele ser la contraseña predeterminada en los nuevos dispositivos.",
+      "Es débil porque utiliza información personal fácil de encontrar.",
+      "Es débil porque es una palabra que se encuentra fácilmente en el diccionario."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Las combinaciones elaboradas en un formato de oración extraña ('passphrases' o frases de contraseña) son más largas y abstractas, haciéndolas significativamente fuertes ante fuerza bruta.",
+    "imagen": null
+  },
+  {
+    "pregunta": "58. Un administrador decide usar 'Robert' como contraseña en un enrutador recién instalado. ¿Qué declaración se aplica a la elección de contraseña?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Es débil porque utiliza información personal fácil de encontrar.",
+      "Es fuerte porque usa una frase de contraseña.",
+      "Es fuerte porque contiene 10 números y caracteres especiales.",
+      "Es fuerte porque utiliza un mínimo de 10 números, letras y caracteres especiales."
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "Nunca se deben utilizar nombres propios de personas, mascotas o hijos, ya que pueden ser fácilmente abstraídos a través de la minería de redes sociales e ingeniería social.",
+    "imagen": null
+  },
+  {
+    "pregunta": "59. Un técnico de red está solucionando un problema y necesita verificar el resumen de las direcciones IP operativas de todas las interfaces de un router. ¿Cuál es el mejor comando para realizar la tarea?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "show ip interface brief",
+      "nslookup",
+      "ipconfig getifaddr en0",
+      "show ip route"
+    ],
+    "respuestas_correctas": [0],
+    "explicacion": "La vista 'brief' (resumida) de interfaces presenta una tabla rápida de las líneas físicas, su dirección IPv4 y el status actual tanto del puerto como del protocolo interno.",
+    "imagen": null
+  },
+  {
+    "pregunta": "60. Un administrador decide usar 'Elizabeth' como contraseña en un enrutador recién instalado. ¿Qué declaración se aplica a la elección de contraseña?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Es débil ya que es una palabra que se encuentra fácilmente en el diccionario.",
+      "Es débil porque utiliza información personal fácilmente encontrada.",
+      "Es fuerte porque usa una frase de contraseña.",
+      "Es fuerte porque utiliza un mínimo de 10 números, letras y caracteres especiales."
+    ],
+    "respuestas_correctas": [1],
+    "explicacion": "Un nombre común no posee los requerimientos de la mezcla alfanumérica y simbólica exigida hoy en día. Al igual que el nombre 'Robert', Elizabeth representa una exposición a información personal vulnerable.",
+    "imagen": null
+  }
+]

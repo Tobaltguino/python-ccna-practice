@@ -303,8 +303,7 @@ class ExamenApp:
             self.preguntas = preguntas_seleccionadas
             random.shuffle(self.preguntas)
         else:
-            self.preguntas = todas_las_preguntas
-            random.shuffle(self.preguntas)
+            self.preguntas = list(todas_las_preguntas)
 
         for q in self.preguntas:
             tipo_pregunta = q.get("tipo", "opcion_multiple")

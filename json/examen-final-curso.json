@@ -1044,13 +1044,13 @@
     "pregunta": "72. ¿Qué dos funciones se realizan en la subcapa MAC de la capa de enlace de datos OSI para facilitar la comunicación Ethernet? (Escoja dos opciones).",
     "tipo": "opcion_multiple",
     "opciones": [
-      "Integra flujos de Capa 2 entre 10 Gigabit Ethernet sobre fibra y 1 Gigabit sobre cobre.",
-      "Aplica direcciones MAC de origen y destino a la trama Ethernet.",
-      "Permite que IPv4 e IPv6 utilicen el mismo medio físico.",
-      "Implementa CSMA/CD sobre medios semidúplex compartidos heredados.",
-      "Agrega información en la trama Ethernet que identifica qué protocolo de la capa de red está siendo encapsulado."
+      "implementa CSMA/CD sobre medios semidúplex compartidos heredados.",
+      "permite que IPv4 e IPv6 utilicen el mismo medio físico.",
+      "gestiona la comunicación entre el software de red de capa superior y el hardware de NIC Ethernet.",
+      "integra flujos de Capa 2 entre 10 Gigabit Ethernet sobre fibra y 1 Gigabit Ethernet sobre cobre.",
+      "agrega información de control Ethernet a los datos de protocolo de red."
     ],
-    "respuestas_correctas": [1, 3],
+    "respuestas_correctas": [0, 3],
     "explicacion": "La subcapa MAC (la parte inferior de la Capa 2) es responsable del direccionamiento físico (añadir direcciones MAC) y de controlar el acceso al medio físico (utilizando CSMA/CD o CSMA/CA). Las funciones lógicas como identificar IPv4/IPv6 son de la subcapa superior LLC.",
     "imagen": null
   },
@@ -2377,6 +2377,89 @@
     ],
     "respuestas_correctas": [0],
     "explicacion": "El puerto número 548 está asignado al protocolo AFP (Apple Filing Protocol), utilizado por los sistemas operativos de Apple para compartir archivos en una red local.",
+    "imagen": null
+  },
+  {
+    "pregunta": "33.1. ¿Qué dos funciones se realizan en la subcapa LLC de la capa de enlace de datos OSI para facilitar la comunicación Ethernet? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "aplica direcciones MAC de origen y destino a la trama Ethernet",
+      "agrega información de control Ethernet a los datos de protocolo de red",
+      "permite que IPv4 e IPv6 utilicen el mismo medio físico",
+      "implementa un trailer con secuencia de verificación de trama para la detección de errores",
+      "responsable de la estructura interna de la trama Ethernet"
+    ],
+    "respuestas_correctas": [1, 2],
+    "explicacion": "La capa de enlace de datos se divide en dos subcapas:\n\n+ Control de enlace lógico (LLC): esta subcapa superior define los procesos de software que brindan servicios a los protocolos de la capa de red. Coloca información en la trama que identifica qué protocolo de capa de red se está utilizando para la trama. Esta información permite que varios protocolos de capa 3, como IPv4 e IPv6, utilicen la misma interfaz de red y medios.\n+ Control de acceso a los medios (MAC): esta subcapa inferior define los procesos de acceso a los medios que realiza el hardware. Proporciona direccionamiento de la capa de enlace de datos y delimitación de datos de acuerdo con los requisitos de señalización física del medio y el tipo de protocolo de la capa de enlace de datos en uso.",
+    "imagen": null
+  },
+  {
+    "pregunta": "33.2. ¿Qué dos funciones se realizan en la subcapa LLC de la capa de enlace de datos OSI para facilitar la comunicación Ethernet? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "aplica direcciones MAC de origen y destino a la trama Ethernet",
+      "integra flujos de Capa 2 entre 10 Gigabit Ethernet sobre fibra y 1 Gigabit Ethernet sobre cobre",
+      "gestiona la comunicación entre el software de red de capa superior y el hardware de NIC Ethernet",
+      "responsable de la estructura interna de la trama Ethernet",
+      "permite que IPv4 e IPv6 utilicen el mismo medio físico"
+    ],
+    "respuestas_correctas": [2, 4],
+    "explicacion": "La capa de enlace de datos se divide en dos subcapas:\n\n+ Control de enlace lógico (LLC): esta subcapa superior define los procesos de software que brindan servicios a los protocolos de la capa de red. Coloca información en la trama que identifica qué protocolo de capa de red se está utilizando para la trama. Esta información permite que varios protocolos de capa 3, como IPv4 e IPv6, utilicen la misma interfaz de red y medios.\n+ Control de acceso a los medios (MAC): esta subcapa inferior define los procesos de acceso a los medios que realiza el hardware. Proporciona direccionamiento de la capa de enlace de datos y delimitación de datos de acuerdo con los requisitos de señalización física del medio y el tipo de protocolo de la capa de enlace de datos en uso.",
+    "imagen": null
+  },
+  {
+    "pregunta": "72.1. ¿Qué dos funciones se realizan en la subcapa MAC de la capa de enlace de datos OSI para facilitar la comunicación Ethernet? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "responsable de la estructura interna de la trama Ethernet.",
+      "permite que IPv4 e IPv6 utilicen el mismo medio físico.",
+      "implementa un trailer con secuencia de verificación de trama para la detección de errores.",
+      "agrega información en la trama Ethernet que identifica cual protocolo de la capa de red esta siendo encapsulado en la trama.",
+      "agrega información de control Ethernet a los datos de protocolo de red."
+    ],
+    "respuestas_correctas": [0, 1],
+    "explicacion": "La subcapa MAC (la parte inferior de la Capa 2) es responsable del direccionamiento físico (añadir direcciones MAC) y de controlar el acceso al medio físico (utilizando CSMA/CD o CSMA/CA). Las funciones lógicas como identificar IPv4/IPv6 son de la subcapa superior LLC.",
+    "imagen": null
+  },
+  {
+    "pregunta": "72.2. ¿Qué dos funciones se realizan en la subcapa MAC de la capa de enlace de datos OSI para facilitar la comunicación Ethernet? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "places information in the Ethernet frame that identifies which network layer protocol is being encapsulated by the frame.",
+      "implementa un trailer con secuencia de verificación de trama para la detección de errores.",
+      "agrega información de control Ethernet a los datos de protocolo de red.",
+      "gestiona la comunicación entre el software de red de capa superior y el hardware de NIC Ethernet.",
+      "implementa un proceso para delimitar campos dentro de una trama Ethernet 2."
+    ],
+    "respuestas_correctas": [1, 4],
+    "explicacion": "La subcapa MAC (la parte inferior de la Capa 2) es responsable del direccionamiento físico (añadir direcciones MAC) y de controlar el acceso al medio físico (utilizando CSMA/CD o CSMA/CA). Las funciones lógicas como identificar IPv4/IPv6 son de la subcapa superior LLC.",
+    "imagen": null
+  },
+  {
+    "pregunta": "72.3. ¿Qué dos funciones se realizan en la subcapa MAC de la capa de enlace de datos OSI para facilitar la comunicación Ethernet? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "gestiona la comunicación entre el software de red de capa superior y el hardware de NIC Ethernet.",
+      "aplica direcciones MAC de origen y destino a la trama Ethernet.",
+      "aplica la delimitación de campos de trama Ethernet para sincronizar la comunicación entre nodos.",
+      "agrega informacion en la trama Etherney que identifica cual protocolo de la capa de red esta siendo encapsulado en la trama.",
+      "agrega información de control Ethernet a los datos de protocolo de red."
+    ],
+    "respuestas_correctas": [1, 2],
+    "explicacion": "La subcapa MAC (la parte inferior de la Capa 2) es responsable del direccionamiento físico (añadir direcciones MAC) y de controlar el acceso al medio físico (utilizando CSMA/CD o CSMA/CA). Las funciones lógicas como identificar IPv4/IPv6 son de la subcapa superior LLC.",
+    "imagen": null
+  },
+  {
+    "pregunta": "153.1. ¿Qué servicio proporciona FTP?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Utiliza el cifrado para asegurar el intercambio de texto, imágenes gráficas, sonido y vídeo en la web..",
+      "Un Conjunto de reglas para intercambiar texto, imágenes gráficas, sonido, video y otros archivos multimedia en la World Wide Web.",
+      "Una aplicación que permite chatear en tiempo real entre usuarios remotos.",
+      "Permite la transferencia de datos entre un cliente y un servidor."
+    ],
+    "respuestas_correctas": [3],
+    "explicacion": "El protocolo FTP (File Transfer Protocol) facilita la subida y bajada de archivos de manera eficiente entre diferentes sistemas informáticos (cliente y servidor de archivos).",
     "imagen": null
   }
 ]

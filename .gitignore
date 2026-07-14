@@ -1,0 +1,20 @@
+# Historial de puntajes (datos locales de cada usuario, no debe subirse)
+historial_puntajes.json
+
+# Cache y archivos temporales de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Archivos de compilación de Flet (flet build)
+build/
+
+# Configuración local del editor / SO
+.vscode/
+.idea/
+.DS_Store

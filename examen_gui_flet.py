@@ -29,10 +29,13 @@ versión Tkinter original; sólo cambió la capa visual.
 """
 
 import base64
+import datetime
 import json
 import os
 import random
 import re
+import threading
+import time
 
 import flet as ft
 
@@ -56,6 +59,36 @@ OPTION_CIRCLE_IDLE = "#9AA0A6"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_DIR = os.path.join(BASE_DIR, "json")
 IMG_DIR = os.path.join(BASE_DIR, "img")
+HISTORY_FILE = os.path.join(BASE_DIR, "historial_puntajes.json")
+TIEMPO_LIMITE_EXAMEN = 60 * 60  # 1 hora, en segundos, sólo para modo examen
+
+# --------------------------------------------------------------------------
+# PALETAS: MODO CLARO / MODO OSCURO
+# --------------------------------------------------------------------------
+PALETAS = {
+    "light": {
+        "bg": "#FFFFFF",
+        "surface": "#FFFFFF",
+        "text": "#333333",
+        "text_gray": "#666666",
+        "option_bg": "#F5F6F8",
+        "idle_bg": "#e0e0e0",
+        "correct_bg": "#e8f5e9",
+        "incorrect_bg": "#ffebee",
+        "heading": "#041424",
+    },
+    "dark": {
+        "bg": "#0f1720",
+        "surface": "#1b2530",
+        "text": "#e6e6e6",
+        "text_gray": "#a0a8b0",
+        "option_bg": "#232e3a",
+        "idle_bg": "#2a3540",
+        "correct_bg": "#1e3d24",
+        "incorrect_bg": "#3d1f1f",
+        "heading": "#00bceb",
+    },
+}
 
 
 # --------------------------------------------------------------------------
@@ -65,7 +98,6 @@ class ExamenApp:
     def __init__(self, page: ft.Page):
         self.page = page
         page.title = "Examen - Cisco Networking Academy"
-        page.bgcolor = BG_WHITE
         page.padding = 0
         page.theme_mode = ft.ThemeMode.LIGHT
         page.scroll = None
@@ -74,12 +106,26 @@ class ExamenApp:
         page.window.min_width = 360
         page.window.min_height = 500
 
+        # --- Estado de tema (claro/oscuro) ---
+        self.C = PALETAS["light"]
+        page.bgcolor = self.C["bg"]
+
         # --- Estado del examen (idéntico a la versión Tkinter) ---
         self.preguntas = []
         self.indice_actual = 0
         self.puntaje = 0
         self.estado_preguntas = {}
         self.modo = "practica"
+        self.modulo_actual = None  # nombre del módulo cargado (para el historial)
+        self._resultado_guardado = False
+        self._comparacion_historial = (None, False)
+
+        # --- Estado del temporizador (sólo aplica al modo examen) ---
+        self.tiempo_inicio_intento = None
+        self._timer_activo = False
+        self._tiempo_agotado = False
+        self._tiempo_final_segundos = 0
+        self.timer_control = ft.Text("", size=13, weight=ft.FontWeight.BOLD, color=CISCO_CYAN)
 
         # --- Estado de selección "en vivo" de la pregunta actual ---
         self._selection_initialized_for = None
@@ -102,6 +148,35 @@ class ExamenApp:
         )
 
         self.mostrar_menu()
+
+    # ------------------------------------------------------------------
+    # TEMA CLARO / OSCURO
+    # ------------------------------------------------------------------
+    def _preparar_tema(self, redibujar):
+        """Recalcula la paleta activa y recuerda cómo redibujar la pantalla
+        actual, para poder refrescarla al cambiar de tema."""
+        es_oscuro = self.page.theme_mode == ft.ThemeMode.DARK
+        self.C = PALETAS["dark"] if es_oscuro else PALETAS["light"]
+        self.page.bgcolor = self.C["bg"]
+        self._redibujar = redibujar
+
+    def _alternar_tema(self, e=None):
+        self.page.theme_mode = (
+            ft.ThemeMode.LIGHT if self.page.theme_mode == ft.ThemeMode.DARK else ft.ThemeMode.DARK
+        )
+        if getattr(self, "_redibujar", None):
+            self._redibujar()
+        else:
+            self.mostrar_menu()
+
+    def _boton_tema(self):
+        es_oscuro = self.page.theme_mode == ft.ThemeMode.DARK
+        return ft.IconButton(
+            icon=ft.Icons.LIGHT_MODE if es_oscuro else ft.Icons.DARK_MODE,
+            icon_color=BG_WHITE,
+            tooltip="Cambiar a modo claro" if es_oscuro else "Cambiar a modo oscuro",
+            on_click=self._alternar_tema,
+        )
 
     # ------------------------------------------------------------------
     # UTILIDADES
@@ -161,11 +236,15 @@ class ExamenApp:
                     style=ft.ButtonStyle(color=BG_WHITE),
                 )
             )
+        derecha = ft.Row(
+            ([controles[1]] if mostrar_volver else []) + [self._boton_tema()],
+            alignment=ft.MainAxisAlignment.END,
+            spacing=4,
+        )
         self.header.content = ft.ResponsiveRow(
             [
                 ft.Container(controles[0], col={"xs": 12, "sm": 8}),
-                ft.Container(controles[1] if mostrar_volver else ft.Container(), col={"xs": 12, "sm": 4},
-                             alignment=ft.Alignment.CENTER_RIGHT),
+                ft.Container(derecha, col={"xs": 12, "sm": 4}, alignment=ft.Alignment.CENTER_RIGHT),
             ],
             vertical_alignment=ft.CrossAxisAlignment.CENTER,
         )
@@ -196,6 +275,102 @@ class ExamenApp:
         except Exception:
             return None
 
+    # ------------------------------------------------------------------
+    # HISTORIAL DE PUNTAJES (persistido en JSON)
+    # ------------------------------------------------------------------
+    def _leer_historial(self):
+        if not os.path.exists(HISTORY_FILE):
+            return {}
+        try:
+            with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            self._snack(f"No se pudo leer el historial: {e}")
+            return {}
+
+    def _guardar_historial(self, modulo, modo, puntaje, total, tiempo_segundos=0):
+        """Agrega un intento al historial y devuelve (comparacion, es_record_nuevo)
+        comparando contra el intento anterior y el mejor puntaje histórico."""
+        porcentaje = round((puntaje / total) * 100, 1) if total else 0.0
+        historial = self._leer_historial()
+        historial.setdefault(modulo, {}).setdefault(modo, [])
+        intentos_previos = historial[modulo][modo]
+
+        comparacion = None
+        if intentos_previos:
+            anterior = intentos_previos[-1]
+            comparacion = {
+                "porcentaje_anterior": anterior["porcentaje"],
+                "diferencia": round(porcentaje - anterior["porcentaje"], 1),
+            }
+
+        mejor_anterior = max((a["porcentaje"] for a in intentos_previos), default=None)
+        es_record_nuevo = mejor_anterior is None or porcentaje > mejor_anterior
+
+        intentos_previos.append({
+            "fecha": datetime.datetime.now().strftime("%d-%m-%Y %H:%M"),
+            "puntaje": puntaje,
+            "total": total,
+            "porcentaje": porcentaje,
+            "tiempo": self._formatear_duracion(tiempo_segundos),
+            "tiempo_segundos": round(tiempo_segundos),
+        })
+
+        try:
+            with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+                json.dump(historial, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            self._snack(f"No se pudo guardar el historial: {e}")
+
+        return comparacion, es_record_nuevo
+
+    # ------------------------------------------------------------------
+    # TEMPORIZADOR DEL MODO EXAMEN (límite de 1 hora)
+    # ------------------------------------------------------------------
+    def _formatear_duracion(self, segundos):
+        segundos = max(0, int(segundos))
+        horas, resto = divmod(segundos, 3600)
+        mins, secs = divmod(resto, 60)
+        if horas:
+            return f"{horas}h {mins:02d}m {secs:02d}s"
+        return f"{mins:02d}:{secs:02d}"
+
+    def _detener_temporizador(self):
+        self._timer_activo = False
+
+    def _iniciar_temporizador_examen(self):
+        self._detener_temporizador()
+        self._timer_activo = True
+
+        def loop():
+            while self._timer_activo:
+                transcurrido = time.time() - self.tiempo_inicio_intento
+                restante = TIEMPO_LIMITE_EXAMEN - transcurrido
+                if not self._timer_activo:
+                    break
+                self.timer_control.value = f"⏱ Tiempo restante: {self._formatear_duracion(restante)}"
+                self.timer_control.color = ERROR_RED if restante <= 300 else CISCO_CYAN
+                try:
+                    self.page.update()
+                except Exception:
+                    pass
+                if restante <= 0:
+                    self._timer_activo = False
+                    self._finalizar_examen_por_tiempo()
+                    break
+                time.sleep(1)
+
+        threading.Thread(target=loop, daemon=True).start()
+
+    def _finalizar_examen_por_tiempo(self):
+        self._tiempo_agotado = True
+        try:
+            self.guardar_respuesta_silenciosa()
+        except Exception:
+            pass
+        self.evaluar_examen_completo()
+        self.mostrar_resultados()
+
     def cargar_preguntas(self, ruta_archivo):
         try:
             with open(ruta_archivo, "r", encoding="utf-8") as f:
@@ -208,10 +383,21 @@ class ExamenApp:
     # PANTALLA: MENÚ PRINCIPAL
     # ------------------------------------------------------------------
     def mostrar_menu(self):
+        self._preparar_tema(self.mostrar_menu)
+        self._detener_temporizador()
         self._header_row("Cisco Networking Academy - Módulos", mostrar_volver=False)
 
         contenido = [
-            ft.Text("Selecciona el módulo a evaluar:", size=20, weight=ft.FontWeight.BOLD, color=CISCO_NAVY),
+            ft.Text("Selecciona el módulo a evaluar:", size=20, weight=ft.FontWeight.BOLD, color=self.C["heading"]),
+            ft.Button(
+                content=ft.Row(
+                    [ft.Icon(ft.Icons.HISTORY, color=BG_WHITE), ft.Text("Ver historial de puntajes", size=14, weight=ft.FontWeight.BOLD, color=BG_WHITE)],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                ),
+                bgcolor=CISCO_CYAN,
+                height=48,
+                on_click=lambda e: self.mostrar_historial(),
+            ),
         ]
 
         if not os.path.exists(JSON_DIR):
@@ -244,12 +430,13 @@ class ExamenApp:
     # PANTALLA: SELECCIÓN DE MODO
     # ------------------------------------------------------------------
     def mostrar_opciones_modo(self, archivo):
+        self._preparar_tema(lambda: self.mostrar_opciones_modo(archivo))
         self._header_row("Configuración de Evaluación", on_volver=lambda e: self.mostrar_menu())
 
         nombre_limpio = archivo.replace(".json", "").upper()
         self.body.controls = [
-            ft.Text(f"Módulo: {nombre_limpio}", size=20, weight=ft.FontWeight.BOLD, color=CISCO_NAVY),
-            ft.Text("Por favor, selecciona el modo de evaluación:", size=14, color=TEXT_GRAY),
+            ft.Text(f"Módulo: {nombre_limpio}", size=20, weight=ft.FontWeight.BOLD, color=self.C["heading"]),
+            ft.Text("Por favor, selecciona el modo de evaluación:", size=14, color=self.C["text_gray"]),
             ft.Button(
                 content=ft.Column(
                     [
@@ -267,7 +454,7 @@ class ExamenApp:
                 content=ft.Column(
                     [
                         ft.Text("⏱️ MODO EXAMEN", size=15, weight=ft.FontWeight.BOLD, color=BG_WHITE),
-                        ft.Text("(35 preguntas, prioridad a emparejamiento, evaluación al final)", size=11, color=BG_WHITE),
+                        ft.Text("(35 preguntas, prioridad a emparejamiento, tiempo límite de 1 hora)", size=11, color=BG_WHITE),
                     ],
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     spacing=2,
@@ -284,6 +471,7 @@ class ExamenApp:
     # ------------------------------------------------------------------
     def iniciar_examen(self, ruta_archivo, modo):
         self.modo = modo
+        self.modulo_actual = os.path.basename(ruta_archivo).replace(".json", "").upper()
         todas_las_preguntas = self.cargar_preguntas(ruta_archivo)
         if not todas_las_preguntas:
             return
@@ -332,6 +520,13 @@ class ExamenApp:
         self.puntaje = 0
         self.estado_preguntas = {}
         self._selection_initialized_for = None
+        self._resultado_guardado = False
+        self._comparacion_historial = (None, False)
+        self._tiempo_agotado = False
+        self.tiempo_inicio_intento = time.time()
+        self._detener_temporizador()
+        if self.modo == "examen":
+            self._iniciar_temporizador_examen()
 
         self.mostrar_pregunta()
 
@@ -565,6 +760,7 @@ class ExamenApp:
             self._finalizar_examen_ahora()
 
     def _finalizar_examen_ahora(self):
+        self._detener_temporizador()
         self.evaluar_examen_completo()
         self.mostrar_resultados()
 
@@ -581,8 +777,8 @@ class ExamenApp:
     def _crear_opcion_card(self, indice, texto, multiple, bloqueada, resultado=None):
         seleccionado = (indice in self.var_multiple) if multiple else (self.var_single == indice)
 
-        bg = OPTION_BG
-        fg = TEXT_DARK
+        bg = self.C["option_bg"]
+        fg = self.C["text"]
         icon_color = OPTION_CIRCLE_IDLE
 
         if resultado is not None:
@@ -632,7 +828,7 @@ class ExamenApp:
     def _crear_fila_emparejamiento(self, obj, opciones_valores, bloqueada, resultado=None):
         valor_actual = self.dropdown_values.get(obj)
 
-        bg, fg = OPTION_BG, TEXT_DARK
+        bg, fg = self.C["option_bg"], self.C["text"]
         if resultado is True:
             bg, fg = SUCCESS_GREEN, BG_WHITE
         elif resultado is False:
@@ -646,7 +842,7 @@ class ExamenApp:
             disabled=bloqueada,
             expand=True,
             hint_text="Seleccione...",
-            bgcolor=BG_WHITE,
+            bgcolor=self.C["surface"],
             content_padding=ft.Padding.symmetric(horizontal=10, vertical=6),
             on_select=lambda e, o=obj: self._on_dropdown_change(o, e.control.value),
         )
@@ -672,6 +868,7 @@ class ExamenApp:
     # PANTALLA: PREGUNTA (práctica / examen / revisión)
     # ------------------------------------------------------------------
     def mostrar_pregunta(self):
+        self._preparar_tema(self.mostrar_pregunta)
         q = self.preguntas[self.indice_actual]
         tipo_pregunta = q.get("tipo", "opcion_multiple")
 
@@ -696,7 +893,7 @@ class ExamenApp:
             status = est_i.get("estado", "sin_responder")
             es_correcta_i = est_i.get("es_correcta")
 
-            bg_nav, fg_nav = "#e0e0e0", TEXT_DARK
+            bg_nav, fg_nav = self.C["idle_bg"], self.C["text"]
             if self.modo == "revision" or (self.modo == "practica" and status == "respondida"):
                 if es_correcta_i is True:
                     bg_nav, fg_nav = SUCCESS_GREEN, BG_WHITE
@@ -717,7 +914,7 @@ class ExamenApp:
                     height=32,
                     border_radius=6,
                     alignment=ft.Alignment.CENTER,
-                    border=ft.Border.all(2, CISCO_NAVY) if es_actual else None,
+                    border=ft.Border.all(2, self.C["heading"]) if es_actual else None,
                     on_click=lambda e, idx=i: self.ir_a_pregunta(idx),
                 )
             )
@@ -725,8 +922,15 @@ class ExamenApp:
         elementos = [
             ft.Row(nav_botones, wrap=True, spacing=6, run_spacing=6),
             ft.Text(f"Pregunta {self.indice_actual + 1} de {len(self.preguntas)}", size=13, weight=ft.FontWeight.BOLD, color=CISCO_CYAN),
-            ft.Text(q["pregunta"], size=15, color=TEXT_DARK),
         ]
+
+        if self.modo == "examen" and self.tiempo_inicio_intento:
+            restante = TIEMPO_LIMITE_EXAMEN - (time.time() - self.tiempo_inicio_intento)
+            self.timer_control.value = f"⏱ Tiempo restante: {self._formatear_duracion(restante)}"
+            self.timer_control.color = ERROR_RED if restante <= 300 else CISCO_CYAN
+            elementos.append(self.timer_control)
+
+        elementos.append(ft.Text(q["pregunta"], size=15, color=self.C["text"]))
 
         # --- Imagen (si aplica) ---
         nombre_imagen = q.get("imagen")
@@ -762,16 +966,16 @@ class ExamenApp:
                 filas.append(self._crear_fila_emparejamiento(obj, opciones_emp, esta_bloqueada, resultado=resultado_fila))
 
             panel_disponibles = ft.Column(
-                [ft.Text("Opciones a colocar:", size=13, weight=ft.FontWeight.BOLD, color=CISCO_NAVY)]
+                [ft.Text("Opciones a colocar:", size=13, weight=ft.FontWeight.BOLD, color=self.C["heading"])]
                 + (
-                    [ft.Container(ft.Text(o, size=12, color=TEXT_DARK), bgcolor=OPTION_BG, border_radius=6,
+                    [ft.Container(ft.Text(o, size=12, color=self.C["text"]), bgcolor=self.C["option_bg"], border_radius=6,
                                   padding=ft.Padding.symmetric(horizontal=12, vertical=8)) for o in disponibles]
                     if disponibles
-                    else [ft.Text("(Todas las opciones han sido asignadas)", size=11, italic=True, color=TEXT_GRAY)]
+                    else [ft.Text("(Todas las opciones han sido asignadas)", size=11, italic=True, color=self.C["text_gray"])]
                 ),
                 spacing=6,
             )
-            panel_objetivos = ft.Column([ft.Text("Objetivos:", size=13, weight=ft.FontWeight.BOLD, color=CISCO_NAVY)] + filas, spacing=8)
+            panel_objetivos = ft.Column([ft.Text("Objetivos:", size=13, weight=ft.FontWeight.BOLD, color=self.C["heading"])] + filas, spacing=8)
 
             elementos.append(
                 ft.ResponsiveRow(
@@ -785,7 +989,7 @@ class ExamenApp:
             self.es_multiple = len(q.get("respuestas_correctas", [])) > 1
             if self.es_multiple:
                 elementos.append(
-                    ft.Text(f"(Seleccione {len(q['respuestas_correctas'])} opciones)", size=12, italic=True, color=TEXT_GRAY)
+                    ft.Text(f"(Seleccione {len(q['respuestas_correctas'])} opciones)", size=12, italic=True, color=self.C["text_gray"])
                 )
 
             resultado_visual = None
@@ -810,7 +1014,7 @@ class ExamenApp:
 
         # --- Feedback ---
         if esta_bloqueada:
-            color_fb = estado.get("color_feedback", BG_WHITE)
+            color_fb = estado.get("color_feedback", self.C["surface"])
             elementos.append(
                 ft.Container(
                     content=ft.Text(estado.get("feedback_texto", ""), size=13, color=BG_WHITE),
@@ -825,8 +1029,8 @@ class ExamenApp:
             "⬅ Anterior",
             on_click=self.pregunta_anterior,
             disabled=(self.indice_actual == 0),
-            bgcolor=CISCO_BLUE if self.indice_actual > 0 else "#e0e0e0",
-            color=BG_WHITE if self.indice_actual > 0 else TEXT_GRAY,
+            bgcolor=CISCO_BLUE if self.indice_actual > 0 else self.C["idle_bg"],
+            color=BG_WHITE if self.indice_actual > 0 else self.C["text_gray"],
         )
 
         botones_fila = [btn_anterior]
@@ -836,8 +1040,8 @@ class ExamenApp:
                 ft.Button(
                     "Omitir ⏭",
                     on_click=self.omitir_pregunta,
-                    bgcolor=SKIPPED_YELLOW if not esta_bloqueada else "#e0e0e0",
-                    color=TEXT_DARK if not esta_bloqueada else TEXT_GRAY,
+                    bgcolor=SKIPPED_YELLOW if not esta_bloqueada else self.C["idle_bg"],
+                    color=TEXT_DARK if not esta_bloqueada else self.C["text_gray"],
                     disabled=esta_bloqueada,
                 )
             )
@@ -847,8 +1051,8 @@ class ExamenApp:
                 ft.Button(
                     "Confirmar Respuesta",
                     on_click=self.verificar_respuesta,
-                    bgcolor=CISCO_BLUE if not esta_bloqueada else "#e0e0e0",
-                    color=BG_WHITE if not esta_bloqueada else TEXT_GRAY,
+                    bgcolor=CISCO_BLUE if not esta_bloqueada else self.C["idle_bg"],
+                    color=BG_WHITE if not esta_bloqueada else self.C["text_gray"],
                     disabled=esta_bloqueada,
                 )
             )
@@ -864,13 +1068,13 @@ class ExamenApp:
             bg_siguiente = CISCO_CYAN
         elif self.modo == "practica" and not esta_bloqueada:
             habilitar_siguiente = False
-            bg_siguiente = "#e0e0e0"
+            bg_siguiente = self.C["idle_bg"]
 
         btn_siguiente = ft.Button(
             texto_siguiente,
             on_click=(self._volver_al_resumen if (self.modo == "revision" and self.indice_actual == len(self.preguntas) - 1) else self.siguiente_pregunta),
-            bgcolor=bg_siguiente if habilitar_siguiente else "#e0e0e0",
-            color=BG_WHITE if habilitar_siguiente else TEXT_GRAY,
+            bgcolor=bg_siguiente if habilitar_siguiente else self.C["idle_bg"],
+            color=BG_WHITE if habilitar_siguiente else self.C["text_gray"],
             disabled=not habilitar_siguiente,
         )
         botones_fila.append(btn_siguiente)
@@ -888,6 +1092,8 @@ class ExamenApp:
     # PANTALLA: RESULTADOS
     # ------------------------------------------------------------------
     def mostrar_resultados(self):
+        self._preparar_tema(self.mostrar_resultados)
+        self._detener_temporizador()
         if self.modo == "practica":
             self.evaluar_examen_completo()
 
@@ -897,14 +1103,49 @@ class ExamenApp:
         color_porcentaje = SUCCESS_GREEN if porcentaje >= 70 else ERROR_RED
         texto_aprobacion = "¡Aprobado!" if porcentaje >= 70 else "Requiere más estudio"
 
+        if not self._resultado_guardado and self.modulo_actual and self.modo in ("practica", "examen"):
+            self._tiempo_final_segundos = (
+                time.time() - self.tiempo_inicio_intento if self.tiempo_inicio_intento else 0
+            )
+            self._comparacion_historial = self._guardar_historial(
+                self.modulo_actual, self.modo, self.puntaje, len(self.preguntas), self._tiempo_final_segundos
+            )
+            self._resultado_guardado = True
+
+        comparacion, es_record_nuevo = self._comparacion_historial
+        progreso_texto, progreso_color = None, None
+        if es_record_nuevo and comparacion:
+            progreso_texto = (
+                f"🏆 ¡Superaste tu intento anterior! ({comparacion['porcentaje_anterior']}% → {porcentaje:.1f}%)"
+            )
+            progreso_color = SUCCESS_GREEN
+        elif es_record_nuevo:
+            progreso_texto = "🏆 ¡Es tu primer intento registrado en este módulo!"
+            progreso_color = CISCO_CYAN
+        elif comparacion:
+            diff = comparacion["diferencia"]
+            if diff > 0:
+                progreso_texto = f"📈 Mejoraste respecto a tu intento anterior (+{diff}%)"
+                progreso_color = SUCCESS_GREEN
+            elif diff < 0:
+                progreso_texto = f"📉 Bajaste respecto a tu intento anterior ({diff}%)"
+                progreso_color = ERROR_RED
+            else:
+                progreso_texto = "➖ Obtuviste el mismo resultado que tu intento anterior"
+                progreso_color = self.C["text_gray"]
+
         elementos = [
-            ft.Text("Resumen de Evaluación", size=24, weight=ft.FontWeight.BOLD, color=CISCO_NAVY),
+            ft.Text("Resumen de Evaluación", size=24, weight=ft.FontWeight.BOLD, color=self.C["heading"]),
             ft.Container(
                 content=ft.Column(
                     [
-                        ft.Text(f"Puntaje Obtenido: {self.puntaje} de {len(self.preguntas)}", size=16, color=TEXT_DARK),
+                        ft.Text(f"Puntaje Obtenido: {self.puntaje} de {len(self.preguntas)}", size=16, color=self.C["text"]),
                         ft.Text(f"Rendimiento: {porcentaje:.1f}%", size=22, weight=ft.FontWeight.BOLD, color=color_porcentaje),
-                        ft.Text(texto_aprobacion, size=13, italic=True, color=TEXT_GRAY),
+                        ft.Text(texto_aprobacion, size=13, italic=True, color=self.C["text_gray"]),
+                        ft.Text(
+                            f"⏱ Tiempo utilizado: {self._formatear_duracion(getattr(self, '_tiempo_final_segundos', 0))}",
+                            size=12, color=self.C["text_gray"],
+                        ),
                     ],
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     spacing=6,
@@ -914,8 +1155,34 @@ class ExamenApp:
                 padding=20,
                 alignment=ft.Alignment.CENTER,
             ),
-            ft.Text("Detalle de Preguntas", size=18, weight=ft.FontWeight.BOLD, color=CISCO_NAVY),
         ]
+
+        if self._tiempo_agotado:
+            elementos.append(
+                ft.Container(
+                    content=ft.Text(
+                        "⏰ Se acabó el tiempo (1 hora). El examen se finalizó y evaluó automáticamente.",
+                        size=13, weight=ft.FontWeight.BOLD, color=BG_WHITE,
+                    ),
+                    bgcolor=ERROR_RED,
+                    border_radius=8,
+                    padding=12,
+                    alignment=ft.Alignment.CENTER,
+                )
+            )
+
+        if progreso_texto:
+            elementos.append(
+                ft.Container(
+                    content=ft.Text(progreso_texto, size=14, weight=ft.FontWeight.BOLD, color=BG_WHITE),
+                    bgcolor=progreso_color,
+                    border_radius=8,
+                    padding=12,
+                    alignment=ft.Alignment.CENTER,
+                )
+            )
+
+        elementos.append(ft.Text("Detalle de Preguntas", size=18, weight=ft.FontWeight.BOLD, color=self.C["heading"]))
 
         for i, q in enumerate(self.preguntas):
             estado = self.estado_preguntas.get(i, {})
@@ -923,16 +1190,16 @@ class ExamenApp:
             respondida = estado.get("estado") == "respondida"
 
             if es_correcta:
-                bg_card, fg_text, texto_estado = "#e8f5e9", SUCCESS_GREEN, "✔️ Correcta"
+                bg_card, fg_text, texto_estado = self.C["correct_bg"], SUCCESS_GREEN, "✔️ Correcta"
             else:
-                bg_card, fg_text = "#ffebee", ERROR_RED
+                bg_card, fg_text = self.C["incorrect_bg"], ERROR_RED
                 texto_estado = "❌ Omitida (Incorrecta)" if not respondida else "❌ Incorrecta"
 
             elementos.append(
                 ft.Container(
                     content=ft.Column(
                         [
-                            ft.Text(f"Pregunta {i + 1}: {q['pregunta']}", size=13, weight=ft.FontWeight.BOLD, color=TEXT_DARK),
+                            ft.Text(f"Pregunta {i + 1}: {q['pregunta']}", size=13, weight=ft.FontWeight.BOLD, color=self.C["text"]),
                             ft.Text(texto_estado, size=12, weight=ft.FontWeight.BOLD, color=fg_text),
                         ],
                         spacing=4,
@@ -948,11 +1215,96 @@ class ExamenApp:
             ft.Row(
                 [
                     ft.Button("Revisar Examen 🔍", bgcolor=CISCO_CYAN, color=BG_WHITE, on_click=lambda e: self.iniciar_revision()),
+                    ft.Button("Ver Historial 📊", bgcolor=CISCO_BLUE, color=BG_WHITE, on_click=lambda e: self.mostrar_historial()),
                     ft.Button("Volver al Menú Principal", bgcolor=CISCO_NAVY, color=BG_WHITE, on_click=lambda e: self.mostrar_menu()),
                 ],
                 wrap=True,
                 spacing=10,
                 run_spacing=10,
+            )
+        )
+        elementos.append(ft.Container(height=20))
+
+        self.body.controls = elementos
+        self.page.update()
+
+    # ------------------------------------------------------------------
+    # PANTALLA: HISTORIAL DE PUNTAJES
+    # ------------------------------------------------------------------
+    def mostrar_historial(self):
+        self._preparar_tema(self.mostrar_historial)
+        self._header_row("Historial de Puntajes", on_volver=lambda e: self.mostrar_menu())
+
+        historial = self._leer_historial()
+
+        elementos = [
+            ft.Text("Historial de Puntajes", size=24, weight=ft.FontWeight.BOLD, color=self.C["heading"]),
+            ft.Text(
+                "Tu progreso se guarda automáticamente en historial_puntajes.json junto a este script.",
+                size=12, italic=True, color=self.C["text_gray"],
+            ),
+        ]
+
+        if not historial:
+            elementos.append(
+                ft.Text(
+                    "Todavía no hay intentos registrados. ¡Realiza una práctica o examen para empezar tu historial!",
+                    size=14, color=self.C["text_gray"],
+                )
+            )
+        else:
+            etiquetas_modo = {"practica": "📝 Práctica", "examen": "⏱️ Examen"}
+            for modulo in sorted(historial.keys()):
+                elementos.append(ft.Text(modulo, size=18, weight=ft.FontWeight.BOLD, color=self.C["heading"]))
+
+                for modo_key, etiqueta in etiquetas_modo.items():
+                    intentos = historial[modulo].get(modo_key, [])
+                    if not intentos:
+                        continue
+
+                    mejor = max(a["porcentaje"] for a in intentos)
+                    elementos.append(ft.Text(etiqueta, size=13, weight=ft.FontWeight.BOLD, color=self.C["text_gray"]))
+
+                    filas = []
+                    anterior_pct = None
+                    for intento in intentos:
+                        pct = intento["porcentaje"]
+                        if anterior_pct is None:
+                            icono = "🆕"
+                        elif pct > anterior_pct:
+                            icono = "📈"
+                        elif pct < anterior_pct:
+                            icono = "📉"
+                        else:
+                            icono = "➖"
+                        anterior_pct = pct
+
+                        color_pct = SUCCESS_GREEN if pct >= 70 else ERROR_RED
+                        filas.append(
+                            ft.Container(
+                                content=ft.Row(
+                                    [
+                                        ft.Text(intento["fecha"], size=12, color=self.C["text_gray"], expand=True),
+                                        ft.Text(f"{intento['puntaje']}/{intento['total']}", size=12, color=self.C["text"]),
+                                        ft.Text(f"{pct:.1f}%", size=13, weight=ft.FontWeight.BOLD, color=color_pct),
+                                        ft.Text(f"⏱ {intento.get('tiempo', '-')}", size=12, color=self.C["text_gray"]),
+                                        ft.Text(icono, size=14),
+                                        ft.Text("🏅" if pct == mejor else "", size=14, width=20),
+                                    ],
+                                    spacing=10,
+                                ),
+                                bgcolor=self.C["option_bg"],
+                                border_radius=6,
+                                padding=ft.Padding.symmetric(horizontal=14, vertical=8),
+                            )
+                        )
+                    elementos.append(ft.Column(filas, spacing=4))
+
+        elementos.append(ft.Container(height=10))
+        elementos.append(
+            ft.Row(
+                [ft.Button("Volver al Menú Principal", bgcolor=CISCO_NAVY, color=BG_WHITE, on_click=lambda e: self.mostrar_menu())],
+                wrap=True, spacing=10, run_spacing=10,
             )
         )
         elementos.append(ft.Container(height=20))

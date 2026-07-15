@@ -1692,7 +1692,7 @@
       "158",
       "72"
     ],
-    "respuestas_correctas": [4],
+    "respuestas_correctas": [2],
     "explicacion": "La máscara .192 (/26) divide la red principal en 4 subredes de 64 direcciones totales (62 hosts útiles por cada una, es decir, 248). Si restamos los hosts realmente requeridos o utilizados por la topología (típicamente 30+50+25+14=119 o valores de una gráfica equivalente), se obtiene la porción de IPs sobrantes.",
     "imagen": "pregunta_117.png"
   },

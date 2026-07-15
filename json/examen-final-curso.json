@@ -199,9 +199,9 @@
     "pregunta": "15. ¿Cuál de estas situaciones describe una función proporcionada por la capa de transporte?",
     "tipo": "opcion_multiple",
     "opciones": [
-      "Un estudiante reproduce una película corta con sonido basada en Web. La película y el sonido están codificados dentro del encabezado...",
-      "Un alumno utiliza un teléfono VoIP del aula para llamar a su casa. El identificador único grabado en el teléfono es una dirección de capa de transporte...",
-      "Un trabajador de una empresa accede a un servidor Web ubicado en una red corporativa. La capa de transporte da formato a la pantalla...",
+      "Un estudiante reproduce una película corta con sonido basada en Web. La película y el sonido están codificados dentro del encabezado de la capa de transporte.",
+      "Un alumno utiliza un teléfono VoIP del aula para llamar a su casa. El identificador único grabado en el teléfono es una dirección de capa de transporte utilizada para establecer contacto con otro dispositivo de red en la misma red.",
+      "Un trabajador de una empresa accede a un servidor Web ubicado en una red corporativa. La capa de transporte da formato a la pantalla para que la página Web se visualice de manera adecuada, independientemente del dispositivo que se utilice para ver el sitio Web.",
       "Un alumno tiene dos ventanas de explorador Web abiertas a fin de acceder a dos sitios Web. La capa de transporte garantiza que se entregue la página Web correcta a la ventana de explorador adecuada."
     ],
     "respuestas_correctas": [3],
@@ -793,10 +793,10 @@
     "pregunta": "56. ¿Cuál de los siguientes es un beneficio del uso de la computación en la nube en las redes?",
     "tipo": "opcion_multiple",
     "opciones": [
-      "La tecnología se integra a los dispositivos que se utilizan a diario, lo que permite que se interconecten con otros dispositivos...",
-      "Los usuarios finales tienen la libertad de utilizar herramientas personales para acceder a información y comunicarse...",
+      "La tecnología se integra a los dispositivos que se utilizan a diario, lo que permite que se interconecten con otros dispositivos y que se vuelvan más “inteligentes” o automatizados.",
+      "Los usuarios finales tienen la libertad de utilizar herramientas personales para acceder a información y comunicarse en una red comercial.",
       "Se extienden las funcionalidades de red sin necesidad de invertir en infraestructura, personal ni software nuevos.",
-      "Las redes domésticas utilizan el cableado eléctrico existente para conectar los dispositivos a la red..."
+      "Las redes domésticas utilizan el cableado eléctrico existente para conectar los dispositivos a la red donde haya un tomacorriente, lo que permite ahorrar el costo de instalación de cables de datos."
     ],
     "respuestas_correctas": [2],
     "explicacion": "La computación en la nube permite que las organizaciones accedan a servicios, almacenamiento y potencia de procesamiento a través de Internet (proveedores externos). Esto ofrece un beneficio clave: las empresas pueden escalar sus operaciones y acceder a tecnologías avanzadas sin tener que comprar, mantener o actualizar físicamente servidores, software o contratar personal especializado para gestionar esa infraestructura local.",
@@ -980,7 +980,7 @@
     ],
     "respuestas_correctas": {
       "Daño físico a servidores, routers, switches, planta de cableado y estaciones de trabajo.": "Amenazas de hardware",
-      "Extremos de temperatura (demasiado calor o demasiado frío) o extremos de humedad (demasiado húmedo o demasiado seco.": "Amenazas ambientales",
+      "Extremos de temperatura (demasiado calor o demasiado frío) o extremos de humedad (demasiado húmedo o demasiado seco).": "Amenazas ambientales",
       "Voltage spikes, insufficient supply voltage (brownouts), unconditioned power (noise), and total power loss.": "Amenazas eléctricas",
       "Manejo deficiente de componentes eléctricos clave (descarga electrostática), falta de repuestos críticos, cableado y etiquetado deficientes.": "Amenazas de mantenimiento"
     },

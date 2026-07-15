@@ -116,6 +116,7 @@ class ExamenApp:
         self.puntaje = 0
         self.estado_preguntas = {}
         self.modo = "practica"
+        self.modo_evaluado = None  # guarda si el intento finalizado fue "practica" o "examen"
         self.modulo_actual = None  # nombre del módulo cargado (para el historial)
         self._resultado_guardado = False
         self._comparacion_historial = (None, False)
@@ -127,14 +128,6 @@ class ExamenApp:
         self._tiempo_final_segundos = 0
         self.timer_control = ft.Text("", size=13, weight=ft.FontWeight.BOLD, color=CISCO_CYAN)
 
-        # --- Identidad del jugador (para el tierlist) ---
-        self.usuario_actual = ""
-        self.campo_usuario = ft.TextField(
-            label="Tu nombre",
-            hint_text="Escribe tu nombre para aparecer en el Tierlist",
-            width=320,
-            on_change=self._on_cambiar_usuario,
-        )
 
         # --- Estado de selección "en vivo" de la pregunta actual ---
         self._selection_initialized_for = None
@@ -187,19 +180,24 @@ class ExamenApp:
             on_click=self._alternar_tema,
         )
 
-    def _on_cambiar_usuario(self, e=None):
-        self.usuario_actual = (self.campo_usuario.value or "").strip()
+    def _boton_historial(self):
+        return ft.IconButton(
+            icon=ft.Icons.LEADERBOARD,
+            icon_color=BG_WHITE,
+            tooltip="Ver historial",
+            on_click=lambda e: self.mostrar_historial(),
+        )
 
-    def _tier_de_porcentaje(self, pct):
-        if pct >= 90:
-            return "S", "#FFD700"
-        if pct >= 80:
-            return "A", SUCCESS_GREEN
-        if pct >= 70:
-            return "B", CISCO_CYAN
-        if pct >= 50:
-            return "C", SKIPPED_YELLOW
-        return "D", ERROR_RED
+    def _clave_orden_modulo(self, nombre):
+        """Ordena los módulos: primero los numerados (1, 2, 3...) en orden ascendente,
+        luego los que no tienen número (p. ej. 'pexamen'), y al final el examen final."""
+        base = nombre.replace(".json", "").lower()
+        if "final" in base:
+            return (2, 0, base)
+        match = re.search(r"\d+", base)
+        if match:
+            return (0, int(match.group()), base)
+        return (1, 0, base)
 
     # ------------------------------------------------------------------
     # UTILIDADES
@@ -245,7 +243,8 @@ class ExamenApp:
         self._abrir_overlay(snack)
 
     def _header_row(self, titulo, subtitulo_texto=None, subtitulo_color=CISCO_CYAN,
-                     texto_volver="Volver Atrás", on_volver=None, mostrar_volver=True):
+                     texto_volver="Volver Atrás", on_volver=None, mostrar_volver=True,
+                     mostrar_historial_btn=True):
         izquierda = [ft.Text(titulo, size=17, weight=ft.FontWeight.BOLD, color=BG_WHITE)]
         if subtitulo_texto:
             izquierda.append(ft.Text(subtitulo_texto, size=12, weight=ft.FontWeight.BOLD, color=subtitulo_color))
@@ -259,8 +258,14 @@ class ExamenApp:
                     style=ft.ButtonStyle(color=BG_WHITE),
                 )
             )
+        botones_derecha = []
+        if mostrar_volver:
+            botones_derecha.append(controles[1])
+        if mostrar_historial_btn:
+            botones_derecha.append(self._boton_historial())
+        botones_derecha.append(self._boton_tema())
         derecha = ft.Row(
-            ([controles[1]] if mostrar_volver else []) + [self._boton_tema()],
+            botones_derecha,
             alignment=ft.MainAxisAlignment.END,
             spacing=4,
         )
@@ -311,29 +316,26 @@ class ExamenApp:
             self._snack(f"No se pudo leer el historial: {e}")
             return {}
 
-    def _guardar_historial(self, modulo, modo, usuario, puntaje, total, tiempo_segundos=0):
-        """Agrega un intento al historial (con el nombre del jugador, para el Tierlist)
-        y devuelve (comparacion, es_record_nuevo) comparando contra los intentos
-        previos de ESE MISMO usuario en este módulo/modo."""
+    def _guardar_historial(self, modulo, modo, puntaje, total, tiempo_segundos=0):
+        """Agrega un intento al historial y devuelve (comparacion, es_record_nuevo)
+        comparando contra los intentos previos de este módulo/modo."""
         porcentaje = round((puntaje / total) * 100, 1) if total else 0.0
         historial = self._leer_historial()
         historial.setdefault(modulo, {}).setdefault(modo, [])
         intentos_previos = historial[modulo][modo]
-        intentos_usuario = [a for a in intentos_previos if a.get("usuario") == usuario]
 
         comparacion = None
-        if intentos_usuario:
-            anterior = intentos_usuario[-1]
+        if intentos_previos:
+            anterior = intentos_previos[-1]
             comparacion = {
                 "porcentaje_anterior": anterior["porcentaje"],
                 "diferencia": round(porcentaje - anterior["porcentaje"], 1),
             }
 
-        mejor_anterior = max((a["porcentaje"] for a in intentos_usuario), default=None)
+        mejor_anterior = max((a["porcentaje"] for a in intentos_previos), default=None)
         es_record_nuevo = mejor_anterior is None or porcentaje > mejor_anterior
 
         intentos_previos.append({
-            "usuario": usuario,
             "fecha": datetime.datetime.now().strftime("%d-%m-%Y %H:%M"),
             "puntaje": puntaje,
             "total": total,
@@ -415,20 +417,6 @@ class ExamenApp:
 
         contenido = [
             ft.Text("Selecciona el módulo a evaluar:", size=20, weight=ft.FontWeight.BOLD, color=self.C["heading"]),
-            self.campo_usuario,
-            ft.Text(
-                "Tu nombre se usará para identificarte en el Tierlist de puntajes.",
-                size=11, italic=True, color=self.C["text_gray"],
-            ),
-            ft.Button(
-                content=ft.Row(
-                    [ft.Icon(ft.Icons.LEADERBOARD, color=BG_WHITE), ft.Text("Ver Tierlist 🏆", size=14, weight=ft.FontWeight.BOLD, color=BG_WHITE)],
-                    alignment=ft.MainAxisAlignment.CENTER,
-                ),
-                bgcolor=CISCO_CYAN,
-                height=48,
-                on_click=lambda e: self.mostrar_historial(),
-            ),
         ]
 
         if not os.path.exists(JSON_DIR):
@@ -436,7 +424,10 @@ class ExamenApp:
                 ft.Text("Error: no se encontró la carpeta 'json' junto a este script.", color=ERROR_RED, size=14)
             )
         else:
-            archivos_json = sorted(f for f in os.listdir(JSON_DIR) if f.endswith(".json"))
+            archivos_json = sorted(
+                (f for f in os.listdir(JSON_DIR) if f.endswith(".json")),
+                key=self._clave_orden_modulo,
+            )
             if not archivos_json:
                 contenido.append(ft.Text("No hay archivos .json dentro de la carpeta 'json'.", color=ERROR_RED, size=14))
             else:
@@ -461,14 +452,11 @@ class ExamenApp:
     # PANTALLA: SELECCIÓN DE MODO
     # ------------------------------------------------------------------
     def mostrar_opciones_modo(self, archivo):
-        if not (self.usuario_actual or "").strip():
-            self._snack("Por favor ingresa tu nombre antes de continuar (Tierlist).", ERROR_RED)
-            self.mostrar_menu()
-            return
         self._preparar_tema(lambda: self.mostrar_opciones_modo(archivo))
         self._header_row("Configuración de Evaluación", on_volver=lambda e: self.mostrar_menu())
 
         nombre_limpio = archivo.replace(".json", "").upper()
+        num_preguntas_examen = 60 if "final" in archivo.lower() else 35
         self.body.controls = [
             ft.Text(f"Módulo: {nombre_limpio}", size=20, weight=ft.FontWeight.BOLD, color=self.C["heading"]),
             ft.Text("Por favor, selecciona el modo de evaluación:", size=14, color=self.C["text_gray"]),
@@ -489,7 +477,7 @@ class ExamenApp:
                 content=ft.Column(
                     [
                         ft.Text("⏱️ MODO EXAMEN", size=15, weight=ft.FontWeight.BOLD, color=BG_WHITE),
-                        ft.Text("(35 preguntas, prioridad a emparejamiento, tiempo límite de 1 hora)", size=11, color=BG_WHITE),
+                        ft.Text(f"({num_preguntas_examen} preguntas, prioridad a emparejamiento, tiempo límite de 1 hora)", size=11, color=BG_WHITE),
                     ],
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     spacing=2,
@@ -512,14 +500,17 @@ class ExamenApp:
             return
 
         if self.modo == "examen":
+            es_examen_final = "final" in os.path.basename(ruta_archivo).lower()
+            num_preguntas = 60 if es_examen_final else 35
+
             emparejamientos = [q for q in todas_las_preguntas if q.get("tipo") == "emparejamiento"]
             opciones_mult = [q for q in todas_las_preguntas if q.get("tipo") != "emparejamiento"]
 
             random.shuffle(emparejamientos)
             random.shuffle(opciones_mult)
 
-            preguntas_seleccionadas = emparejamientos[:35]
-            faltantes = 35 - len(preguntas_seleccionadas)
+            preguntas_seleccionadas = emparejamientos[:num_preguntas]
+            faltantes = num_preguntas - len(preguntas_seleccionadas)
             if faltantes > 0:
                 preguntas_seleccionadas += opciones_mult[:faltantes]
 
@@ -556,6 +547,7 @@ class ExamenApp:
         self.estado_preguntas = {}
         self._selection_initialized_for = None
         self._resultado_guardado = False
+        self.modo_evaluado = None
         self._comparacion_historial = (None, False)
         self._tiempo_agotado = False
         self.tiempo_inicio_intento = time.time()
@@ -751,11 +743,7 @@ class ExamenApp:
             self._snack("Por favor seleccione al menos una opción antes de confirmar.", ERROR_RED)
             return
 
-        if tipo_pregunta == "emparejamiento":
-            if any(val in (None, "", "Seleccione...") for val in seleccion_guardar.values()):
-                self._snack("Por favor asigne una opción a todos los objetivos antes de confirmar.", ERROR_RED)
-                return
-        else:
+        if tipo_pregunta != "emparejamiento":
             resp_corr = q["respuestas_correctas"]
             if self.es_multiple and len(seleccion_guardar) != len(resp_corr):
                 self._snack(f"Esta pregunta requiere exactamente {len(resp_corr)} respuestas.", ERROR_RED)
@@ -837,6 +825,7 @@ class ExamenApp:
             subtitulo_texto=modo_texto,
             texto_volver="Abandonar",
             on_volver=lambda e: self.mostrar_menu(),
+            mostrar_historial_btn=False,
         )
 
         estado = self.estado_preguntas.get(self.indice_actual, {})
@@ -1010,23 +999,43 @@ class ExamenApp:
                 # Vista interactiva: checkboxes (múltiple) o radios (única)
                 if self.es_multiple:
                     checks = [
-                        ft.Checkbox(
-                            label=opcion,
-                            value=i in self.var_multiple,
-                            label_style=ft.TextStyle(color=self.C["text"], size=14),
-                            on_change=lambda e, idx=i: self._on_checkbox_change(idx, e.control.value),
+                        ft.Row(
+                            [
+                                ft.Checkbox(
+                                    value=i in self.var_multiple,
+                                    on_change=lambda e, idx=i: self._on_checkbox_change(idx, e.control.value),
+                                ),
+                                ft.Container(
+                                    content=ft.Text(opcion, size=14, color=self.C["text"], no_wrap=False),
+                                    expand=True,
+                                    padding=ft.Padding.only(top=10),
+                                ),
+                            ],
+                            spacing=4,
+                            vertical_alignment=ft.CrossAxisAlignment.START,
                         )
                         for i, opcion in enumerate(q.get("opciones", []))
                     ]
-                    elementos.append(ft.Column(checks, spacing=4))
+                    elementos.append(ft.Column(checks, spacing=6))
                 else:
                     radios = [
-                        ft.Radio(value=str(i), label=opcion, label_style=ft.TextStyle(color=self.C["text"], size=14))
+                        ft.Row(
+                            [
+                                ft.Radio(value=str(i)),
+                                ft.Container(
+                                    content=ft.Text(opcion, size=14, color=self.C["text"], no_wrap=False),
+                                    expand=True,
+                                    padding=ft.Padding.only(top=10),
+                                ),
+                            ],
+                            spacing=4,
+                            vertical_alignment=ft.CrossAxisAlignment.START,
+                        )
                         for i, opcion in enumerate(q.get("opciones", []))
                     ]
                     elementos.append(
                         ft.RadioGroup(
-                            content=ft.Column(radios, spacing=4),
+                            content=ft.Column(radios, spacing=6),
                             value=str(self.var_single) if self.var_single != -1 else None,
                             on_change=lambda e: self._on_radio_change(e.control.value),
                         )
@@ -1084,15 +1093,15 @@ class ExamenApp:
             texto_siguiente = "Finalizar Examen ➔"
             bg_siguiente = CISCO_CYAN
         elif self.modo == "revision" and self.indice_actual == len(self.preguntas) - 1:
-            texto_siguiente = "Volver al Resumen ➔"
-            bg_siguiente = CISCO_CYAN
+            habilitar_siguiente = False
+            bg_siguiente = self.C["idle_bg"]
         elif self.modo == "practica" and not esta_bloqueada:
             habilitar_siguiente = False
             bg_siguiente = self.C["idle_bg"]
 
         btn_siguiente = ft.Button(
             texto_siguiente,
-            on_click=(self._volver_al_resumen if (self.modo == "revision" and self.indice_actual == len(self.preguntas) - 1) else self.siguiente_pregunta),
+            on_click=self.siguiente_pregunta,
             bgcolor=bg_siguiente if habilitar_siguiente else self.C["idle_bg"],
             color=BG_WHITE if habilitar_siguiente else self.C["text_gray"],
             disabled=not habilitar_siguiente,
@@ -1100,6 +1109,23 @@ class ExamenApp:
         botones_fila.append(btn_siguiente)
 
         elementos.append(ft.Row(botones_fila, wrap=True, spacing=10, run_spacing=10))
+
+        if self.modo == "revision":
+            elementos.append(
+                ft.Button(
+                    content=ft.Row(
+                        [
+                            ft.Icon(ft.Icons.ASSIGNMENT_RETURN, color=BG_WHITE),
+                            ft.Text("Volver al Resumen", size=14, weight=ft.FontWeight.BOLD, color=BG_WHITE),
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER,
+                    ),
+                    bgcolor=CISCO_NAVY,
+                    height=48,
+                    on_click=self._volver_al_resumen,
+                )
+            )
+
         elementos.append(ft.Container(height=20))
 
         self.body.controls = elementos
@@ -1124,11 +1150,12 @@ class ExamenApp:
         texto_aprobacion = "¡Aprobado!" if porcentaje >= 70 else "Requiere más estudio"
 
         if not self._resultado_guardado and self.modulo_actual and self.modo in ("practica", "examen"):
+            self.modo_evaluado = self.modo
             self._tiempo_final_segundos = (
                 time.time() - self.tiempo_inicio_intento if self.tiempo_inicio_intento else 0
             )
             self._comparacion_historial = self._guardar_historial(
-                self.modulo_actual, self.modo, self.usuario_actual, self.puntaje,
+                self.modulo_actual, self.modo, self.puntaje,
                 len(self.preguntas), self._tiempo_final_segundos
             )
             self._resultado_guardado = True
@@ -1203,6 +1230,47 @@ class ExamenApp:
                 )
             )
 
+        es_examen_finalizado = self.modo_evaluado == "examen"
+
+        if es_examen_finalizado:
+            # En modo examen no se muestra el detalle pregunta por pregunta:
+            # solo un resumen limpio con las 3 acciones principales.
+            def _tarjeta_accion(icono, texto, color, on_click):
+                return ft.Button(
+                    content=ft.Column(
+                        [
+                            ft.Icon(icono, color=BG_WHITE, size=26),
+                            ft.Text(texto, size=14, weight=ft.FontWeight.BOLD, color=BG_WHITE),
+                        ],
+                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                        spacing=6,
+                    ),
+                    bgcolor=color,
+                    height=92,
+                    width=200,
+                    on_click=on_click,
+                )
+
+            elementos.append(ft.Container(height=6))
+            elementos.append(
+                ft.Row(
+                    [
+                        _tarjeta_accion(ft.Icons.SEARCH, "Revisar Examen", CISCO_CYAN, lambda e: self.iniciar_revision()),
+                        _tarjeta_accion(ft.Icons.LEADERBOARD, "Ver Historial", CISCO_BLUE, lambda e: self.mostrar_historial()),
+                        _tarjeta_accion(ft.Icons.HOME, "Menú Principal", CISCO_NAVY, lambda e: self.mostrar_menu()),
+                    ],
+                    wrap=True,
+                    spacing=14,
+                    run_spacing=14,
+                    alignment=ft.MainAxisAlignment.CENTER,
+                )
+            )
+            elementos.append(ft.Container(height=20))
+
+            self.body.controls = elementos
+            self.page.update()
+            return
+
         elementos.append(ft.Text("Detalle de Preguntas", size=18, weight=ft.FontWeight.BOLD, color=self.C["heading"]))
 
         for i, q in enumerate(self.preguntas):
@@ -1236,7 +1304,7 @@ class ExamenApp:
             ft.Row(
                 [
                     ft.Button("Revisar Examen 🔍", bgcolor=CISCO_CYAN, color=BG_WHITE, on_click=lambda e: self.iniciar_revision()),
-                    ft.Button("Ver Tierlist 🏆", bgcolor=CISCO_BLUE, color=BG_WHITE, on_click=lambda e: self.mostrar_historial()),
+                    ft.Button("Ver Historial 📊", bgcolor=CISCO_BLUE, color=BG_WHITE, on_click=lambda e: self.mostrar_historial()),
                     ft.Button("Volver al Menú Principal", bgcolor=CISCO_NAVY, color=BG_WHITE, on_click=lambda e: self.mostrar_menu()),
                 ],
                 wrap=True,
@@ -1250,18 +1318,18 @@ class ExamenApp:
         self.page.update()
 
     # ------------------------------------------------------------------
-    # PANTALLA: TIERLIST (ranking por % de aciertos y usuario)
+    # PANTALLA: HISTORIAL (listado de intentos por prueba, sin ranking)
     # ------------------------------------------------------------------
     def mostrar_historial(self):
         self._preparar_tema(self.mostrar_historial)
-        self._header_row("Tierlist de Puntajes", on_volver=lambda e: self.mostrar_menu())
+        self._header_row("Historial de Intentos", on_volver=lambda e: self.mostrar_menu(), mostrar_historial_btn=False)
 
         historial = self._leer_historial()
 
         elementos = [
-            ft.Text("🏆 Tierlist de Puntajes", size=24, weight=ft.FontWeight.BOLD, color=self.C["heading"]),
+            ft.Text("📊 Historial de Intentos", size=24, weight=ft.FontWeight.BOLD, color=self.C["heading"]),
             ft.Text(
-                "Ranking por mejor % de aciertos de cada jugador, por módulo y modo.",
+                "Todos los intentos realizados, por módulo y modo (del más reciente al más antiguo).",
                 size=12, italic=True, color=self.C["text_gray"],
             ),
         ]
@@ -1269,13 +1337,13 @@ class ExamenApp:
         if not historial:
             elementos.append(
                 ft.Text(
-                    "Todavía no hay intentos registrados. ¡Realiza una práctica o examen para aparecer en el Tierlist!",
+                    "Todavía no hay intentos registrados. ¡Realiza una práctica o examen para que aparezca aquí!",
                     size=14, color=self.C["text_gray"],
                 )
             )
         else:
             etiquetas_modo = {"practica": "📝 Práctica", "examen": "⏱️ Examen"}
-            for modulo in sorted(historial.keys()):
+            for modulo in sorted(historial.keys(), key=self._clave_orden_modulo):
                 elementos.append(ft.Text(modulo, size=18, weight=ft.FontWeight.BOLD, color=self.C["heading"]))
 
                 for modo_key, etiqueta in etiquetas_modo.items():
@@ -1283,38 +1351,24 @@ class ExamenApp:
                     if not intentos:
                         continue
 
-                    # Mejor intento por usuario (así cada jugador aparece una sola vez, con su mejor marca)
-                    mejores_por_usuario = {}
-                    for intento in intentos:
-                        u = intento.get("usuario") or "Anónimo"
-                        actual = mejores_por_usuario.get(u)
-                        if actual is None or intento["porcentaje"] > actual["porcentaje"]:
-                            mejores_por_usuario[u] = intento
-
-                    ranking = sorted(mejores_por_usuario.items(), key=lambda kv: kv[1]["porcentaje"], reverse=True)
+                    # Del más reciente al más antiguo (se van agregando en orden cronológico)
+                    intentos_ordenados = list(reversed(intentos))
 
                     elementos.append(ft.Text(etiqueta, size=13, weight=ft.FontWeight.BOLD, color=self.C["text_gray"]))
 
                     filas = []
-                    for puesto, (usuario, intento) in enumerate(ranking, start=1):
+                    total_intentos = len(intentos_ordenados)
+                    for pos, intento in enumerate(intentos_ordenados):
+                        numero_intento = total_intentos - pos  # #1 = primer intento realizado
                         pct = intento["porcentaje"]
-                        tier, color_tier = self._tier_de_porcentaje(pct)
-                        medalla = {1: "🥇", 2: "🥈", 3: "🥉"}.get(puesto, f"#{puesto}")
 
                         filas.append(
                             ft.Container(
                                 content=ft.Row(
                                     [
-                                        ft.Text(str(medalla), size=14, width=34, color=self.C["text"]),
-                                        ft.Container(
-                                            content=ft.Text(tier, size=13, weight=ft.FontWeight.BOLD, color=BG_WHITE),
-                                            bgcolor=color_tier,
-                                            width=28, height=28, border_radius=14,
-                                            alignment=ft.Alignment.CENTER,
-                                        ),
-                                        ft.Text(usuario, size=13, weight=ft.FontWeight.BOLD, color=self.C["text"], expand=True),
-                                        ft.Text(f"{intento['puntaje']}/{intento['total']}", size=12, color=self.C["text_gray"]),
-                                        ft.Text(f"{pct:.1f}%", size=14, weight=ft.FontWeight.BOLD, color=color_tier),
+                                        ft.Text(f"#{numero_intento}", size=13, weight=ft.FontWeight.BOLD, width=40, color=self.C["text_gray"]),
+                                        ft.Text(f"{intento['puntaje']}/{intento['total']}", size=12, color=self.C["text_gray"], expand=True),
+                                        ft.Text(f"{pct:.1f}%", size=14, weight=ft.FontWeight.BOLD, color=CISCO_CYAN),
                                         ft.Text(f"⏱ {intento.get('tiempo', '-')}", size=11, color=self.C["text_gray"]),
                                         ft.Text(intento.get("fecha", ""), size=11, color=self.C["text_gray"]),
                                     ],
@@ -1346,10 +1400,4 @@ def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    # Si existe la variable de entorno PORT (como en Render), corre como app web
-    # escuchando en todas las interfaces. Si no, corre normal (escritorio/flet run).
-    puerto_env = os.environ.get("PORT")
-    if puerto_env:
-        ft.run(main, view=ft.AppView.WEB_BROWSER, host="0.0.0.0", port=int(puerto_env))
-    else:
-        ft.run(main)
+    ft.run(main)

@@ -1,0 +1,979 @@
+[
+  {
+    "pregunta": "1. ¿Cuáles de las siguientes son dos características de un cable de fibra óptica? Elija dos opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Es más caro que el cable UTP.",
+      "Combina las técnicas de anulación, protección y trenzado para proteger los datos.",
+      "No lo afectan la EMI ni la RFI.",
+      "Cada par de cables se encuentra envuelto en papel metálico.",
+      "Típicamente, contiene cuatro pares de hilos de fibra óptica."
+    ],
+    "respuestas_correctas": [
+      0,
+      2
+    ],
+    "explicacion": "La fibra óptica permite mayores distancias y ancho de banda que UTP. Es inmune a EMI/RFI, pero suele ser más cara y más difícil de instalar.",
+    "imagen": null
+  },
+  {
+    "pregunta": "2. Con el uso del cable de cobre de par trenzado sin blindaje en una red, ¿qué causa crosstalk dentro de los pares de cables?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "el uso de alambre trenzado para proteger los pares de cables adyacentes",
+      "el campo magnético alrededor de los pares adyacentes de alambre",
+      "la colisión causada por dos nodos que intentan usar los medios simultáneamente",
+      "el reflejo de la onda eléctrica de vuelta desde el extremo lejano del cable"
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "El crosstalk ocurre cuando el campo magnético generado por la señal de un cable interfiere con la señal de un cable adyacente.",
+    "imagen": null
+  },
+  {
+    "pregunta": "3. Consulte el gráfico. ¿Qué tipo de cableado se muestra?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Coaxial",
+      "Fibra",
+      "UTP",
+      "STP"
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "La imagen corresponde a cable coaxial, el cual utiliza un conductor central de cobre rodeado por aislamiento.",
+    "imagen": "pregunta_3.png"
+  },
+  {
+    "pregunta": "4. Además de la longitud del cable, ¿cuáles son los otros dos factores que podrían interferir en la comunicación por cables UTP? Elija dos opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Interferencia electromagnética",
+      "Tamaño de la red",
+      "Ancho de banda",
+      "Crosstalk",
+      "Técnica de modulación de señal"
+    ],
+    "respuestas_correctas": [
+      0,
+      3
+    ],
+    "explicacion": "Los cables UTP pueden verse afectados por EMI/RFI y por crosstalk entre pares de cables.",
+    "imagen": null
+  },
+  {
+    "pregunta": "5. Consulte el gráfico. ¿Qué tipo de cableado se muestra?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Fibra",
+      "Coaxial",
+      "UTP",
+      "STP"
+    ],
+    "respuestas_correctas": [
+      2
+    ],
+    "explicacion": "El cable UTP contiene cuatro pares de hilos codificados por colores, trenzados entre sí y cubiertos por un revestimiento plástico.",
+    "imagen": "pregunta_5.png"
+  },
+  {
+    "pregunta": "6. ¿Cuáles son los dos dispositivos que comúnmente afectan las redes inalámbricas? (Elija dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Lámparas incandescentes",
+      "Centros de entretenimiento",
+      "Microondas",
+      "Discos duros externos",
+      "Teléfonos inalámbricos",
+      "Reproductores de Blu-ray"
+    ],
+    "respuestas_correctas": [
+      2,
+      4
+    ],
+    "explicacion": "Los microondas y teléfonos inalámbricos pueden generar interferencia de radiofrecuencia en redes inalámbricas.",
+    "imagen": null
+  },
+  {
+    "pregunta": "7. ¿Cuáles dos instrucciones describen los servicios proporcionados por la capa de enlace de datos? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Define el esquema de direccionamiento de entrega de extremo a extremo.",
+      "Gestiona el acceso de tramas a los medios de red.",
+      "Mantiene la ruta entre los dispositivos de origen y destino durante la transmisión de datos.",
+      "Garantiza que los datos de la aplicación se transmitan de acuerdo con la priorización.",
+      "Proporciona una entrega fiable a través del establecimiento de enlaces y el control de flujo.",
+      "Empaqueta las PDU de capa 3 en un formato de trama compatible con la interfaz de red."
+    ],
+    "respuestas_correctas": [
+      1,
+      5
+    ],
+    "explicacion": "La capa de enlace de datos se encarga del acceso al medio y de encapsular la PDU de capa 3 dentro de una trama.",
+    "imagen": null
+  },
+  {
+    "pregunta": "8. ¿Cuál es la función del valor CRC que se encuentra en el campo FCS de una trama?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Verificar la dirección física que se encuentra en la trama.",
+      "Verificar la integridad de la trama recibida.",
+      "Calcular el encabezado checksum para el campo de datos de la trama.",
+      "Verificar la dirección lógica que se encuentra en la trama."
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "El valor CRC del campo FCS se compara con un CRC calculado para verificar si la trama llegó íntegra.",
+    "imagen": null
+  },
+  {
+    "pregunta": "9. ¿Qué contiene el tráiler de una trama de enlace de datos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "DATA",
+      "Detección de errores",
+      "Dirección lógica",
+      "Dirección física"
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "El tráiler contiene información de detección de errores, normalmente mediante el campo FCS.",
+    "imagen": null
+  },
+  {
+    "pregunta": "10. ¿Cuál de estas afirmaciones describe una característica de los campos de encabezado de la trama de la capa de enlace de datos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Los campos de encabezado de la trama de Ethernet contienen las direcciones de origen y destino de la capa 3.",
+      "Incluyen información sobre las aplicaciones de usuario.",
+      "Varían según los protocolos.",
+      "Todos incluyen los campos de control del flujo y de conexión lógica."
+    ],
+    "respuestas_correctas": [
+      2
+    ],
+    "explicacion": "La estructura de la trama y los campos del encabezado pueden variar según el protocolo de capa de enlace de datos.",
+    "imagen": null
+  },
+  {
+    "pregunta": "11. Un equipo de redes compara las topologías físicas WAN para la conexión de sitios remotos al edificio de una oficina central. ¿Qué topología proporciona alta disponibilidad y conecta algunos sitios remotos, pero no todos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Malla parcial",
+      "Hub-and-spoke",
+      "Malla",
+      "Punto a punto"
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "La malla parcial conecta varios sitios remotos, pero no exige que todos estén conectados con todos.",
+    "imagen": null
+  },
+  {
+    "pregunta": "12. ¿Qué dos campos o características examina Ethernet para determinar si una trama recibida es pasada a la capa de enlace de datos o descartada por la NIC? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Dirección MAC de origen",
+      "Secuencia de verificación de trama",
+      "tamaño mínimo de trama",
+      "CEF",
+      "MDIX automático"
+    ],
+    "respuestas_correctas": [
+      1,
+      2
+    ],
+    "explicacion": "Ethernet descarta una trama si es menor al tamaño mínimo o si el FCS calculado no coincide con el recibido.",
+    "imagen": null
+  },
+  {
+    "pregunta": "13. ¿Qué tipo de comunicación de medios no requiere arbitraje en la capa de enlace de datos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Acceso controlado",
+      "Semidúplex",
+      "Dúplex completo",
+      "determinante"
+    ],
+    "respuestas_correctas": [
+      2
+    ],
+    "explicacion": "En full-duplex ambos dispositivos pueden transmitir y recibir simultáneamente, por lo que no se requiere arbitraje del medio.",
+    "imagen": null
+  },
+  {
+    "pregunta": "14. ¿Cuál de las siguientes es una característica de la subcapa LLC?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Proporciona la delimitación de datos según los requisitos de señalización física del medio.",
+      "Proporciona el direccionamiento lógico requerido que identifica el dispositivo.",
+      "Coloca en la trama información que permite que varios protocolos de capa 3 utilicen la misma interfaz y los mismos medios de red.",
+      "Define los procesos de software que proporcionan servicios a la capa física."
+    ],
+    "respuestas_correctas": [
+      2
+    ],
+    "explicacion": "LLC identifica el protocolo de capa de red usado en la trama, permitiendo que protocolos como IPv4 e IPv6 usen la misma interfaz.",
+    "imagen": null
+  },
+  {
+    "pregunta": "15. ¿Qué tres partes básicas son comunes a todos los tipos de trama admitidos por la capa de enlace de datos? (Escoja tres opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "data",
+      "MTU size",
+      "type field",
+      "Valor CRC",
+      "header",
+      "trailer"
+    ],
+    "respuestas_correctas": [
+      0,
+      4,
+      5
+    ],
+    "explicacion": "Toda trama de capa de enlace de datos contiene tres partes básicas: encabezado, datos y tráiler.",
+    "imagen": null
+  },
+  {
+    "pregunta": "16. Consulte la ilustración. ¿Cuál es la dirección MAC de destino de la trama de Ethernet al salir del servidor web si el destino final es la PC1?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "00-60-2F-3A-07-BB",
+      "00-60-2F-3A-07-CC",
+      "00-60-2F-3A-07-AA",
+      "00-60-2F-3A-07-DD"
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "Al salir del servidor web hacia una red remota, la trama usa como MAC de destino la MAC del gateway predeterminado local.",
+    "imagen": "pregunta_16.png"
+  },
+  {
+    "pregunta": "17. Un switch de capa 2 se utiliza para conmutar las tramas entrantes desde un puerto 1000BASE-T a un puerto conectado a una red 100Base-T. ¿Qué método de almacenamiento en búfer de memoria sería el más adecuado para esta tarea?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Almacenamiento en búfer basado en puerto",
+      "Almacenamiento en búfer de caché de nivel 1",
+      "Almacenamiento en búfer de configuración fija",
+      "Almacenamiento en búfer de memoria compartida"
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "El búfer de memoria compartida es útil en switching asimétrico, donde se intercambian tramas entre puertos de distintas velocidades.",
+    "imagen": null
+  },
+  {
+    "pregunta": "18. ¿Cuáles de los siguientes son dos ejemplos de switching por método de corte? Elija dos opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Switching de almacenamiento y envío",
+      "Switching CRC",
+      "Switching QOS",
+      "Switching de envío rápido",
+      "Switching libre de fragmentos"
+    ],
+    "respuestas_correctas": [
+      3,
+      4
+    ],
+    "explicacion": "El envío rápido y el libre de fragmentos son variaciones del switching por método de corte.",
+    "imagen": null
+  },
+  {
+    "pregunta": "19. ¿En qué método de reenvío de tramas se recibe la trama completa y se realiza una comprobación de CRC para detectar errores antes de reenviarla?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Switching libre de fragmentos",
+      "Switching de almacenamiento y envío",
+      "Switching por método de corte",
+      "Switching de envío rápido"
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "El switching de almacenamiento y envío recibe la trama completa y verifica errores mediante CRC antes de reenviarla.",
+    "imagen": null
+  },
+  {
+    "pregunta": "20. ¿Cuál es el propósito del campo FCS en una trama?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Verificar la dirección lógica del nodo emisor.",
+      "Obtener la dirección MAC del nodo emisor.",
+      "Determinar si ocurrieron errores durante la transmisión y recepción.",
+      "Calcular el encabezado CRC para el campo de datos."
+    ],
+    "respuestas_correctas": [
+      2
+    ],
+    "explicacion": "El FCS permite detectar errores comparando el CRC recibido con el CRC calculado de la trama.",
+    "imagen": null
+  },
+  {
+    "pregunta": "21. Un administrador de red conecta dos switches modernos mediante un cable de conexión directa. Los switches son nuevos y nunca se configuraron. ¿Cuáles son las tres afirmaciones correctas sobre el resultado final de la conexión? (Elija tres).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "La conexión no será posible a menos que el administrador reemplace el cable por un cable de conexión cruzada.",
+      "La capacidad dúplex se debe configurar manualmente porque no puede negociarse.",
+      "El enlace entre los switches funcionará como full-duplex.",
+      "El enlace entre los switches funcionará a la máxima velocidad que admitan ambos switches.",
+      "Si ambos switches admiten velocidades diferentes, cada switch funcionará a su propia velocidad máxima.",
+      "La característica MDIX automática configurará las interfaces, por lo que no se necesita un cable de conexión cruzada."
+    ],
+    "respuestas_correctas": [
+      2,
+      3,
+      5
+    ],
+    "explicacion": "Los switches modernos negocian full-duplex, usan la máxima velocidad común y Auto-MDIX permite usar cable directo o cruzado.",
+    "imagen": null
+  },
+  {
+    "pregunta": "22. ¿Qué ventaja posee el método de switching de almacenamiento y reenvío en comparación con el método de switching por método de corte?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Reenvío de tramas más rápido",
+      "Reenvío de tramas utilizando la información de IPv4 de capa 3 y 4",
+      "Detección de colisión",
+      "Verificación de errores de la trama"
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "Al recibir la trama completa, el switch puede verificar errores mediante el FCS antes de reenviar.",
+    "imagen": null
+  },
+  {
+    "pregunta": "23. ¿Cuál de los siguientes métodos de switching utiliza el valor CRC de una trama?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Almacenamiento y envío",
+      "Envío rápido",
+      "Libre de fragmentos",
+      "Método de corte"
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "El método de almacenamiento y envío utiliza el CRC del tráiler para verificar si la trama fue alterada.",
+    "imagen": null
+  },
+  {
+    "pregunta": "24. ¿Cuáles de las siguientes son dos acciones que realiza un switch Cisco? Elija dos opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Uso de la tabla de direcciones MAC para enviar tramas por medio de la dirección MAC de destino",
+      "Reenvío de tramas con direcciones IP de destino desconocidas al gateway predeterminado",
+      "Armado de una tabla de routing basada en la primera dirección IP en el encabezado de la trama",
+      "Uso de la dirección MAC de origen de las tramas para armar y mantener una tabla de direcciones MAC",
+      "Revisión de la dirección MAC de destino para agregar nuevas entradas a la tabla de direcciones MAC"
+    ],
+    "respuestas_correctas": [
+      0,
+      3
+    ],
+    "explicacion": "El switch aprende direcciones MAC a partir de la MAC de origen y usa la tabla MAC para reenviar tramas según la MAC de destino.",
+    "imagen": null
+  },
+  {
+    "pregunta": "25. ¿Qué es la función Auto-MDIX?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Permite a un dispositivo configurar automáticamente una interfaz para utilizar un cable directo o cruzado.",
+      "Permite que un dispositivo configure automáticamente la velocidad de su interfaz.",
+      "Permite a un switch seleccionar dinámicamente el método de reenvío.",
+      "Permite a un dispositivo configurar automáticamente los ajustes dúplex de un segmento."
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "Auto-MDIX detecta automáticamente si debe usarse una conexión directa o cruzada.",
+    "imagen": null
+  },
+  {
+    "pregunta": "26. ¿Cuál es una dirección MAC multicast?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "FF-FF-FF-FF-FF-FF",
+      "5C-26-0A-4B-19-3E",
+      "00-26-0F-4B-00-3E",
+      "01-00-5E-00-00-03"
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "Las direcciones MAC multicast comienzan normalmente con 01-00-5E.",
+    "imagen": null
+  },
+  {
+    "pregunta": "27. Consulte la ilustración. ¿Cuál es el problema con la terminación que se muestra?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "No se debería haber quitado la malla de cobre tejida.",
+      "Se está utilizando el tipo de conector incorrecto.",
+      "La longitud de la parte sin trenzar de cada cable es demasiado larga.",
+      "Los cables son demasiado gruesos para el conector que se utiliza."
+    ],
+    "respuestas_correctas": [
+      2
+    ],
+    "explicacion": "Al terminar un cable con RJ-45, los pares deben mantenerse trenzados lo más cerca posible del conector.",
+    "imagen": "pregunta_27.png"
+  },
+  {
+    "pregunta": "28. Consulte la ilustración. La PC está conectada al puerto de consola del switch. Todas las demás conexiones se realizan con enlaces FastEthernet. ¿Qué tipos de cables UTP se pueden utilizar para conectar los dispositivos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "1: cruzado; 2: directo; 3: de consola (rollover)",
+      "1: de consola (rollover); 2: cruzado; 3: directo",
+      "1: cruzado; 2: de consola (rollover); 3: directo",
+      "1: de consola (rollover); 2: directo; 3: cruzado"
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "PC a consola usa cable rollover; switch a router usa directo; router a router usa cruzado.",
+    "imagen": "pregunta_28.png"
+  },
+  {
+    "pregunta": "29. Abra la actividad de PT. ¿Cuál puerto es usado cuando Switch0 envía tramas a un host con la dirección IPv4 10.1.1.5?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Fa0/1",
+      "Fa0/5",
+      "Fa0/9",
+      "Fa0/11"
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "Después de hacer ping al host 10.1.1.5, la tabla MAC del switch muestra el puerto asociado a la MAC de destino. Ese puerto es Fa0/11.",
+    "imagen": null
+  },
+  {
+    "pregunta": "30. ¿Qué significa el término «atenuación» en la comunicación de datos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "fuga de señales de un par de cables a otro",
+      "pérdida de intensidad de la señal a medida que aumenta la distancia",
+      "fortalecimiento de una señal mediante un dispositivo de red",
+      "tiempo para que una señal llegue a su destino"
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "La atenuación es el deterioro o pérdida de intensidad de una señal a medida que viaja por el medio.",
+    "imagen": null
+  },
+  {
+    "pregunta": "31. ¿Qué hace que la fibra sea preferible al cableado de cobre para la interconexión de edificios? (Escoja tres opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "mayor potencial de ancho de banda",
+      "fácil de terminar",
+      "mayores distancias por cable",
+      "conexiones duraderas",
+      "menor costo de instalación",
+      "susceptibilidad limitada a EMI/RFI"
+    ],
+    "respuestas_correctas": [
+      0,
+      2,
+      5
+    ],
+    "explicacion": "La fibra permite más ancho de banda, mayores distancias y es inmune o poco susceptible a EMI/RFI.",
+    "imagen": null
+  },
+  {
+    "pregunta": "32. ¿Qué término de capa física OSI describe la medida de la transferencia de bits a través de un medio durante un período de tiempo determinado?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Ancho de banda",
+      "Capacidad de transferencia útil",
+      "Latencia",
+      "rendimiento"
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "El rendimiento o throughput mide la cantidad real de bits transferidos por un medio durante un período determinado.",
+    "imagen": null
+  },
+  {
+    "pregunta": "33. ¿Qué dos funciones se realizan en la subcapa LLC de la capa de enlace de datos OSI? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Permite que IPv4 e IPv6 utilicen la misma interfaz de red y medios.",
+      "Proporciona sincronización entre nodos de origen y de destino.",
+      "Integra varias tecnologías físicas.",
+      "Implementa un trailer para detectar errores de transmisión.",
+      "Agrega información de control de capa 2 a los datos de protocolo de red."
+    ],
+    "respuestas_correctas": [
+      0,
+      4
+    ],
+    "explicacion": "LLC permite multiplexar protocolos de capa 3 como IPv4 e IPv6 y agrega información de control de capa 2.",
+    "imagen": null
+  },
+  {
+    "pregunta": "34. ¿Qué acción se producirá si un switch recibe una trama y tiene la dirección MAC de origen en la tabla MAC?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "El switch comparte la entrada de la tabla de direcciones MAC con cualquier switch conectado.",
+      "El switch envía la trama a un router conectado porque la dirección MAC de destino no es local.",
+      "El switch no reenvía la trama.",
+      "El switch actualiza el temporizador en esa entrada."
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "Si la MAC de origen ya existe en la tabla, el switch actualiza el temporizador de esa entrada.",
+    "imagen": null
+  },
+  {
+    "pregunta": "35. ¿Qué acción se producirá si un host recibe una trama con una dirección MAC de destino que no reconoce?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "El host descartará la trama.",
+      "El host reenvía la trama a todos los demás hosts.",
+      "El host reenvía la trama al router.",
+      "El host envía la trama al switch para actualizar la tabla de direcciones MAC."
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "Un host solo procesa tramas destinadas a su MAC, a broadcast o a multicast suscrito. Si no reconoce la MAC de destino, descarta la trama.",
+    "imagen": null
+  },
+  {
+    "pregunta": "36. Un administrador advierte que el rendimiento de la red está por debajo del ancho de banda esperado. ¿Cuáles son los tres factores que podrían afectar el rendimiento? Elija tres opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "La cantidad de tráfico que cruza la red en el momento",
+      "La sofisticación del método de encapsulamiento aplicado a los datos",
+      "El tipo de tráfico que cruza la red",
+      "La latencia generada por la cantidad de dispositivos de red que atraviesan los datos",
+      "El ancho de banda de la conexión WAN a Internet",
+      "La confiabilidad de la infraestructura Gigabit Ethernet de la red troncal"
+    ],
+    "respuestas_correctas": [
+      0,
+      2,
+      3
+    ],
+    "explicacion": "El rendimiento puede verse afectado por la cantidad de tráfico, el tipo de tráfico y la latencia generada por los dispositivos atravesados.",
+    "imagen": null
+  },
+  {
+    "pregunta": "37. ¿Cuál es la función principal de la capa física en la transmisión de datos en la red?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "crear las señales que representan los bits en cada trama en el medio",
+      "controlar el acceso a los datos a los medios",
+      "proporcionar direccionamiento físico a los dispositivos",
+      "Determinar las mejores rutas para los paquetes a través de la red"
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "La capa física codifica los bits en señales para transmitirlos por el medio.",
+    "imagen": null
+  },
+  {
+    "pregunta": "38. ¿Cuál de estas afirmaciones describe una topología en estrella extendida?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Todos los dispositivos intermediarios y terminales se conectan entre sí en cadena.",
+      "Las terminales se conectan entre sí por medio de un bus que se conecta a un dispositivo intermediario central.",
+      "Las terminales se conectan a un dispositivo intermediario central que se conecta a otros dispositivos intermediarios centrales.",
+      "Cada terminal se conecta a su vecino respectivo por medio de un dispositivo intermediario."
+    ],
+    "respuestas_correctas": [
+      2
+    ],
+    "explicacion": "Una estrella extendida conecta estrellas mediante dispositivos intermediarios centrales.",
+    "imagen": null
+  },
+  {
+    "pregunta": "39. ¿Cuáles son las tres formas en que se utiliza el control de acceso a medios en redes? (Escoja tres opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "El control de acceso a medios proporciona la colocación de tramas de datos en el medio.",
+      "El acceso basado en contención también se conoce como determinista.",
+      "Las redes con acceso controlado han reducido el rendimiento debido a colisiones de datos.",
+      "802.11 utiliza CSMA/CD.",
+      "Ethernet utiliza CSMA/CD.",
+      "Los protocolos en la capa de enlace de datos definen las reglas de acceso a los diferentes medios."
+    ],
+    "respuestas_correctas": [
+      0,
+      4,
+      5
+    ],
+    "explicacion": "El control de acceso al medio define cómo se colocan las tramas en el medio. Ethernet usa CSMA/CD y los protocolos de enlace definen estas reglas.",
+    "imagen": null
+  },
+  {
+    "pregunta": "40. Durante el proceso de encapsulamiento, ¿qué ocurre en la capa de enlace de datos para una PC conectada a una red Ethernet?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Se agrega la dirección lógica.",
+      "Se agrega la dirección física.",
+      "Se agrega una dirección IP.",
+      "Se agrega el número de puerto del proceso."
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "En la capa de enlace de datos Ethernet se agregan las direcciones físicas MAC de origen y destino.",
+    "imagen": null
+  },
+  {
+    "pregunta": "41. ¿Qué tres elementos están contenidos en un encabezado Ethernet y un trailer? (Escoja tres opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Dirección MAC de destino",
+      "información de comprobación de errores",
+      "Dirección IP de origen",
+      "Dirección IP de destino",
+      "Dirección MAC de origen"
+    ],
+    "respuestas_correctas": [
+      0,
+      1,
+      4
+    ],
+    "explicacion": "La trama Ethernet contiene MAC de destino, MAC de origen y verificación de errores mediante FCS/CRC.",
+    "imagen": null
+  },
+  {
+    "pregunta": "42. ¿Cuál de las siguientes es la característica MDIX automática en un switch?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "La capacidad de activar o desactivar una interfaz de switch, según corresponda, si se detecta una conexión activa",
+      "La configuración automática de una interfaz para el funcionamiento a 10/100/1000 Mb/s",
+      "La configuración automática del funcionamiento full-duplex a través de un único cable Ethernet óptico o de cobre",
+      "La configuración automática de una interfaz para una conexión por cable cruzado o directo de Ethernet"
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "Auto-MDIX permite usar automáticamente cable cruzado o directo según el dispositivo conectado.",
+    "imagen": null
+  },
+  {
+    "pregunta": "43. ¿Qué método de switching tiene el nivel de latencia más bajo?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Libre de fragmentos",
+      "Envío rápido",
+      "Almacenamiento y envío",
+      "Método de corte"
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "El envío rápido comienza a reenviar apenas lee la MAC de destino, por eso tiene la menor latencia.",
+    "imagen": null
+  },
+  {
+    "pregunta": "44. Cuando se usa el método de switching de almacenamiento y envío, ¿qué parte de la trama de Ethernet se usa para realizar una verificación de errores?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Dirección MAC de destino en el encabezado",
+      "CRC en el tráiler",
+      "Tipo de protocolo en el encabezado",
+      "Dirección MAC de origen en el encabezado"
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "El CRC ubicado en el tráiler permite verificar si la trama se modificó durante el tránsito.",
+    "imagen": null
+  },
+  {
+    "pregunta": "45. ¿Cuál de las siguientes es una ventaja de utilizar el switching por método de corte en lugar del switching por almacenamiento y envío?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Proporciona la flexibilidad para admitir cualquier combinación de velocidades de Ethernet.",
+      "Tiene un impacto positivo en el ancho de banda debido a que se descarta la mayoría de las tramas no válidas.",
+      "Toma decisiones de envío rápido basadas en la dirección MAC de origen de la trama.",
+      "Tiene una latencia más baja, adecuada para aplicaciones informáticas de alto rendimiento."
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "El método de corte tiene menor latencia porque empieza a reenviar antes de recibir la trama completa.",
+    "imagen": null
+  },
+  {
+    "pregunta": "46. Una la situación con el uso adecuado de los medios de red.",
+    "tipo": "emparejamiento",
+    "opciones": [
+      "Cableado backbone en una empresa",
+      "Acceso de invitado en una cafetería",
+      "Estructura de cableado horizontal",
+      "Salas de espera de un hospital",
+      "PC de escritorio en una oficina empresarial",
+      "Redes de largo alcance"
+    ],
+    "objetivos": [
+      "Cables de cobre (1)",
+      "Cables de cobre (2)",
+      "Fibra óptica (1)",
+      "Fibra óptica (2)",
+      "Acceso inalámbrico (1)",
+      "Acceso inalámbrico (2)"
+    ],
+    "respuestas_correctas": {
+      "Cables de cobre (1)": "Estructura de cableado horizontal",
+      "Cables de cobre (2)": "PC de escritorio en una oficina empresarial",
+      "Fibra óptica (1)": "Cableado backbone en una empresa",
+      "Fibra óptica (2)": "Redes de largo alcance",
+      "Acceso inalámbrico (1)": "Acceso de invitado en una cafetería",
+      "Acceso inalámbrico (2)": "Salas de espera de un hospital"
+    },
+    "explicacion": "El cobre se usa comúnmente en cableado horizontal y PCs de oficina; la fibra en backbone y enlaces de largo alcance; lo inalámbrico en cafeterías y salas de espera.",
+    "imagen": null
+  },
+  {
+    "pregunta": "47. ¿Qué tipo de regla de comunicación sería la mejor descripción de CSMA/CD?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Método de acceso",
+      "Encapsulamiento del mensaje",
+      "Control del flujo",
+      "Codificación del mensaje"
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "CSMA/CD es el método de acceso usado por Ethernet para controlar cómo los dispositivos acceden al medio.",
+    "imagen": null
+  },
+  {
+    "pregunta": "48. ¿Cuáles son las dos afirmaciones que describen las funciones o características de la subcapa de control de enlace lógico en los estándares de Ethernet? Elija dos opciones.",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "La capa de enlace de datos utiliza LLC para comunicarse con las capas superiores del paquete de protocolos.",
+      "El control de enlace lógico se implementa mediante software.",
+      "La subcapa LLC agrega un encabezado y un tráiler a los datos.",
+      "El control de enlace lógico está especificado en el estándar IEEE 802.3.",
+      "La subcapa LLC es responsable de la ubicación y la recuperación de tramas en los medios."
+    ],
+    "respuestas_correctas": [
+      0,
+      1
+    ],
+    "explicacion": "LLC se implementa por software y permite la comunicación entre la capa de enlace de datos y las capas superiores.",
+    "imagen": null
+  },
+  {
+    "pregunta": "49. ¿Qué término de capa física OSI describe el proceso por el cual una onda modifica otra onda?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "modulación",
+      "EIA/TIA",
+      "aire",
+      "IEEE"
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "La modulación consiste en modificar una onda portadora mediante otra señal para transmitir información.",
+    "imagen": null
+  },
+  {
+    "pregunta": "50. ¿Qué acción se producirá si un host recibe una trama con una dirección MAC de destino de FF:FF:FF:FF:FF:FF?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "El host envía la trama al switch para actualizar la tabla de direcciones MAC.",
+      "El host reenvía la trama al router.",
+      "El host reenvía la trama a todos los demás hosts.",
+      "El host procesará la trama."
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "FF:FF:FF:FF:FF:FF es broadcast de capa 2, por lo que el host acepta y procesa la trama.",
+    "imagen": null
+  },
+  {
+    "pregunta": "51. ¿Qué término de capa física OSI describe el medio físico que utiliza la propagación de la luz?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "rendimiento real",
+      "latencia",
+      "throughput",
+      "Cable de fibra óptica"
+    ],
+    "respuestas_correctas": [
+      3
+    ],
+    "explicacion": "La fibra óptica transmite datos mediante pulsos de luz.",
+    "imagen": null
+  },
+  {
+    "pregunta": "52. ¿Qué dos funciones se realizan en la subcapa LLC de la capa de enlace de datos OSI? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Implementa un trailer para detectar errores de transmisión.",
+      "Provides data link layer addressing.",
+      "Permite que IPv4 e IPv6 utilicen la misma interfaz de red y medios.",
+      "Agrega información de control de capa 2 a los datos de protocolo de red.",
+      "Proporciona sincronización entre nodos de origen y de destino."
+    ],
+    "respuestas_correctas": [
+      2,
+      3
+    ],
+    "explicacion": "LLC identifica el protocolo de capa 3 y agrega información de control de capa 2, permitiendo que IPv4 e IPv6 usen la misma interfaz y medios.",
+    "imagen": null
+  },
+  {
+    "pregunta": "53. ¿Qué dos funciones se realizan en la subcapa MAC de la capa de enlace de datos OSI? (Escoja dos opciones).",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Coloca en la trama información que identifica qué protocolo de capa de red se utiliza para la trama.",
+      "Proporciona sincronización entre nodos de origen y de destino.",
+      "Agrega información de control de capa 2 a los datos de protocolo de red.",
+      "Implementa un trailer para detectar errores de transmisión.",
+      "Permite que IPv4 e IPv6 utilicen la misma interfaz de red y medios."
+    ],
+    "respuestas_correctas": [
+      1,
+      3
+    ],
+    "explicacion": "La subcapa MAC participa en la sincronización y delimitación de tramas, y en la detección de errores mediante el tráiler/FCS.",
+    "imagen": null
+  },
+  {
+    "pregunta": "54. ¿Qué acción se producirá si un switch recibe una trama con la dirección MAC de destino FF:FF:FF:FF:FF:FF?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "El switch lo reenvía a todos los puertos excepto el puerto de entrada.",
+      "El switch envía la trama a un router conectado porque la dirección MAC de destino no es local.",
+      "El switch actualiza el temporizador en esa entrada.",
+      "El switch no reenvía la trama."
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "Una dirección MAC de broadcast se inunda por todos los puertos activos de la VLAN, excepto el puerto por donde ingresó.",
+    "imagen": null
+  },
+  {
+    "pregunta": "55. ¿Qué declaración es verdadera sobre el método de acceso CSMA/CD que se utiliza en Ethernet?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Todos los dispositivos de red deben escuchar antes de transmitir.",
+      "Cuando un dispositivo escucha una señal portadora y transmite, no se puede producir una colisión.",
+      "Los dispositivos involucrados en una colisión tienen prioridad para transmitir después del período de retroceso.",
+      "Una señal de interferencia hace que solo los dispositivos que causaron la colisión ejecuten un algoritmo de retroceso."
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "En CSMA/CD, los dispositivos escuchan el medio antes de transmitir para reducir la posibilidad de colisiones.",
+    "imagen": null
+  },
+  {
+    "pregunta": "56. ¿Qué término de capa física OSI describe la capacidad a la que un medio puede transportar datos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Ancho de banda",
+      "aire",
+      "EIA/TIA",
+      "IEEE"
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "El ancho de banda es la capacidad máxima teórica de transporte de datos de un medio.",
+    "imagen": null
+  },
+  {
+    "pregunta": "57. ¿Qué término de capa física OSI describe la medida de datos utilizables transferidos durante un período determinado?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "aire",
+      "Cable de fibra óptica",
+      "goodput",
+      "Cable de cobre"
+    ],
+    "respuestas_correctas": [
+      2
+    ],
+    "explicacion": "Goodput mide los datos útiles transferidos, sin contar sobrecarga, cabeceras o retransmisiones.",
+    "imagen": null
+  },
+  {
+    "pregunta": "58. ¿Qué término de capa física OSI describe la cantidad de tiempo, incluidos los retrasos, para que los datos viajen de un punto a otro?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "latencia",
+      "aire",
+      "Cable de fibra óptica",
+      "Cable de cobre"
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "La latencia es el tiempo total que tardan los datos en viajar de origen a destino, incluyendo retrasos.",
+    "imagen": null
+  },
+  {
+    "pregunta": "59. ¿Qué acción se producirá si un host recibe una trama con una dirección MAC de destino que no reconoce?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "El host responde al switch con su propia dirección IP.",
+      "El host descartará la trama.",
+      "El host reenvía la trama a todos los demás hosts.",
+      "El host devuelve la trama al switch."
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "Si la MAC de destino no corresponde al host, no es broadcast ni multicast suscrito, la NIC descarta la trama.",
+    "imagen": null
+  },
+  {
+    "pregunta": "60. ¿Qué término de capa física OSI describe el medio físico para las transmisiones de microondas?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Rendimiento real",
+      "Aire",
+      "Throughput",
+      "Latencia"
+    ],
+    "respuestas_correctas": [
+      1
+    ],
+    "explicacion": "Las transmisiones inalámbricas de microondas viajan por el aire como ondas electromagnéticas.",
+    "imagen": null
+  },
+  {
+    "pregunta": "61. ¿Qué término de capa física OSI describe el medio físico que utiliza pulsos eléctricos?",
+    "tipo": "opcion_multiple",
+    "opciones": [
+      "Cable de cobre",
+      "aire",
+      "Cable de fibra óptica",
+      "goodput"
+    ],
+    "respuestas_correctas": [
+      0
+    ],
+    "explicacion": "El cable de cobre transmite bits mediante impulsos eléctricos.",
+    "imagen": null
+  }
+]

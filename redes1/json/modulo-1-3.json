@@ -165,20 +165,26 @@
     "pregunta": "11. Una la descripción con el modo de IOS relacionado. (No se utilizan todas las opciones).",
     "tipo": "emparejamiento",
     "opciones": [
-      "La cantidad de comandos básicos es limitada / Es la primera entrada a la CLI de un dispositivo IOS",
-      "Se accede con el comando enable / El prompt termina con #",
-      "Los cambios afectan el funcionamiento global del dispositivo / Se accede con configure terminal",
-      "Se utiliza para habilitar la contraseña de las líneas vty"
-    ],
-    "objetivos": [
       "Modo EXEC del usuario",
       "Modo EXEC privilegiado",
       "Modo de configuración global"
     ],
+    "objetivos": [
+      "La cantidad de comandos de control básicos es limitada.",
+      "Es la primera entrada a la CLI de un dispositivo IOS.",
+      "Se accede mediante la introducción del comando enable.",
+      "Se identifica con una petición de entrada que termina con el carácter #.",
+      "Los cambios que se realizan afectan el funcionamiento global del dispositivo.",
+      "Se accede mediante la introducción del comando configure terminal.",
+      "Se utiliza para habilitar la contraseña de las líneas vty."
+    ],
     "respuestas_correctas": {
-      "Modo EXEC del usuario": "La cantidad de comandos básicos es limitada / Es la primera entrada a la CLI de un dispositivo IOS",
-      "Modo EXEC privilegiado": "Se accede con el comando enable / El prompt termina con #",
-      "Modo de configuración global": "Los cambios afectan el funcionamiento global del dispositivo / Se accede con configure terminal"
+      "La cantidad de comandos de control básicos es limitada.": "Modo EXEC del usuario",
+      "Es la primera entrada a la CLI de un dispositivo IOS.": "Modo EXEC del usuario",
+      "Se accede mediante la introducción del comando enable.": "Modo EXEC privilegiado",
+      "Se identifica con una petición de entrada que termina con el carácter #.": "Modo EXEC privilegiado",
+      "Los cambios que se realizan afectan el funcionamiento global del dispositivo.": "Modo de configuración global",
+      "Se accede mediante la introducción del comando configure terminal.": "Modo de configuración global"
     },
     "explicacion": "El modo EXEC del usuario es el primer modo y tiene comandos limitados. El EXEC privilegiado se accede con enable y usa #. El modo de configuración global se accede con configure terminal.",
     "imagen": null
@@ -187,14 +193,6 @@
     "pregunta": "12. Una las definiciones con los respectivos métodos abreviados y teclas de acceso rápido de la CLI. No se utilizan todas las opciones.",
     "tipo": "emparejamiento",
     "opciones": [
-      "Completa comandos y parámetros abreviados",
-      "Muestra la siguiente pantalla",
-      "Realiza un desplazamiento hacia atrás por los comandos introducidos anteriormente",
-      "Proporciona ayuda contextual",
-      "Anula el comando actual y permite regresar al modo EXEC privilegiado",
-      "Interrumpe un proceso de IOS como ping o traceroute"
-    ],
-    "objetivos": [
       "Tabulación",
       "Barra espaciadora",
       "Flecha arriba",
@@ -202,13 +200,21 @@
       "Ctrl-C",
       "Ctrl-Mayús-6"
     ],
+    "objetivos": [
+      "Completa comandos y parámetros abreviados",
+      "Muestra la siguiente pantalla",
+      "Realiza un desplazamiento hacia atrás por los comandos introducidos anteriormente",
+      "Proporciona ayuda contextual",
+      "Anula el comando actual y permite regresar al modo EXEC privilegiado",
+      "Interrumpe un proceso de IOS como ping o traceroute"
+    ],
     "respuestas_correctas": {
-      "Tabulación": "Completa comandos y parámetros abreviados",
-      "Barra espaciadora": "Muestra la siguiente pantalla",
-      "Flecha arriba": "Realiza un desplazamiento hacia atrás por los comandos introducidos anteriormente",
-      "?": "Proporciona ayuda contextual",
-      "Ctrl-C": "Anula el comando actual y permite regresar al modo EXEC privilegiado",
-      "Ctrl-Mayús-6": "Interrumpe un proceso de IOS como ping o traceroute"
+      "Completa comandos y parámetros abreviados": "Tabulación",
+      "Muestra la siguiente pantalla": "Barra espaciadora",
+      "Realiza un desplazamiento hacia atrás por los comandos introducidos anteriormente": "Flecha arriba",
+      "Proporciona ayuda contextual": "?",
+      "Anula el comando actual y permite regresar al modo EXEC privilegiado": "Ctrl-C",
+      "Interrumpe un proceso de IOS como ping o traceroute": "Ctrl-Mayús-6"
     },
     "explicacion": "Las teclas rápidas de IOS permiten autocompletar, navegar historial, mostrar ayuda, avanzar pantallas o interrumpir procesos.",
     "imagen": null
@@ -633,22 +639,22 @@
     "pregunta": "39. Para el conjunto de protocolos TCP/IP, ¿cuál es el orden correcto de los eventos cuando se está preparando un mensaje Telnet para ser enviado a través de la red?",
     "tipo": "emparejamiento",
     "opciones": [
-      "Los datos con formato Telnet se proporcionan a la siguiente capa",
-      "Se agrega el encabezado TCP",
-      "Se agrega el encabezado IP",
-      "Se agrega el encabezado Ethernet"
-    ],
-    "objetivos": [
       "Primero",
       "Segundo",
       "Tercero",
       "Cuarto"
     ],
+    "objetivos": [
+      "Los datos con formato Telnet se proporcionan a la siguiente capa",
+      "Se agrega el encabezado TCP",
+      "Se agrega el encabezado IP",
+      "Se agrega el encabezado Ethernet"
+    ],
     "respuestas_correctas": {
-      "Primero": "Los datos con formato Telnet se proporcionan a la siguiente capa",
-      "Segundo": "Se agrega el encabezado TCP",
-      "Tercero": "Se agrega el encabezado IP",
-      "Cuarto": "Se agrega el encabezado Ethernet"
+      "Los datos con formato Telnet se proporcionan a la siguiente capa": "Primero",
+      "Se agrega el encabezado TCP": "Segundo",
+      "Se agrega el encabezado IP": "Tercero",
+      "Se agrega el encabezado Ethernet": "Cuarto"
     },
     "explicacion": "La encapsulación baja por la pila: aplicación Telnet, transporte TCP, Internet/IP y acceso a la red/Ethernet.",
     "imagen": null

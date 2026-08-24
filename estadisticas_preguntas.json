@@ -1,0 +1,334 @@
+{
+  "Redes 1 · MODULO-1-3": {
+    "1. Un empleado de una sucursal está realizando una cotización para un cliente. Para ello, necesita acceder a la información confidencial sobre precios que se encuentra en los servidores internos de la oficina central. ¿A qué tipo de red debería acceder el empleado?": {
+      "correctas": 5,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "2. ¿Cuáles son los dos criterios que se utilizan para seleccionar un medio de red entre varios medios de red? (Elija dos opciones).": {
+      "correctas": 6,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "3. Un usuario está implementando una política de seguridad en una red de oficina pequeña. ¿Cuáles son las dos acciones que proporcionarían los requisitos mínimos de seguridad para esta red? Elija dos opciones.": {
+      "correctas": 4,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "4. ¿Cuál de estas interfaces permite la administración remota de un switch de capa 2?": {
+      "correctas": 10,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "5. ¿Qué función tiene la tecla de tabulación al introducir un comando en IOS?": {
+      "correctas": 7,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "6. Consulte la ilustración. Un administrador de redes está configurando el control de acceso al switch SW1. Si el administrador utiliza una conexión de consola para conectarse al switch, ¿cuál de las siguientes contraseñas se necesita para acceder al modo EXEC del usuario?": {
+      "correctas": 7,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "7. Un técnico configura un switch con los comandos: interface vlan 1, ip address 192.168.1.1 255.255.255.0 y no shutdown. ¿Qué configura el técnico?": {
+      "correctas": 8,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "8. ¿Cuáles de las siguientes son dos características de la RAM en un dispositivo Cisco? Elija dos opciones.": {
+      "correctas": 3,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "9. ¿Cuáles son los dos nombres de host que cumplen las pautas de convenciones de nomenclatura en dispositivos con Cisco IOS? Elija dos opciones.": {
+      "correctas": 8,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "10. ¿Cuáles de las siguientes son tres características de una SVI? Elija tres opciones.": {
+      "correctas": 6,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "11. Una la descripción con el modo de IOS relacionado. (No se utilizan todas las opciones).": {
+      "correctas": 11,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "12. Una las definiciones con los respectivos métodos abreviados y teclas de acceso rápido de la CLI. No se utilizan todas las opciones.": {
+      "correctas": 10,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "13. En el comando show running-config, ¿qué parte de la sintaxis está representada por running-config?": {
+      "correctas": 7,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "14. Después de realizar cambios de configuración en un switch Cisco, un administrador emite el comando copy running-config startup-config. ¿Qué sucede al emitir este comando?": {
+      "correctas": 9,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "15. ¿Qué comando evita que todas las contraseñas sin encriptar se muestren como texto no cifrado en un archivo de configuración?": {
+      "correctas": 6,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "16. Un administrador de red ingresa el comando service password-encryption en el modo de configuración de un router. ¿Qué logra este comando?": {
+      "correctas": 7,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "17. ¿Cuál de estos métodos pueden utilizar dos PC para asegurar que no se descarten los paquetes debido a que se envían demasiados datos demasiado rápido?": {
+      "correctas": 6,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "18. ¿Cuál de estas afirmaciones describe de forma precisa un proceso de encapsulación TCP/IP cuando una PC envía datos a la red?": {
+      "correctas": 6,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "19. ¿Qué tres protocolos de la capa de aplicación forman parte del paquete del protocolo TCP/IP? Elija tres opciones.": {
+      "correctas": 4,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "20. ¿Qué nombre se le asigna a la PDU de la capa de transporte?": {
+      "correctas": 5,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "21. Cuando el direccionamiento IPv4 se configura manualmente en un servidor web, ¿cuál es la propiedad de la configuración IPv4 que identifica las porciones de red y de host de una dirección IPv4?": {
+      "correctas": 5,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "22. ¿Qué proceso implica colocar una PDU dentro de otra PDU?": {
+      "correctas": 5,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "23. ¿Qué formato de PDU se utiliza cuando la NIC de un host recibe bits del medio de red?": {
+      "correctas": 5,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "24. Observe la ilustración. El ServidorB está intentando ponerse en contacto con HostA. ¿Qué dos instrucciones identifican correctamente el direccionamiento que ServidorB generará en el proceso? (Escoja dos opciones).": {
+      "correctas": 6,
+      "incorrectas": 3,
+      "omitidas": 0
+    },
+    "25. Un cliente Web está recibiendo una respuesta para una página Web de un servidor Web. Desde la perspectiva del cliente, ¿cuál es el orden correcto de la pila de protocolos que se usa para decodificar la transmisión recibida?": {
+      "correctas": 9,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "26. ¿Cuáles son las dos capas del modelo OSI que tienen la misma funcionalidad que las dos capas del modelo TCP/IP? (Escoge dos).": {
+      "correctas": 6,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "27. ¿En cuál de estas capas del modelo OSI se agregaría una dirección lógica durante el encapsulamiento?": {
+      "correctas": 6,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "28. ¿Cuál de estos dispositivos cumple la función de determinar la ruta que los mensajes deben tomar a través de las internetworks?": {
+      "correctas": 8,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "29. Abra la actividad de PT. Complete las instrucciones de la actividad y luego responda: ¿Cuál es la dirección IP de la interfaz virtual del switch (SVI), en el Switch0?": {
+      "correctas": 0,
+      "incorrectas": 0,
+      "omitidas": 5
+    },
+    "30. ¿Por qué un switch de capa 2 necesitaría una dirección IP?": {
+      "correctas": 5,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "31. Consulte la ilustración. Un administrador intenta configurar el switch pero recibe el mensaje de error mostrado. ¿Cuál es el problema?": {
+      "correctas": 5,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "32. ¿Qué término describe un modelo informático en el que el software de servidor se ejecuta en equipos dedicados?": {
+      "correctas": 8,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "33. ¿En qué capa OSI se agrega un número de puerto de destino a una PDU durante el proceso de encapsulación?": {
+      "correctas": 4,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "34. Una los requisitos de una red confiable con la arquitectura de red que da soporte. No se utilizan todas las opciones.": {
+      "correctas": 11,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "35. ¿Qué tipo de tráfico de red requiere QoS?": {
+      "correctas": 3,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "36. Una la descripción con la organización. No se utilizan todas las opciones.": {
+      "correctas": 9,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "37. ¿Cuál de las siguientes es una ventaja de que los dispositivos de red utilicen protocolos de estándar abierto?": {
+      "correctas": 6,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "38. Un técnico configura accidentalmente una red inalámbrica para que pacientes puedan ver registros médicos de otros pacientes. ¿Cuál característica de la red se ha violado?": {
+      "correctas": 6,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "39. Para el conjunto de protocolos TCP/IP, ¿cuál es el orden correcto de los eventos cuando se está preparando un mensaje Telnet para ser enviado a través de la red?": {
+      "correctas": 10,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "40. ¿Qué método permite que un equipo reaccione en consecuencia cuando solicita datos de un servidor y el servidor tarda demasiado en responder?": {
+      "correctas": 9,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "41. Al solucionar un problema, un técnico realizó varios cambios al archivo de configuración actual del router. Los cambios no solucionaron el problema y no se guardaron. ¿Qué puede hacer para descartar los cambios y trabajar con el archivo en la NVRAM?": {
+      "correctas": 8,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "42. Un administrador utiliza la combinación Ctrl-Mayús-6 en un switch después de emitir el comando ping. ¿Cuál es el objetivo?": {
+      "correctas": 10,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "43. ¿Cuál comando o combinación de teclas permite a un usuario regresar al nivel anterior en la jerarquía de comandos?": {
+      "correctas": 2,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "44. ¿Qué comando se utiliza para verificar el estado de las interfaces del switch, incluido el estado de las interfaces y una dirección IP configurada?": {
+      "correctas": 7,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "45. Se pueden usar contraseñas para restringir el acceso a todo o parte del Cisco IOS. Seleccione los modos e interfaces que se pueden proteger con contraseñas. (Elija tres).": {
+      "correctas": 5,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "46. ¿En qué se diferencian SSH y Telnet?": {
+      "correctas": 5,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "47. ¿Qué término describe una política que permite a los dispositivos de red administrar el flujo de datos para dar prioridad a la voz y el video?": {
+      "correctas": 8,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "48. ¿En qué capa OSI se agrega una dirección IP de destino a una PDU durante el proceso de encapsulación?": {
+      "correctas": 6,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "49. ¿Cuál de las siguientes afirmaciones describe el uso de tecnología de redes por línea eléctrica?": {
+      "correctas": 6,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "50. Un administrador está configurando la contraseña del puerto de consola de un switch. ¿En qué orden debe atravesar los modos de operación de IOS para llegar al modo donde introducirá los comandos de configuración?": {
+      "correctas": 10,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "51. ¿Cuál es la capa responsable de enrutar los mensajes en una interconexión de redes en el modelo TCP/IP?": {
+      "correctas": 7,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "52. ¿Cuál de las siguientes es una característica de los mensajes multidifusión?": {
+      "correctas": 7,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "53. ¿Qué término describe una colección privada de LAN y WAN que pertenece a una organización?": {
+      "correctas": 7,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "54. ¿En qué capa OSI se agrega una dirección IP de origen a una PDU durante el proceso de encapsulación?": {
+      "correctas": 7,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "55. ¿En qué capa OSI se agrega una dirección MAC de origen a una PDU durante el proceso de encapsulación?": {
+      "correctas": 7,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "56. ¿Qué término describe una red donde un equipo puede ser tanto cliente como servidor?": {
+      "correctas": 4,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "57. ¿Qué término describe un tipo de red utilizada por personas que trabajan desde casa o desde una pequeña oficina remota?": {
+      "correctas": 5,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "58. Una cada característica con el tipo de conectividad a Internet correspondiente. No se utilizan todas las opciones.": {
+      "correctas": 9,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "59. ¿Qué término describe una red propiedad de una organización que proporciona acceso seguro a personas que trabajan para una organización diferente?": {
+      "correctas": 6,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "60. ¿Qué término describe el almacenamiento de archivos personales en servidores a través de Internet para proporcionar acceso en cualquier lugar, en cualquier momento y en cualquier dispositivo?": {
+      "correctas": 6,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "61. ¿En qué capa OSI se agrega un número de puerto de origen a una PDU durante el proceso de encapsulación?": {
+      "correctas": 6,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "62. ¿Cuál de estas afirmaciones sobre los protocolos de red es correcta?": {
+      "correctas": 7,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "63. ¿En qué capa OSI se agregan datos a una PDU durante el proceso de encapsulación?": {
+      "correctas": 6,
+      "incorrectas": 2,
+      "omitidas": 0
+    },
+    "64. ¿Qué dirección lógica se utiliza para la entrega de datos a una red remota?": {
+      "correctas": 7,
+      "incorrectas": 1,
+      "omitidas": 0
+    },
+    "65. ¿Qué término describe la capacidad de usar dispositivos personales en una red empresarial o de campus?": {
+      "correctas": 8,
+      "incorrectas": 0,
+      "omitidas": 0
+    },
+    "66. ¿Qué término describe una tecnología que permite que los dispositivos se conecten a LAN usando una toma de corriente?": {
+      "correctas": 8,
+      "incorrectas": 0,
+      "omitidas": 0
+    }
+  }
+}

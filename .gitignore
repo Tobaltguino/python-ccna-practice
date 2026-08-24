@@ -1,5 +1,6 @@
 # Historial de puntajes (datos locales de cada usuario, no debe subirse)
 historial_puntajes.json
+estadisticas_preguntas.json
 
 # Cache y archivos temporales de Python
 __pycache__/

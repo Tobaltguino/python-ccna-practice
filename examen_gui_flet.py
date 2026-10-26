@@ -118,6 +118,7 @@ class ExamenApp:
         self.modo_evaluado = None  # guarda si el intento finalizado fue "practica" o "examen"
         self.modulo_actual = None  # nombre del módulo cargado (para el historial)
         self.carpeta_actual = None  # nombre de la carpeta de redes elegida (p. ej. "redes1")
+        self.archivo_actual = None  # nombre del JSON cargado sin extensión (p. ej. "modulos_1_4")
         self._historial_colapsado = set()  # nombres de módulo cuya sección está oculta en el historial
         self._puntos_debiles_colapsado = set()  # nombres de módulo cuya sección está oculta en puntos débiles
         self._resultado_guardado = False
@@ -299,6 +300,11 @@ class ExamenApp:
         img_dir = self._img_dir()
         if not self.carpeta_actual or not os.path.exists(img_dir):
             return None
+        # Primero en la subcarpeta del módulo actual: distintos módulos repiten nombres (p. ej. pregunta_8.png)
+        if self.archivo_actual:
+            ruta = os.path.join(img_dir, self.archivo_actual, nombre_imagen)
+            if os.path.isfile(ruta):
+                return ruta
         for root_dir, _, files in os.walk(img_dir):
             if nombre_imagen in files:
                 return os.path.join(root_dir, nombre_imagen)
@@ -664,7 +670,8 @@ class ExamenApp:
     def iniciar_examen(self, ruta_archivo, modo):
         self.modo = modo
         nombre_curso = re.sub(r"(\D*)(\d+)", r"\1 \2", self.carpeta_actual or "").strip().title()
-        self.modulo_actual = f"{nombre_curso} · {os.path.basename(ruta_archivo).replace('.json', '').upper()}"
+        self.archivo_actual = os.path.splitext(os.path.basename(ruta_archivo))[0]
+        self.modulo_actual = f"{nombre_curso} · {self.archivo_actual.upper()}"
         todas_las_preguntas = self.cargar_preguntas(ruta_archivo)
         if not todas_las_preguntas:
             return

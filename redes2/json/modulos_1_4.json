@@ -72,7 +72,7 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "El switching por método de corte reduce la latencia mediante el reenvío de tramas ni bien se leen la dirección MAC de destino y el puerto de switch correspondiente de la tabla de direcciones MAC. Este método de switching no realiza ninguna verificación de errores ni usa los búferes para admitir diferentes velocidades de Ethernet. La verificación de errores y los búferes son características de switching de almacenamiento y envío.",
+    "explicacion": "El switching por método de corte reduce la latencia mediante el reenvío de tramas apenas se leen la dirección MAC de destino y el puerto de switch correspondiente de la tabla de direcciones MAC. Este método de switching no realiza ninguna verificación de errores ni usa los búferes para admitir diferentes velocidades de Ethernet. La verificación de errores y los búferes son características del switching de almacenamiento y envío.",
     "imagen": null
   },
   {
@@ -87,7 +87,7 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "El reenvío de tramas por método de corte solo lee hasta los primeros 22 bytes de una trama, lo que excluye la secuencia de verificación de tramas, por lo que pueden reenviarse las tramas no válidas. Además de las tramas de difusión, las tramas con una dirección de destino MAC que no están en la CAM también se envían a todos los puertos activos. Las tramas de unidifusión no siempre se reenvían. Las tramas recibidas con una dirección MAC de destino asociada al puerto del switch en que se recibe no se reenvían porque el destino existe en el segmento de red conectado al puerto.",
+    "explicacion": "El reenvío de tramas por método de corte solo lee hasta los primeros 22 bytes de una trama, lo que excluye la secuencia de verificación de tramas, por lo que pueden reenviarse las tramas no válidas. Además de las tramas de difusión, las tramas con una dirección de destino MAC que no está en la CAM también se envían a todos los puertos activos. Las tramas de unidifusión no siempre se reenvían. Las tramas recibidas con una dirección MAC de destino asociada al puerto del switch en que se recibe no se reenvían porque el destino existe en el segmento de red conectado al puerto.",
     "imagen": null
   },
   {
@@ -102,7 +102,7 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "Un switch «descubre» o construye la tabla de direcciones MAC en función de la dirección MAC de origen cuando una trama ingresa al switch. Un switch reenvía la trama siguiente según la dirección MAC de destino.",
+    "explicacion": "Un switch «descubre» o construye la tabla de direcciones MAC en función de la dirección MAC de origen cuando una trama ingresa al switch. Un switch reenvía la trama según la dirección MAC de destino.",
     "imagen": null
   },
   {
@@ -152,7 +152,7 @@
       0,
       1
     ],
-    "explicacion": "La VLAN nativa se asigna a los enlaces troncales 802.1Q para proporcionar un identificador común en ambos extremos del enlace troncal. Cualquier sea el número nativo de VLAN que se asigne a un puerto, o si el puerto es la VLAN predeterminada 1, el puerto no etiqueta ninguna trama en esa VLAN ya que el tráfico se desplaza a través del enlace troncal. En el otro extremo del enlace, el dispositivo receptor que no ve ninguna etiqueta conoce el número de VLAN específica porque el dispositivo receptor debe tener el número exacto de la VLAN nativa. La VLAN nativa debe ser una VLAN sin utilizar que sea distinta de la VLAN1, que es la VLAN predeterminada, además de otras VLAN. Las VLAN de datos, también conocidas como VLAN de usuarios, se configuran para transportar el tráfico generado por los usuarios, excepto el tráfico de alta prioridad, como el VoIP. Las VLAN de voz se configuran para el tráfico VoIP. La VLAN de administración se configura para proporcionar acceso a las capacidades de administración de un switch.",
+    "explicacion": "La VLAN nativa se asigna a los enlaces troncales 802.1Q para proporcionar un identificador común en ambos extremos del enlace troncal. Cualquiera sea el número de VLAN nativa que se asigne a un puerto, o si el puerto usa la VLAN predeterminada 1, el puerto no etiqueta ninguna trama de esa VLAN cuando el tráfico se desplaza a través del enlace troncal. En el otro extremo del enlace, el dispositivo receptor que no ve ninguna etiqueta conoce el número de VLAN específica porque debe tener configurado exactamente el mismo número de VLAN nativa. La VLAN nativa debe ser una VLAN sin utilizar, distinta de la VLAN 1 (la VLAN predeterminada) y de las demás VLAN. Las VLAN de datos, también conocidas como VLAN de usuarios, se configuran para transportar el tráfico generado por los usuarios, excepto el tráfico de alta prioridad, como VoIP. Las VLAN de voz se configuran para el tráfico VoIP. La VLAN de administración se configura para proporcionar acceso a las capacidades de administración de un switch.",
     "imagen": null
   },
   {
@@ -167,7 +167,7 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "Las VLAN crean dominios de difusión lógicos que pueden abarcar varios segmentos de VLAN. Las tramas de Ethernet que se envían mediante un dispositivo en una VLAN específica solo pueden ser vistas por otros dispositivos en la misma VLAN.",
+    "explicacion": "Las VLAN crean dominios de difusión lógicos que pueden abarcar varios segmentos de red. Las tramas de Ethernet que envía un dispositivo en una VLAN específica solo pueden ser vistas por otros dispositivos en la misma VLAN.",
     "imagen": null
   },
   {
@@ -182,8 +182,8 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "Si se habilita el DTP en ambos switches, sencillamente se permite la negociación del enlace troncal. La línea de “negociación de enlace troncal” en el gráfico muestra que el DTP ya está habilitado. El gráfico también muestra cómo la VLAN nativa es 1, y la VLAN predeterminada para cualquier switch Cisco es 1. El gráfico muestra que los equipos deben estar en la VLAN 20.",
-    "imagen": "pregunta_12.png"
+    "explicacion": "Si se habilita el DTP en ambos switches, sencillamente se permite la negociación del enlace troncal. La línea de “negociación de enlace troncal” en el gráfico muestra que el DTP ya está habilitado. El gráfico también muestra que la VLAN nativa es 1, y la VLAN predeterminada para cualquier switch Cisco es 1. El gráfico muestra que los equipos deben estar en la VLAN 20, por lo que se debe permitir la VLAN 20 en el enlace troncal.",
+    "imagen": "pregunta_12.jpg"
   },
   {
     "pregunta": "13. ¿Qué ocurre con los puertos de switch después de eliminar la VLAN a la que están asignados?",
@@ -198,7 +198,7 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "Los puertos asignados a una VLAN que ha sido eliminada se vuelven inactivos y dejan de comunicarse con los dispositivos conectados. Para restaurar su funcionamiento, estos puertos afectados se deben volver a configurar manualmente para formar parte de una VLAN activa.",
+    "explicacion": "Los puertos asignados a una VLAN que ha sido eliminada se vuelven inactivos y dejan de comunicarse con los dispositivos conectados. Para restaurar su funcionamiento, estos puertos se deben volver a configurar manualmente para formar parte de una VLAN activa.",
     "imagen": null
   },
   {
@@ -213,7 +213,7 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "Cuando se introduce el comando no switchport access vlan , el puerto regresa a la VLAN 1 predeterminada. El puerto permanece activo como miembro de la VLAN 1, y la VLAN 30 sigue intacta, incluso si no se asocia a ningún otro puerto.",
+    "explicacion": "Cuando se introduce el comando no switchport access vlan, el puerto regresa a la VLAN 1 predeterminada. El puerto permanece activo como miembro de la VLAN 1, y la VLAN 30 sigue intacta, incluso si no se asocia a ningún otro puerto.",
     "imagen": null
   },
   {
@@ -228,7 +228,7 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "El comando show interfaces switchport muestra la siguiente información para un puerto determinado: Modo administrativo del puerto de switch Modo de funcionamiento Encapsulación de enlaces troncales administrativos Encapsulación de enlaces troncales operativos Negociación de enlaces troncales VLAN en modo de acceso VLAN en modo nativo de enlaces troncales Etiquetado de VLAN nativa administrativa VLAN de voz",
+    "explicacion": "El comando show interfaces switchport muestra la siguiente información para un puerto determinado: modo administrativo del puerto de switch, modo de funcionamiento, encapsulación de enlaces troncales administrativa, encapsulación de enlaces troncales operativa, negociación de enlaces troncales, VLAN en modo de acceso, VLAN nativa en modo troncal, etiquetado de VLAN nativa administrativa y VLAN de voz.",
     "imagen": null
   },
   {
@@ -243,8 +243,8 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "La red VLAN de voz debe estar configurada con el comando switchport voice vlan 150 . Una interfaz de switch puede configurarse para admitir una red VLAN de datos y una red VLAN de voz. El comando mls qos trust cos se vincula a la interfaz. El tráfico de voz debe ser confiable para que los campos dentro del paquete de voz puedan utilizarse para clasificarlo para QoS.",
-    "imagen": "pregunta_16.png"
+    "explicacion": "La VLAN de voz debe configurarse con el comando switchport voice vlan 150. Una interfaz de switch puede configurarse para admitir una VLAN de datos y una VLAN de voz. El comando mls qos trust cos se aplica a la interfaz. El tráfico de voz debe ser confiable para que los campos dentro del paquete de voz puedan utilizarse para clasificarlo para QoS.",
+    "imagen": "pregunta_16.jpg"
   },
   {
     "pregunta": "17. Consulte la exhibición. Un administrador de red ha configurado el router CiscoVille con los comandos anteriores, para proporcionar routing entre redes VLAN. ¿Qué comando se requiere en un switch que está conectado a la interfaz Gi0/0 del router CiscoVille para permitir el routing entre VLAN?",
@@ -258,8 +258,8 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "Cuando se configuran para el routing entre VLAN, los routers no admiten el protocolo de enlace troncal dinámico utilizado por los switches. Para que las configuraciones de router-on-a-stick funcionen, un switch conectado debe utilizar el comando switchport mode trunk .",
-    "imagen": "pregunta_17.png"
+    "explicacion": "Cuando se configuran para el routing entre VLAN, los routers no admiten el protocolo de enlace troncal dinámico (DTP) utilizado por los switches. Para que las configuraciones de router-on-a-stick funcionen, el switch conectado debe utilizar el comando switchport mode trunk.",
+    "imagen": "pregunta_17.jpg"
   },
   {
     "pregunta": "18. Cuando se enruta un gran número de VLAN, ¿cuáles de las siguientes son dos desventajas de usar el método de routing entre VLAN de router-on-a-stick en lugar del método de routing entre VLAN de switch multicapa? (Elija dos).",
@@ -275,7 +275,7 @@
       2,
       4
     ],
-    "explicacion": "Con el método de routing entre VLAN de router-on-a-stick, se requiere un router dedicado. Solo necesita una interfaz física en el router para enrutar el tráfico entre varias VLAN, usando subinterfaces en una interfaz física. Por otra parte, dado que el tráfico de todas las VLAN tendrá que atravesar las mismas interfaces físicas, el rendimiento será afectado. Además, un switch multicapa puede utilizar varias SVI para realizar el routing entre VLAN.",
+    "explicacion": "Con el método de routing entre VLAN de router-on-a-stick, se requiere un router dedicado. Solo se necesita una interfaz física en el router para enrutar el tráfico entre varias VLAN, usando subinterfaces en esa interfaz física. Por otra parte, dado que el tráfico de todas las VLAN tiene que atravesar la misma interfaz física, el rendimiento se ve afectado. Además, un switch multicapa puede utilizar varias SVI para realizar el routing entre VLAN.",
     "imagen": null
   },
   {
@@ -290,8 +290,8 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "Para que una configuración de router-on-a-stick funcione, se debe conectar un switch al router por medio de un puerto de enlace troncal, para transportar las VLAN que se deben incluir en el routing. Se puede usar una SVI en un switch de multicapa, donde el switch está ejecutando el routing entre redes VLAN.",
-    "imagen": "pregunta_19.png"
+    "explicacion": "Para que una configuración de router-on-a-stick funcione, se debe conectar un switch al router por medio de un puerto de enlace troncal, para transportar las VLAN que se deben incluir en el routing. Se puede usar una SVI en un switch multicapa, cuando es el switch el que ejecuta el routing entre VLAN.",
+    "imagen": "pregunta_19.jpg"
   },
   {
     "pregunta": "20. ¿Cuál es una de las características de un puerto enrutado en un switch de capa 3?",
@@ -305,7 +305,7 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "Por lo general, se utiliza un puerto enrutado en un switch de capa 3 para realizar la conexión entre la distribución y los switches de capa principal, o entre un switch de capa 3 y un router. Este puerto no tiene VLAN o comandos de enlaces troncales asignados. En su lugar, el puerto está programado con una dirección IP. Esto se utiliza comúnmente cuando se configura el routing estático en el switch o cuando se ejecuta un protocolo de routing entre el switch de capa 3, y el router u otro switch de capa 3.",
+    "explicacion": "Por lo general, se utiliza un puerto enrutado en un switch de capa 3 para realizar la conexión entre los switches de distribución y de núcleo, o entre un switch de capa 3 y un router. Este puerto no tiene asignados comandos de VLAN ni de enlace troncal. En su lugar, el puerto se configura con una dirección IP. Esto se utiliza comúnmente cuando se configura routing estático en el switch o cuando se ejecuta un protocolo de routing entre el switch de capa 3 y el router u otro switch de capa 3.",
     "imagen": null
   },
   {
@@ -322,10 +322,10 @@
       3
     ],
     "explicacion": "Sobre la base de las direcciones IP y las máscaras dadas, la computadora, la impresora, el teléfono IP y la VLAN de administración del switch se encuentran en VLAN diferentes. Esta situación requiere cuatro subinterfaces en el router.",
-    "imagen": "pregunta_21.png"
+    "imagen": "pregunta_21.jpg"
   },
   {
-    "pregunta": "22. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW (config-if) # mdix auto ?",
+    "pregunta": "22. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW(config-if)# mdix auto?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Ajusta automáticamente el puerto para permitir que las conexiones del dispositivo utilicen un cable directo o un cable cruzado.",
@@ -337,38 +337,38 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "El comando mdix auto (Media Dependent Interface Crossover) habilita la característica de configuración automática de cables en la interfaz del switch. Cuando está activo, el switch detecta de forma automática el tipo de cable requerido para la conexión (ya sea un cable directo o cruzado) y configura la interfaz internamente para establecer el enlace correctamente, eliminando la necesidad de cambiar físicamente el cable. Para que esta función funcione, la velocidad y el dúplex de la interfaz deben estar configurados en modo automático ( speed auto y duplex auto ).",
+    "explicacion": "El comando mdix auto (Media Dependent Interface Crossover) habilita la detección automática del tipo de cable en la interfaz del switch. Cuando está activo, el switch detecta de forma automática el tipo de cable conectado (directo o cruzado) y configura la interfaz internamente para establecer el enlace correctamente, eliminando la necesidad de cambiar físicamente el cable. Para que esta función opere, la velocidad y el dúplex de la interfaz deben estar en modo automático (speed auto y duplex auto).",
     "imagen": null
   },
   {
     "pregunta": "23. Consulte la exhibición. Un administrador de red configuró el R1 tal como se muestra. Cuando el administrador revisa el estado de la interfaz serial, esta se muestra como administratively down (administrativamente inactiva). ¿Qué comando adicional se debe introducir en la interfaz serial del R1 para activarla?",
     "tipo": "opcion_multiple",
     "opciones": [
-      "Final",
+      "end",
       "clockrate 128000",
-      "no shutdown:",
-      "IPv6 enable"
+      "no shutdown",
+      "ipv6 enable"
     ],
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "De forma predeterminada, todas las interfaces del router se apagan. Para activar las interfaces, un administrador debe ejecutar el comando no shutdown en el modo de interfaz.",
-    "imagen": "pregunta_23.png"
+    "explicacion": "De forma predeterminada, todas las interfaces del router están apagadas. Para activarlas, un administrador debe ejecutar el comando no shutdown en el modo de configuración de interfaz.",
+    "imagen": "pregunta_23.jpg"
   },
   {
     "pregunta": "24. Consulte la ilustración. El administrador de red quiere configurar el Switch1 para permitir las conexiones SSH y prohibir las conexiones Telnet. ¿Cómo debe cambiar el administrador de red la configuración que se despliega para cumplir con el requisito?",
     "tipo": "opcion_multiple",
     "opciones": [
-      "Con la versión 1 del SSH.",
-      "Reconfigura la clave RSA.",
-      "Modifique el comando transport input .",
-      "Configura el SSH en una línea diferente."
+      "Usar la versión 1 de SSH.",
+      "Reconfigurar la clave RSA.",
+      "Modificar el comando transport input.",
+      "Configurar SSH en una línea diferente."
     ],
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "Para permitir únicamente conexiones seguras a través de SSH y bloquear el tráfico no cifrado de Telnet en las líneas de terminal virtual (vty), se debe utilizar el comando transport input ssh en el modo de configuración de línea. En la exhibición, el comando actual está configurado como transport input all , lo que permite todos los protocolos (tanto Telnet como SSH). Por lo tanto, el administrador de red debe modificar el comando transport input para especificar únicamente ssh , asegurando que el switch rechace cualquier intento de conexión por Telnet.",
-    "imagen": "pregunta_24.png"
+    "explicacion": "Para permitir únicamente conexiones seguras a través de SSH y bloquear el tráfico no cifrado de Telnet en las líneas de terminal virtual (vty), se debe utilizar el comando transport input ssh en el modo de configuración de línea. En la exhibición, el comando actual está configurado como transport input all, lo que permite todos los protocolos (tanto Telnet como SSH). Por lo tanto, el administrador debe modificar el comando transport input para especificar únicamente ssh, asegurando que el switch rechace cualquier intento de conexión por Telnet.",
+    "imagen": "pregunta_24.jpg"
   },
   {
     "pregunta": "25. ¿Qué solución ayudaría a una universidad a aliviar la congestión de la red debido a colisiones?",
@@ -382,7 +382,7 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "Los switches permiten la microsegmentación para que un dispositivo no compita por el mismo ancho de banda de la red Ethernet con otro dispositivo de la red, eliminando prácticamente todas las colisiones. Un switch de alta densidad de puertos brinda una conectividad muy rápida a muchos dispositivos.",
+    "explicacion": "Los switches permiten la microsegmentación para que un dispositivo no compita por el mismo ancho de banda de la red Ethernet con otro dispositivo, eliminando prácticamente todas las colisiones. Un switch de alta densidad de puertos brinda una conectividad muy rápida a muchos dispositivos.",
     "imagen": null
   },
   {
@@ -398,22 +398,22 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "El comando completo sería encapsulation dot1q 7. La parte encapsulation dot1q del comando admite enlaces troncales e identifica el tipo de enlace troncal a utilizar. El 7 identifica el número de VLAN.",
-    "imagen": "pregunta_26.png"
+    "explicacion": "El comando completo sería encapsulation dot1q 7. La parte encapsulation dot1q del comando habilita el enlace troncal e identifica el tipo de encapsulación a utilizar. El 7 identifica el número de VLAN.",
+    "imagen": "pregunta_26.jpg"
   },
   {
     "pregunta": "27. ¿Qué tipo de VLAN se usa para indicar qué tráfico está sin etiquetar al cruzar un puerto de enlace troncal?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Datos",
-      "predeterminado",
+      "Predeterminada",
       "Nativa",
-      "de archivos"
+      "De archivos"
     ],
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "Una VLAN nativa es la VLAN que no recibe una etiqueta VLAN en el encabezado de tramas IEEE 802.1Q. Las mejores prácticas de Cisco recomiendan el uso de una VLAN sin utilizar (no una red VLAN de datos, la VLAN predeterminada de VLAN 1 o la VLAN de administración) como VLAN nativa siempre que sea posible.",
+    "explicacion": "Una VLAN nativa es la VLAN que no recibe una etiqueta VLAN en el encabezado de tramas IEEE 802.1Q. Las mejores prácticas de Cisco recomiendan usar una VLAN sin utilizar (no una VLAN de datos, ni la VLAN predeterminada 1, ni la VLAN de administración) como VLAN nativa siempre que sea posible.",
     "imagen": null
   },
   {
@@ -428,11 +428,11 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "El comando show vlan brief proporcionará información que muestra la pertenencia y la asignación de red VLAN de todos los puertos de switch en un switch.",
+    "explicacion": "El comando show vlan brief muestra la pertenencia y la asignación de VLAN de todos los puertos de acceso del switch.",
     "imagen": null
   },
   {
-    "pregunta": "29. Abra la actividad de PT. Realice las tareas en las instrucciones de la actividad y luego responda la pregunta. ¿Qué mensaje se muestra cuando se ingresa 10.10.10.1 en la barra de direcciones del navegador web PC1",
+    "pregunta": "29. Abra la actividad de PT. Realice las tareas en las instrucciones de la actividad y luego responda la pregunta. ¿Qué mensaje se muestra cuando se ingresa 10.10.10.1 en la barra de direcciones del navegador web de la PC1?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Servidor Cisco",
@@ -443,8 +443,8 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "Examinando la configuración del switch SW1 muestra que la interfaz Gi0/1 no está configurada como troncal. Ejecutar el comando de configuración de interfaz switchport mode trunk en esta interfaz permitirá las comunicaciones entre PC1 y Server1.",
-    "imagen": "pregunta_29.png"
+    "explicacion": "Al examinar la configuración del switch SW1 se observa que la interfaz Gi0/1 no está configurada como troncal. Ejecutar el comando de configuración de interfaz switchport mode trunk en esa interfaz permite las comunicaciones entre PC1 y Server1.",
+    "imagen": "pregunta_29.jpg"
   },
   {
     "pregunta": "30. ¿Qué comando muestra información sobre la configuración de auto-MDIX para una interfaz específica?",
@@ -458,7 +458,7 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "Para examinar la configuración de la detección automática de cables cruzados (MDIX) automática para una interfaz específica, debe utilizarse el comando show controllers ethernet-controller con la palabra clave phy .",
+    "explicacion": "Para examinar la configuración de auto-MDIX (detección automática de cables cruzados) de una interfaz específica, se utiliza el comando show controllers ethernet-controller con la palabra clave phy.",
     "imagen": null
   },
   {
@@ -473,7 +473,7 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "Las comunicaciones de dúplex completo no producen colisiones. No obstante, las colisiones generalmente ocurren en operaciones semidúplex. Cuando una conexión tiene dos configuraciones dúplex diferentes, el extremo semidúplex experimentará colisiones tardías. Las colisiones se encuentran en las redes Ethernet. Las interfaces seriales usan tecnologías que no son Ethernet.",
+    "explicacion": "Las comunicaciones de dúplex completo no producen colisiones. En cambio, las colisiones ocurren en operaciones semidúplex. Cuando una conexión tiene dos configuraciones dúplex diferentes, el extremo semidúplex experimentará colisiones tardías. Las colisiones se producen en redes Ethernet; las interfaces seriales usan tecnologías que no son Ethernet.",
     "imagen": null
   },
   {
@@ -488,8 +488,8 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "Las interfaces configuradas como enlaces troncales no pertenecen a una VLAN y, por lo tanto, no se muestran en el resultado de los comandos show vlan brief .",
-    "imagen": "pregunta_32.png"
+    "explicacion": "Las interfaces configuradas como enlaces troncales no pertenecen a una VLAN específica y, por lo tanto, no se muestran en el resultado del comando show vlan brief.",
+    "imagen": "pregunta_32.jpg"
   },
   {
     "pregunta": "33. Una el campo de la etiqueta de VLAN IEEE 802.1Q estándar con la descripción. (No se utilizan todas las opciones.)",
@@ -507,7 +507,7 @@
       "Prioridad del usuario": "Un valor que admite la implementación de nivel o servicio.",
       "Identificador de formato canónico": "Un identificador que permite que las tramas Token Ring se transporten a través de los enlaces Ethernet."
     },
-    "explicacion": "El encabezado estándar IEEE 802.1Q incluye una etiqueta VLAN de 4 bytes: Tipo: es un valor de 2 bytes denominado “ID de protocolo de etiqueta” (TPID). Prioridad de usuario: es un valor de 3 bits que admite la implementación de nivel o de servicio. Identificador de formato canónico (CFI): es un identificador de 1 bit que habilita las tramas Token Ring que se van a transportar a través de los enlaces Ethernet. ID de VLAN (VID): es un número de identificación de VLAN de 12 bits que admite hasta 4096 ID de VLAN.",
+    "explicacion": "El encabezado estándar IEEE 802.1Q incluye una etiqueta VLAN de 4 bytes: Tipo: es un valor de 2 bytes denominado “ID de protocolo de etiqueta” (TPID). Prioridad de usuario: es un valor de 3 bits que admite la implementación de nivel o de servicio. Identificador de formato canónico (CFI): es un identificador de 1 bit que habilita que las tramas Token Ring se transporten a través de los enlaces Ethernet. ID de VLAN (VID): es un número de identificación de VLAN de 12 bits que admite hasta 4096 ID de VLAN.",
     "imagen": null,
     "objetivos": [
       "Tipo",
@@ -535,11 +535,11 @@
       6,
       7
     ],
-    "explicacion": "Para añadir un teléfono IP, se deben agregar los siguientes comandos al puerto de switch: SW3(config-vlan)# vlan 150 SW3(config-vlan)# name voice SW3(config-vlan)# int fa0/20 SW3(config-if)# switchport mode access SW3(config-if)# mls qos trust cos SW3(config-if)# switchport access vlan 150",
+    "explicacion": "Para añadir un teléfono IP se deben configurar los siguientes comandos: SW3(config)# vlan 150 / SW3(config-vlan)# name voice / SW3(config-vlan)# interface fa0/20 / SW3(config-if)# switchport mode access / SW3(config-if)# mls qos trust cos / SW3(config-if)# switchport voice vlan 150. Es decir: agregar la VLAN de voz, configurar el puerto en modo de acceso, confiar en el valor CoS del tráfico de voz y asignar la VLAN de voz al puerto.",
     "imagen": null
   },
   {
-    "pregunta": "35. Una escuela secundaria utiliza VLAN15 para la red de laboratorio y VLAN30 para la red del cuerpo docente. ¿Qué se necesita para permitir la comunicación entre estas dos VLAN mientras se utiliza el enfoque router-on- a-stick?",
+    "pregunta": "35. Una escuela secundaria utiliza VLAN15 para la red de laboratorio y VLAN30 para la red del cuerpo docente. ¿Qué se necesita para permitir la comunicación entre estas dos VLAN mientras se utiliza el enfoque router-on-a-stick?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Se necesita un switch con un puerto configurado como enlace troncal al conectarse a un router.",
@@ -550,7 +550,7 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "Con router-on-a-stick, un router con una única interfaz de router conectada a un puerto de switch configurado con el modo troncal realiza el routing entre VLAN. Pueden configurarse múltiples subinterfaces, cada una configurada para una VLAN, en una única interfaz física del router. Los switches pueden tener puertos designados a diferentes VLAN, pero la comunicación entre dichas VLAN requiere la función de routing del router. En el enfoque router-on-a-stick para el routing entre VLAN no se usa el switch multicapa.",
+    "explicacion": "Con router-on-a-stick, un router con una única interfaz conectada a un puerto de switch configurado en modo troncal realiza el routing entre VLAN. Pueden configurarse múltiples subinterfaces, cada una para una VLAN, en una única interfaz física del router. Los switches pueden tener puertos asignados a diferentes VLAN, pero la comunicación entre dichas VLAN requiere la función de routing del router. En el enfoque router-on-a-stick no se usa un switch multicapa.",
     "imagen": null
   },
   {
@@ -567,11 +567,11 @@
       0,
       1
     ],
-    "explicacion": "Con los métodos de routing entre VLAN antiguo, los puertos de switch que se conectan al router se deben configurar en modo de acceso y deben tener asignadas las VLAN adecuadas. En esta situación, la interfaz Gi1/1 debe estar en modo de acceso y debe tener asignada la VLAN 10. Las otras opciones son configuraciones predeterminadas del switch y no tienen ningún efecto en el routing entre VLAN antiguo.",
-    "imagen": "pregunta_36.png"
+    "explicacion": "Con el método de routing entre VLAN antiguo (legacy), los puertos de switch que se conectan al router se deben configurar en modo de acceso y deben tener asignadas las VLAN adecuadas. En esta situación, la interfaz Gi1/1 debe estar en modo de acceso y debe tener asignada la VLAN 10. Las otras opciones son configuraciones predeterminadas del switch y no afectan al routing entre VLAN antiguo.",
+    "imagen": "pregunta_36.jpg"
   },
   {
-    "pregunta": "37. Consulte la ilustración. De acuerdo con el resultado del comando show running-config , se implementó una configuración de router-on-a-stick para las VLAN 15, 30 y 45. Las computadoras de la VLAN 45 que usan la red 172.16.45.0 /24 tienen problemas para conectarse a las computadoras de la VLAN 30 en la red 172.16.30.0 /24. ¿Cuál de estos errores es la causa más probable del problema?",
+    "pregunta": "37. Consulte la ilustración. De acuerdo con el resultado del comando show running-config, se implementó una configuración de router-on-a-stick para las VLAN 15, 30 y 45. Las computadoras de la VLAN 45 que usan la red 172.16.45.0/24 tienen problemas para conectarse a las computadoras de la VLAN 30 en la red 172.16.30.0/24. ¿Cuál de estos errores es la causa más probable del problema?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Se configuró una VLAN incorrecta en GigabitEthernet 0/0.45.",
@@ -582,8 +582,8 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "La subinterfaz GigabitEthernet 0/0.30 tiene una dirección IP que no corresponde al esquema de direccionamiento de VLAN. La interfaz física GigabitEthernet 0/0 no necesita una dirección IP para que las subinterfaces funcionen. Las subinterfaces no requieren el comando no shutdown .",
-    "imagen": "pregunta_37.png"
+    "explicacion": "La subinterfaz GigabitEthernet 0/0.30 tiene una dirección IP que no corresponde al esquema de direccionamiento de su VLAN. La interfaz física GigabitEthernet 0/0 no necesita una dirección IP para que las subinterfaces funcionen. Las subinterfaces no requieren el comando no shutdown.",
+    "imagen": "pregunta_37.jpg"
   },
   {
     "pregunta": "38. ¿Cuál es el tamaño mínimo de una trama de Ethernet que el receptor no descartará como marco runt?",
@@ -597,7 +597,7 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "El tamaño mínimo de una trama de Ethernet es de 64 bytes. Las tramas menores a 64 bytes se consideran fragmentos de colisión o marcos runt y se descartan.",
+    "explicacion": "El tamaño mínimo de una trama de Ethernet es de 64 bytes. Las tramas menores a 64 bytes se consideran fragmentos de colisión o tramas runt y se descartan.",
     "imagen": null
   },
   {
@@ -612,7 +612,7 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "Para eliminar todas las VLAN de un switch, se debería utilizar el comando delete flash:vlan.dat . Para cambiar la VLAN asignada para una interfaz, se utilizaría el comando no switchport access vlan 100 interface configuration . Para eliminar la VLAN 100 como una VLAN permitida en un enlace troncal, se utilizaría el comando no switchport trunk allowed vlan 100 , pero esto no eliminaría la VLAN del switch. Para eliminar una sola VLAN, como la VLAN 100, se utilizaría el comando vlan 100 global configuration .",
+    "explicacion": "Para eliminar todas las VLAN de un switch se utiliza el comando delete flash:vlan.dat. Para quitar la VLAN asignada a una interfaz se utiliza no switchport access vlan 100 en el modo de configuración de interfaz. Para quitar la VLAN 100 de las VLAN permitidas en un enlace troncal se utiliza no switchport trunk allowed vlan 100, pero esto no elimina la VLAN del switch. Para eliminar una sola VLAN, como la VLAN 100, se utiliza el comando no vlan 100 en el modo de configuración global.",
     "imagen": null
   },
   {
@@ -652,8 +652,8 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "En la salida show interfaces trunk , la interfaz G0/2 de DLS1 no aparece. Esto indica que la interfaz probablemente no se configuró como enlace troncal.",
-    "imagen": "pregunta_41.png"
+    "explicacion": "En la salida de show interfaces trunk, la interfaz G0/2 de DLS1 no aparece. Esto indica que la interfaz probablemente no se configuró como enlace troncal.",
+    "imagen": "pregunta_41.jpg"
   },
   {
     "pregunta": "42. Consulte la exhibición. ¿Cuál es la causa del error que se muestra en la configuración del routing entre VLAN en el router CiscoVille?",
@@ -667,8 +667,8 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "Los pasos para configurar el routing entre VLAN se deben ejecutar siguiendo un orden específico. Antes de configurar una dirección IP en una subinterfaz, se debe especificar el comando encapsulation dot1q VLAN_id .",
-    "imagen": "pregunta_42.png"
+    "explicacion": "Los pasos para configurar el routing entre VLAN se deben ejecutar en un orden específico. Antes de configurar una dirección IP en una subinterfaz, se debe especificar el comando encapsulation dot1q ID_VLAN.",
+    "imagen": "pregunta_42.jpg"
   },
   {
     "pregunta": "43. Consulte la exhibición. Un administrador de red está verificando la configuración del routing entre VLAN. Los usuarios se quejan de que la PC2 no puede comunicarse con la PC1. Sobre la base del resultado, ¿cuál es la posible causa del problema?",
@@ -683,8 +683,8 @@
     "respuestas_correctas": [
       4
     ],
-    "explicacion": "En router-on-a-stick, la configuración de la subinterfaz debe coincidir con el número de VLAN en el comando encapsulation; en este caso, el comando encapsulation dot1Q 10 debe utilizarse para la VLAN 10. Dado que se utilizan subinterfaces, no hay necesidad de configurar la IP en la interfaz física Gi0/0. El modo de enlace troncal se configura en el puerto de switch que se conecta al router. Las subinterfaces se activan en cuanto se agregan.",
-    "imagen": "pregunta_43.png"
+    "explicacion": "En router-on-a-stick, la subinterfaz debe usar el número de VLAN correcto en el comando encapsulation; en este caso, se debe utilizar encapsulation dot1Q 10 para la VLAN 10. Dado que se utilizan subinterfaces, no es necesario configurar una IP en la interfaz física Gi0/0. El modo de enlace troncal se configura en el puerto del switch que se conecta al router. Las subinterfaces se activan en cuanto se agregan.",
+    "imagen": "pregunta_43.jpg"
   },
   {
     "pregunta": "44. Consulte la exhibición. Un administrador de red configura RT1 para el routing entre VLAN. El switch se configuró correctamente y funciona. El Host1, el Host2 y el Host3 no pueden comunicarse entre sí. Sobre la base de la configuración del router, ¿cuál es la causa del problema?",
@@ -698,11 +698,11 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "Dado que Host 1 (en la VLAN 20) tiene la IP 172.18.1.10/27, la subinterfaz Fa0/0.1 debe configurarse con una dirección IP en la red 172.168.1.0/27. Del mismo modo, Fa0/0.2 debe tener una dirección IP en la red 172.168.1.64/27 y Fa0/0.3 debe tener una dirección IP en la red 172.168.1.96/27.",
-    "imagen": "pregunta_44.png"
+    "explicacion": "Dado que el Host1 (en la VLAN 20) tiene la IP 172.18.1.10/27, la subinterfaz Fa0/0.1 debe configurarse con una dirección IP en la red 172.18.1.0/27. Del mismo modo, Fa0/0.2 debe tener una dirección IP en la red 172.18.1.64/27 y Fa0/0.3 debe tener una dirección IP en la red 172.18.1.96/27.",
+    "imagen": "pregunta_44.jpg"
   },
   {
-    "pregunta": "45. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW (config-if) # ip address 172.18.33.88 255.255.255.0 ?",
+    "pregunta": "45. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW(config-if)# ip address 172.18.33.88 255.255.255.0?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Aplica una dirección IPv6 a la interfaz virtual.",
@@ -714,7 +714,7 @@
     "respuestas_correctas": [
       4
     ],
-    "explicacion": "En un switch de Capa 2 como el Cisco 2960, las interfaces físicas no pueden recibir una dirección IP directamente. Para configurar la administración remota (como SSH/Telnet) o permitir que el switch se comunique con otras redes, la dirección IP debe aplicarse a una interfaz virtual del switch (SVI – Switch Virtual Interface), que por lo general es la predeterminada interface vlan 1 . Por lo tanto, cuando el técnico introduce este comando de configuración dentro del modo de interfaz virtual adecuado, el efecto directo es que se aplica una dirección IPv4 a la interfaz virtual.",
+    "explicacion": "En un switch de capa 2 como el Cisco 2960, las interfaces físicas no pueden recibir una dirección IP directamente. Para configurar la administración remota (como SSH/Telnet) o permitir que el switch se comunique con otras redes, la dirección IP debe aplicarse a una interfaz virtual del switch (SVI, Switch Virtual Interface), que por lo general es la predeterminada interface vlan 1. Por lo tanto, cuando el técnico introduce este comando dentro del modo de interfaz virtual, el efecto es que se aplica una dirección IPv4 a la interfaz virtual.",
     "imagen": null
   },
   {
@@ -731,8 +731,8 @@
       "Se produce primero.": "El switch agrega la dirección MAC de origen a la tabla de direcciones MAC.",
       "Se produce en segundo lugar.": "Dado que el destino no es conocido, el switch reenvía la trama a todos los puertos, excepto a aquel por el cual llegó."
     },
-    "explicacion": "El primer paso que efectúa un switch cuando procesa una trama es ver si la dirección MAC de origen está en la tabla de direcciones MAC. Si la dirección no aparece, el switch la agrega. A continuación, el switch examina la dirección MAC de destino y la compara con la tabla de direcciones MAC. Si la dirección aparece en la tabla, el switch reenvía la trama desde el puerto correspondiente. Si la dirección no aparece en la tabla, el switch reenvía la trama a todos los puertos, excepto a aquel por el cual llegó.",
-    "imagen": "pregunta_46.png",
+    "explicacion": "El primer paso que efectúa un switch cuando procesa una trama es ver si la dirección MAC de origen está en la tabla de direcciones MAC. Si la dirección no aparece, el switch la agrega. A continuación, el switch examina la dirección MAC de destino y la compara con la tabla de direcciones MAC. Si la dirección aparece en la tabla, el switch reenvía la trama por el puerto correspondiente. Si no aparece, el switch reenvía la trama a todos los puertos, excepto a aquel por el cual llegó.",
+    "imagen": "pregunta_46.jpg",
     "objetivos": [
       "Se produce primero.",
       "Se produce en segundo lugar."
@@ -750,8 +750,8 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "El router se usa para el routing entre las dos VLAN, por lo que el puerto del switch G0/1 debe configurarse en el modo troncal.",
-    "imagen": "pregunta_47.png"
+    "explicacion": "El router se usa para el routing entre las dos VLAN, por lo que el puerto G0/1 del switch debe configurarse en modo troncal.",
+    "imagen": "pregunta_47.jpg"
   },
   {
     "pregunta": "48. ¿Qué comando se utiliza para establecer la variable de entorno BOOT que define dónde encontrar el archivo de imagen del IOS en un switch?",
@@ -765,7 +765,7 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "El comando boot system se puede utilizar para establecer la variable de entorno BOOT. Los comandos config-register y confreg se usan para establecer el registro de configuración. El comando boot loader admite comandos para formatear el sistema de archivos flash, volver a instalar el software del sistema operativo y recuperarse de la pérdida o el olvido de una contraseña.",
+    "explicacion": "El comando boot system se puede utilizar para establecer la variable de entorno BOOT. Los comandos config-register y confreg se usan para establecer el registro de configuración. El boot loader admite comandos para formatear el sistema de archivos flash, volver a instalar el software del sistema operativo y recuperarse de la pérdida o el olvido de una contraseña.",
     "imagen": null
   },
   {
@@ -780,7 +780,7 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "En una red conmutada que utiliza el estándar de encapsulación IEEE 802.1Q para enlaces troncales, todas las tramas de datos se etiquetan con un ID de VLAN para identificar a qué red pertenecen. La única excepción a esta regla es la VLAN nativa (Native VLAN). El tráfico que pertenece a la VLAN nativa se envía a través del enlace troncal totalmente sin etiqueta (untagged). Cuando el switch del extremo opuesto recibe una trama sin etiqueta, asume automáticamente que pertenece a la VLAN nativa configurada en ese puerto.",
+    "explicacion": "En una red conmutada que utiliza el estándar de encapsulación IEEE 802.1Q para enlaces troncales, las tramas se etiquetan con un ID de VLAN para identificar a qué red pertenecen. La única excepción es la VLAN nativa: su tráfico se envía a través del enlace troncal sin etiqueta (untagged). Cuando el switch del extremo opuesto recibe una trama sin etiqueta, asume que pertenece a la VLAN nativa configurada en ese puerto.",
     "imagen": null
   },
   {
@@ -797,7 +797,7 @@
       0,
       1
     ],
-    "explicacion": "El método de enrutamiento inter-VLAN de SVI es más rápido que otros métodos. El switch puede enrutar las VLAN existentes sin necesidad de un router.",
+    "explicacion": "El método de enrutamiento entre VLAN con SVI es más rápido que los otros métodos, ya que la conmutación de paquetes se hace por hardware. El switch multicapa puede enrutar entre las VLAN existentes sin necesidad de un router.",
     "imagen": null
   },
   {
@@ -806,8 +806,8 @@
     "opciones": [
       "Búferes para tramas grandes",
       "Switching interno rápido",
-      "Alta densidad del puerto",
-      "velocidad de puerto rápido"
+      "Alta densidad de puertos",
+      "Velocidad de puerto rápida"
     ],
     "respuestas_correctas": [
       2
@@ -827,7 +827,7 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "Los hubs operan sólo en la capa física, reenviando bits como señales de cable de todos los puertos, y extienden el dominio de colisión de una red. Los switches reenvian tramas en la capa de enlace de datos y cada puerto del switch es un dominio de colisión separado que crea más, pero más pequeños, dominios de colisión. Los switches no administran dominios de difusión porque las tramas de difusión siempre se reenvían desde todos los puertos activos.",
+    "explicacion": "Los hubs operan solo en la capa física, reenviando bits como señales eléctricas por todos los puertos, y extienden el dominio de colisión de una red. Los switches reenvían tramas en la capa de enlace de datos y cada puerto del switch es un dominio de colisión separado, lo que crea más dominios de colisión, pero más pequeños. Los switches no dividen los dominios de difusión, porque las tramas de difusión siempre se reenvían por todos los puertos activos.",
     "imagen": null
   },
   {
@@ -842,11 +842,11 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "Los switches tienen grandes tramas de almacenamiento que permiten que los datos en espera de ser transmitidos se almacenen para que no se descarten. Esta característica es beneficiosa especialmente si el tráfico entrante proviene de un puerto más rápido que el puerto de salida utilizado para la transmisión.",
+    "explicacion": "Los switches tienen grandes búferes de almacenamiento de tramas que permiten guardar los datos en espera de ser transmitidos para que no se descarten. Esta característica es especialmente útil si el tráfico entrante proviene de un puerto más rápido que el puerto de salida utilizado para la transmisión.",
     "imagen": null
   },
   {
-    "pregunta": "54. ¿Qué tipo de VLAN está configurado específicamente para el tráfico de red como SSH, Telnet, HTTPS, HHTP y SNMP?",
+    "pregunta": "54. ¿Qué tipo de VLAN está configurado específicamente para el tráfico de red como SSH, Telnet, HTTPS, HTTP y SNMP?",
     "tipo": "opcion_multiple",
     "opciones": [
       "VLAN troncal",
@@ -857,7 +857,7 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "Una VLAN de administración (Management VLAN) là bất kỳ mạng VLAN nào được cấu hình để cho phép người quản trị truy cập vào các tính năng quản lý từ xa của một switch. El tráfico de protocolos de administración como SSH, Telnet, HTTPS, HTTP y SNMP se asigna específicamente a esta VLAN para garantizar que el personal de TI pueda configurar, monitorear y solucionar problemas en los dispositivos de red de forma segura y separada del tráfico de datos común de los usuarios. Por defecto, Cisco utiliza la VLAN 1 como la VLAN de administración inicial, aunque las mejores prácticas de seguridad recomiendan cambiarla a una VLAN dedicada.",
+    "explicacion": "Una VLAN de administración (Management VLAN) es cualquier VLAN configurada para permitir que el administrador acceda a las funciones de administración remota de un switch. El tráfico de protocolos de administración como SSH, Telnet, HTTPS, HTTP y SNMP se asigna a esta VLAN para que el personal de TI pueda configurar, monitorear y solucionar problemas en los dispositivos de red de forma segura y separada del tráfico de datos de los usuarios. Por defecto, Cisco utiliza la VLAN 1 como VLAN de administración inicial, aunque las mejores prácticas de seguridad recomiendan cambiarla a una VLAN dedicada.",
     "imagen": null
   },
   {
@@ -873,22 +873,22 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "La variable de entorno BOOT contiene la información sobre dónde encontrar el archivo de imagen IOS.",
+    "explicacion": "La variable de entorno BOOT contiene la información sobre dónde encontrar el archivo de imagen del IOS.",
     "imagen": null
   },
   {
     "pregunta": "56. ¿Qué componente del switch reduce la cantidad de tiempo de manejo de paquetes dentro del switch?",
     "tipo": "opcion_multiple",
     "opciones": [
-      "procesadores dobles",
-      "gran tamaño de búfer",
+      "Procesadores dobles",
+      "Gran tamaño de búfer",
       "ASIC",
       "RAM de almacenamiento y reenvío"
     ],
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "Los Application-specific integrated circuits (ASIC) se utilizan en los switches Cisco para acelerar las operaciones del switch de modo que el switch pueda tener un mayor número de puertos sin degradar el rendimiento del switch.",
+    "explicacion": "Los circuitos integrados de aplicación específica (ASIC) se utilizan en los switches Cisco para acelerar sus operaciones, de modo que el switch pueda tener un mayor número de puertos sin degradar su rendimiento.",
     "imagen": null
   },
   {
@@ -903,7 +903,7 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "En la configuración inicial de fábrica de un switch Cisco, la VLAN predeterminada (VLAN 1) cumple la función de todas las VLAN básicas: es la VLAN de datos por defecto, la VLAN nativa por defecto y también la VLAN de administración inicial. Esto significa que, antes de realizar cualquier cambio, la interfaz virtual del switch ( interface vlan 1 ) es la única que permite asignar una dirección IP para gestionar el dispositivo de forma remota. Por motivos de seguridad, las mejores prácticas recomiendan cambiar la VLAN de administración a una VLAN dedicada diferente de la VLAN 1.",
+    "explicacion": "En la configuración inicial de fábrica de un switch Cisco, la VLAN predeterminada (VLAN 1) cumple la función de todas las VLAN básicas: es la VLAN de datos por defecto, la VLAN nativa por defecto y también la VLAN de administración inicial. Esto significa que, antes de realizar cualquier cambio, la interfaz virtual del switch (interface vlan 1) es la que permite asignar una dirección IP para gestionar el dispositivo de forma remota. Por motivos de seguridad, las mejores prácticas recomiendan cambiar la VLAN de administración a una VLAN dedicada diferente de la VLAN 1.",
     "imagen": null
   },
   {
@@ -918,11 +918,11 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "Una VLAN de voz (Voice VLAN) está diseñada y configurada específicamente para transportar el tráfico de voz sobre IP (VoIP) proveniente de los teléfonos IP. Debido a que las comunicaciones de voz son extremadamente sensibles a retrasos (delay) y variaciones de tiempo (jitter), este tipo de VLAN permite aplicar políticas de Calidad de Servicio (QoS) y priorización de tráfico. De esta manera, se reserva el ancho de banda necesario para garantizar que las conversaciones telefónicas mantengan una calidad clara y sin interrupciones, separando este tráfico del tráfico de datos común de la red.",
+    "explicacion": "Una VLAN de voz (Voice VLAN) está diseñada para transportar el tráfico de voz sobre IP (VoIP) proveniente de los teléfonos IP. Debido a que las comunicaciones de voz son muy sensibles a los retrasos (delay) y a las variaciones de tiempo (jitter), este tipo de VLAN permite aplicar políticas de Calidad de Servicio (QoS) y priorización de tráfico. De esta manera, se reserva el ancho de banda necesario para garantizar que las conversaciones telefónicas mantengan una calidad clara, separando este tráfico del tráfico de datos común.",
     "imagen": null
   },
   {
-    "pregunta": "59. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando BranchSW# configure terminal ?",
+    "pregunta": "59. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando BranchSW# configure terminal?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Guarda la configuración en ejecución en la NVRAM.",
@@ -934,7 +934,7 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "El comando configure terminal se ejecuta desde el modo EXEC privilegiado (identificado por el símbolo # en el prompt BranchSW# ) y se utiliza para cambiar el dispositivo al modo de configuración global (Global Configuration Mode). Cuando se está en este modo, el prompt del switch cambiará a BranchSW(config)# , lo que permite al administrador realizar cambios de configuración que afectan a todo el dispositivo. Otras opciones, como guardar la configuración ( copy running-config startup-config ) o deshabilitar una interfaz ( shutdown ), requieren comandos completamente diferentes.",
+    "explicacion": "El comando configure terminal se ejecuta desde el modo EXEC privilegiado (identificado por el símbolo # en el prompt BranchSW#) y se utiliza para pasar al modo de configuración global. En este modo, el prompt cambia a BranchSW(config)#, lo que permite al administrador realizar cambios de configuración que afectan a todo el dispositivo. Otras acciones, como guardar la configuración (copy running-config startup-config) o deshabilitar una interfaz (shutdown), requieren comandos diferentes.",
     "imagen": null
   },
   {
@@ -949,14 +949,14 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "Una VLAN de datos (Data VLAN), también conocida como VLAN de usuario, está diseñada específicamente para transportar el tráfico generado por los usuarios comunes de la red (como navegación web, correos electrónicos o transferencia de archivos). Por motivos de seguridad y de rendimiento, las mejores prácticas de diseño de redes dictan que una VLAN de datos no debe transportar tráfico de alta prioridad como la voz (VoIP) ni tráfico crítico como la administración de la red (SSH, Telnet, etc.). Separar estos tipos de tráfico en VLANs dedicadas evita que la congestión de los usuarios afecte los servicios esenciales.",
+    "explicacion": "Una VLAN de datos (Data VLAN), también conocida como VLAN de usuario, está diseñada para transportar el tráfico generado por los usuarios comunes de la red (navegación web, correo electrónico, transferencia de archivos). Por motivos de seguridad y rendimiento, las mejores prácticas dictan que una VLAN de datos no debe transportar tráfico de voz (VoIP) ni tráfico de administración de la red (SSH, Telnet, etc.). Separar estos tipos de tráfico en VLAN dedicadas evita que la congestión de los usuarios afecte los servicios esenciales.",
     "imagen": null
   },
   {
     "pregunta": "61. ¿Qué método de conmutación garantiza que la trama entrante está libre de errores antes de reenviarla?",
     "tipo": "opcion_multiple",
     "opciones": [
-      "libre de fragmentos",
+      "Libre de fragmentos",
       "FCS",
       "Método de corte",
       "Almacenamiento y envío"
@@ -964,7 +964,7 @@
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "Dos métodos utilizados por los switches para transmitir tramas son la conmutación de almacenamiento y avance y la conmutación de corte. El método de almacenamiento y reenvío realiza la comprobación de errores en la trama, utilizando el valor de secuencia de comprobación de tramas (FCS) antes de enviarlas. Por el contrario, la conmutación de corte envía la trama tan pronto como la parte de la dirección MAC de destino del encabezado ha sido leída y procesada.",
+    "explicacion": "Los dos métodos utilizados por los switches para reenviar tramas son la conmutación por almacenamiento y envío y la conmutación por método de corte. El método de almacenamiento y envío realiza la comprobación de errores en la trama, utilizando el valor de la secuencia de verificación de trama (FCS), antes de reenviarla. Por el contrario, la conmutación por método de corte envía la trama tan pronto como se ha leído y procesado la dirección MAC de destino del encabezado.",
     "imagen": null
   },
   {
@@ -979,11 +979,11 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "Una VLAN de datos (Data VLAN), también conocida como VLAN de usuario, está diseñada y configurada específicamente para transportar el tráfico generado por los usuarios o dispositivos comunes de la red (como navegación web, correos electrónicos o transferencia de archivos). El propósito principal de este tipo de VLAN es separar la red en grupos lógicos de usuarios o funciones de trabajo, aislando su tráfico del tráfico de administración de la red o del tráfico de alta prioridad como la voz (VoIP).",
+    "explicacion": "Una VLAN de datos (Data VLAN), también conocida como VLAN de usuario, está diseñada para transportar el tráfico generado por los usuarios o dispositivos comunes de la red. Su propósito principal es separar la red en grupos lógicos de usuarios o funciones de trabajo, aislando su tráfico del tráfico de administración de la red o del tráfico de alta prioridad como la voz (VoIP).",
     "imagen": null
   },
   {
-    "pregunta": "63. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW> enable ?",
+    "pregunta": "63. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW> enable?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Actualiza la tabla de direcciones MAC para el puerto asociado.",
@@ -995,7 +995,7 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "El comando enable se ejecuta desde el modo EXEC del usuario (identificado por el símbolo > en el prompt branchSW> ) y se utiliza para cambiar el dispositivo al modo EXEC privilegiado (Privileged EXEC Mode). Una vez que se ingresa este comando, el prompt del switch cambia a branchSW# , lo que otorga al administrador acceso a comandos avanzados de monitoreo, verificación y la posibilidad de ingresar al modo de configuración global.",
+    "explicacion": "El comando enable se ejecuta desde el modo EXEC del usuario (identificado por el símbolo > en el prompt branchSW>) y se utiliza para pasar al modo EXEC privilegiado. Una vez ingresado, el prompt cambia a branchSW#, lo que otorga acceso a comandos avanzados de monitoreo y verificación, y la posibilidad de ingresar al modo de configuración global.",
     "imagen": null
   },
   {
@@ -1010,11 +1010,11 @@
     "respuestas_correctas": [
       2
     ],
-    "explicacion": "Una VLAN de voz (Voice VLAN) está diseñada específicamente para transportar tráfico de Voz sobre IP (VoIP). Dado que las conversaciones telefónicas son extremadamente sensibles a la latencia y al jitter, los estándares de la industria (incluyendo las recomendaciones de Cisco) dictan que el retraso en un sentido a través de toda la red no debe superar los 150 ms. Para cumplir con este requisito de calidad, los switches permiten aislar este tráfico en una VLAN dedicada y aplicarle políticas de Calidad de Servicio (QoS) para priorizarlo sobre el tráfico de datos común.",
+    "explicacion": "Una VLAN de voz (Voice VLAN) está diseñada para transportar tráfico de voz sobre IP (VoIP). Dado que las conversaciones telefónicas son muy sensibles a la latencia y al jitter, las recomendaciones de la industria (incluidas las de Cisco) indican que el retraso en un sentido a través de toda la red no debe superar los 150 ms. Para cumplir con este requisito, los switches permiten aislar este tráfico en una VLAN dedicada y aplicarle políticas de QoS para priorizarlo sobre el tráfico de datos común.",
     "imagen": null
   },
   {
-    "pregunta": "65. Un técnico esta configurando un nuevo switch Cisco 2960 ¿Cuál es el efecto de emitir el comando branchSW(Config-if)#ipv6 address 2001:db8:a2b4:88::1/64?",
+    "pregunta": "65. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW(config-if)# ipv6 address 2001:db8:a2b4:88::1/64?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Aplica una dirección IPv6 a la interfaz virtual.",
@@ -1026,14 +1026,14 @@
     "respuestas_correctas": [
       0
     ],
-    "explicacion": "En un switch de Capa 2 (como el Cisco Catalyst 2960), los puertos físicos (por ejemplo, FastEthernet o GigabitEthernet) operan estrictamente en la Capa de Enlace de Datos (Capa 2). Esto significa que no se les puede asignar directamente una dirección IP (ya sea IPv4 o IPv6) a una interfaz física. Para que el switch tenga conectividad IP en la red —lo cual es fundamental para permitir la administración remota a través de SSH, Telnet o interfaces web, así como para que el switch se comunique con otros dispositivos— la dirección IP debe configurarse en una Interfaz Virtual de Switch (SVI – Switch Virtual Interface), como por ejemplo interface vlan 1. Por lo tanto, cuando el técnico ejecuta este comando dentro del modo de configuración de interfaz (config- if), lo está haciendo sobre una interfaz lógica/virtual, teniendo como efecto directo la asignación de dicha dirección IPv6 global a esa SVI.",
+    "explicacion": "En un switch de capa 2 (como el Cisco Catalyst 2960), los puertos físicos (FastEthernet o GigabitEthernet) operan en la capa de enlace de datos, por lo que no se les puede asignar directamente una dirección IP (IPv4 o IPv6). Para que el switch tenga conectividad IP —necesaria para la administración remota mediante SSH, Telnet o interfaz web— la dirección IP debe configurarse en una interfaz virtual de switch (SVI), como interface vlan 1. Por lo tanto, cuando el técnico ejecuta este comando en el modo de configuración de interfaz (config-if), lo hace sobre una interfaz virtual, y el efecto es asignar esa dirección IPv6 global a la SVI.",
     "imagen": null
   },
   {
-    "pregunta": "66. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW (config-if) # duplex full ?",
+    "pregunta": "66. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW(config-if)# duplex full?",
     "tipo": "opcion_multiple",
     "opciones": [
-      "Permite que los datos fluyan en una sola dirección a la vez en la interfaz",
+      "Permite que los datos fluyan en una sola dirección a la vez en la interfaz.",
       "Permite que los datos fluyan en ambas direcciones al mismo tiempo en la interfaz.",
       "Cifra las contraseñas en modo de usuario cuando los usuarios se conectan de forma remota.",
       "Configura el switch como la puerta de enlace predeterminada.",
@@ -1042,11 +1042,11 @@
     "respuestas_correctas": [
       1
     ],
-    "explicacion": "El comando duplex full (dúplex completo) configura la interfaz del switch para permitir la comunicación bidireccional simultánea. Esto significa que el dispositivo conectado y el switch pueden transmitir (enviar) y recibir datos al mismo tiempo sin que se generen colisiones en el cable. Por el contrario, si la interfaz estuviera en modo duplex half (semidúplex), los datos solo podrían viajar en una dirección a la vez, lo que obligaría a los dispositivos a turnarse para hablar y aumentaría el riesgo de colisiones en la red. El modo Full-Duplex optimiza el ancho de banda y mejora drásticamente el rendimiento del enlace.",
+    "explicacion": "El comando duplex full (dúplex completo) configura la interfaz del switch para permitir la comunicación bidireccional simultánea: el dispositivo conectado y el switch pueden transmitir y recibir datos al mismo tiempo sin que se generen colisiones. En cambio, en modo duplex half (semidúplex) los datos solo pueden viajar en una dirección a la vez, lo que obliga a los dispositivos a turnarse y aumenta el riesgo de colisiones. El modo dúplex completo optimiza el ancho de banda y mejora el rendimiento del enlace.",
     "imagen": null
   },
   {
-    "pregunta": "67. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW (config-if) # exit ?",
+    "pregunta": "67. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW(config-if)# exit?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Entra en modo de usuario.",
@@ -1058,23 +1058,23 @@
     "respuestas_correctas": [
       4
     ],
-    "explicacion": "La interfaz de línea de comandos (CLI) de Cisco IOS está estructurada de forma jerárquica. Cuando el prompt muestra (config-if)#, significa que el técnico se encuentra en el modo de configuración de interfaz (un submodo dentro de la configuración). Al ejecutar el comando exit, el sistema operativo retrocede exactamente un nivel en la jerarquía. Por lo tanto, el switch sale del submodo de interfaz y regresa al modo de configuración global, lo cual se refleja inmediatamente en el cambio del prompt a branchSW(config)#.",
+    "explicacion": "La CLI de Cisco IOS es jerárquica. Cuando el prompt muestra (config-if)#, el técnico está en el modo de configuración de interfaz. Al ejecutar exit, se retrocede exactamente un nivel, por lo que el switch regresa al modo de configuración global y el prompt cambia a branchSW(config)#.",
     "imagen": null
   },
   {
-    "pregunta": "68. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW (config-if) # shutdown?",
+    "pregunta": "68. Un técnico está configurando un nuevo switch Cisco 2960. ¿Cuál es el efecto de emitir el comando branchSW(config-if)# shutdown?",
     "tipo": "opcion_multiple",
     "opciones": [
       "Aplica una dirección IPv4 a la interfaz virtual.",
       "Permite configurar una dirección IPv6 en una interfaz física de switch.",
       "Aplica una dirección IPv6 a la interfaz virtual.",
       "Deshabilita una interfaz de switch virtual o física.",
-      "Actualiza la tabla de direcciones MAC para el puerto asociado"
+      "Actualiza la tabla de direcciones MAC para el puerto asociado."
     ],
     "respuestas_correctas": [
       3
     ],
-    "explicacion": "El comando shutdown se utiliza en el sistema operativo Cisco IOS para desactivar o apagar administrativamente una interfaz específica, ya sea una interfaz física (como interface FastEthernet 0/1) o una interfaz virtual / lógica (como una SVI interface VLAN 10). Al ejecutar este comando dentro del modo de configuración de interfaz (config-if), la interfaz cambia inmediatamente su estado a “Administratively Down” (administrativamente inactiva), lo que detiene por completo todo el tráfico de datos a través de ella. Para revertir este efecto y volver a habilitar la interfaz, se debe emplear el comando inverso no shutdown.",
+    "explicacion": "El comando shutdown desactiva administrativamente una interfaz, ya sea física (como interface FastEthernet 0/1) o virtual (como una SVI, interface vlan 10). Al ejecutarlo en el modo de configuración de interfaz, la interfaz pasa al estado “administratively down” y se detiene todo el tráfico a través de ella. Para volver a habilitarla se usa el comando no shutdown.",
     "imagen": null
   }
 ]
